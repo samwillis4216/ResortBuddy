@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  guest: one
+  start_date: 2017-11-20 16:33:35
+  end_date: 2017-11-20 16:33:35
+  room_no: MyString
+
+two:
+  guest: two
+  start_date: 2017-11-20 16:33:35
+  end_date: 2017-11-20 16:33:35
+  room_no: MyString
