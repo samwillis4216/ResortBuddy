@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'availabilities/index'
+
+  get 'availabilities/show'
+
+  get 'availabilities/new'
+
+  get 'availabilities/create'
+
+  get 'availabilities/edit'
+
+  get 'availabilities/update'
+
+  get 'availabilities/destroy'
+
   get 'bookings/index'
 
   get 'bookings/show'
