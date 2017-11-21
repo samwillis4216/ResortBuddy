@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   skip_before_action :authenticate_guest!, only: [:index, :show]
+
   def index
   end
 

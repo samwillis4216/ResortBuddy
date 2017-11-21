@@ -1,0 +1,55 @@
+.selected {
+  background-color: $brand-primary;
+  color: white;
+}
+
+#bookings-wrapper {
+  width: 1200px;
+  display: flex;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.scrolls {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.datechoice {
+  display: flex;
+}
+.date-choose {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  h2, i {
+    font-size: 20px;
+  }
+}
+
+.bookings {
+  padding: 10px;
+  background-color: #2BB2AC;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(150, 150, 150, 0.4);
+  cursor: pointer;
+  min-width: 100px;
+  align-items: center;
+  position: relative;
+  margin-right: 5px;
+  max-width: 200px;
+
+  label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: regular;
+}
+}
+
+

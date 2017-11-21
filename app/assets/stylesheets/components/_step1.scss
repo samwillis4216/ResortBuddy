@@ -1,0 +1,104 @@
+.plusminus {
+  display: flex;
+  align-items: center;
+}
+
+.users {
+  display: flex;
+}
+
+.group-master {
+  display: flex;
+  background-color: white;
+  align-items: center;
+  justify-content: space-around;
+}
+.active {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.form-next {
+  background-color: #2BB2AC;
+  width: 80px;
+  height: 40px;
+  padding-bottom: 10px;
+  padding-top: 7px;
+  border-radius: 50px;
+  color: white;
+  text-align: center;
+  // position: absolute;
+}
+
+
+#ppl{
+  margin-bottom: 0;
+}
+
+.step-title {
+    h2 {
+    margin-top: 0px;
+    margin-left: 10px;
+  }
+;
+}
+
+#navbar-form {
+  border-style: solid;
+  border-color: #D2D6DF;
+  border-width: 1px 0;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.form-control {
+  border: 0;
+  -webkit-box-shadow: none;
+   box-shadow: none;
+  -webkit-transition: none;
+    transition: none;
+    font-size: 40px;
+    font-family: "Raleway", "Helvetica", "sans-serif";
+    font-weight: 500;
+    color: #484848;
+        margin-bottom: 10px;
+
+  }
+
+#booking_noofppl {
+  // width: 60px;
+  // height: 40px;
+}
+.fa-user {
+  margin-right: 10px;
+}
+
+.users {
+  display: flex;
+  align-items: center;
+}
+
+.fa-minus-circle {
+  color: #2BB2AC;
+}
+
+.fa-plus-circle {
+  padding-left: 10px;
+  color: #2BB2AC;
+
+}
+
+.submit-step {
+  background-color: #2BB2AC;
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 50px;
+  color: white;
+  text-align: center;
+}

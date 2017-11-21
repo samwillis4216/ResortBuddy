@@ -1,15 +1,24 @@
 Rails.application.routes.draw do
-
   root to: 'pages#home'
   get '/home_guest', to: 'pages#home_guest'
-
+  
+  # Devise
   devise_for :employees
   devise_for :guests
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :activities do
-    resources :availabilities
+
+  # Guests
+  resources :activities, only: [:index, :show] do
+    resources :bookings, only: [:index, :create]
   end
+  resources :bookings, only: [:destroy]
 
-  resources :bookings
+  # Employees
+  namespace :admin do
+    resources :bookings, only: [:index, :show, :edit, :update, :destroy]
 
+    resources :activities do
+      resources :bookings, only: [:new, :create]
+      resources :availabilities
+    end
+  end
 end
