@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
+  get '/home_guest', to: 'pages#home_guest'
+  
   # Devise
   devise_for :employees
   devise_for :guests
