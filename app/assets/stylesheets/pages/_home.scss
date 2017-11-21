@@ -1,0 +1,72 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: relative;
+}
+
+.parent {
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    float: left;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.child {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 0.7s;
+}
+
+.left {
+  background-position: 90% 50%;
+}
+
+.right {
+  background-position: 80% 50%;
+}
+
+.parent:hover .child, .parent:focus .child {
+    transform: scale(1.05);
+}
+
+.parent:hover .child:before, .parent:focus .child:before {
+    display: block;
+}
+
+.child:before {
+    content: “”;
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.parent:hover .caption, .parent:focus .caption {
+    display: block;
+    transition: 0.5s;
+}
+
+.caption {
+    display: none;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 50px;
+    cursor: pointer;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}

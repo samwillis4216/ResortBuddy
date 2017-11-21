@@ -1,0 +1,15 @@
+<div class=“wrapper”>
+  <div class=“parent”>
+    <%= link_to do %>
+      <div class=“child left” style=’background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(<%= image_path "home-guest.jpg" %>)’>
+        <h1 class=“caption”>Guest</h1></div>
+    <% end %>
+  </div>
+
+ <div class=“parent”>
+    <%= link_to do %>
+      <div class=“child right” style=’background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url(<%= image_path "employee.jpg" %>)’>
+        <h1 class=“caption”>Employee</h1></div>
+    <% end %>
+  </div>
+</div>

@@ -31,6 +31,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
+gem 'devise'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
+gem "geocoder"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
