@@ -1,0 +1,74 @@
+<<%= simple_form_for(@booking) do |f| %>
+  <!-- Step 1 - adding number of people -->
+  <div class="step-1" id="navbar-form">
+
+    <div class="step-title">
+      <h2>Number of guests</h2>
+    </div>
+
+    <div class="group-master">
+      <div class="form-group integer optional booking_noofppl" id="ppl">
+        <div class="plusminus">
+          <label class="control-label integer optional" for="booking_noofppl"></label>
+          <input class="form-control numeric integer optional" placeholder="0" type="number" step="1" name="booking[noofppl]" id="booking_noofppl">
+
+
+        <div class="form-minus"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></div>
+        <div class="form-plus"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></div>
+      </div>
+      </div>
+
+      <div class="form-next">Next</div>
+    </div>
+  </div>
+
+  <!-- Step 1 - choosing a timelsot -->
+  <div id="step2_form">
+    <%= render 'shared/step2', hidden: true %>
+  </div>
+
+  <%= f.submit "go", class: 'submit-step hidden' %>
+<% end %>
+
+<% content_for(:after_js) do %>
+<script>
+    // hiding and showing step 1 and 2
+    const step2 = document.querySelector(".step-2")
+    const step1 = document.querySelector(".step-1")
+    const submit = document.querySelector('.submit-step')
+    const button = document.querySelector(".form-next")
+
+    button.addEventListener("click", event => {
+      step1.classList.toggle("hidden");
+      step2.classList.toggle("hidden");
+      step2.classList.toggle("active");
+    });
+
+    // Adding and minus ppl
+    const x = document.getElementById("booking_noofppl");
+    const y = document.querySelector(".form-plus");
+    const z = document.querySelector(".form-minus");
+
+    y.addEventListener("click", event => {
+      const initialValue = Number(x.value);
+      x.value = initialValue + 1;
+    })
+    z.addEventListener("click", event => {
+      const initialValue = Number(x.value);
+      if (initialValue > 0) {
+        x.value = initialValue - 1;
+      }
+    })
+
+    // selecting a time
+    const timeslots = document.querySelectorAll(".bookings")
+    timeslots.forEach(timeslot => {
+      timeslot.addEventListener("click", event => {
+        timeslots.forEach(timeslot => timeslot.classList.remove('selected'));
+        event.currentTarget.classList.add('selected');
+        submit.click();
+      });
+    });
+
+  </script>
+  <% end %>
