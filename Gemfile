@@ -30,6 +30,13 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'autoprefixer-rails'
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
+gem 'simple_form'
+gem 'webpacker'
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

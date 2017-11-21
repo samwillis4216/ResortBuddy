@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   get 'availabilities/index'
 
   get 'availabilities/show'
@@ -29,6 +30,8 @@ Rails.application.routes.draw do
   get 'bookings/destroy'
 
   root to: 'pages#home'
+=======
+>>>>>>> master
   devise_for :employees
   devise_for :guests
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
