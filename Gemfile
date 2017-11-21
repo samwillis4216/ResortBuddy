@@ -38,13 +38,6 @@ gem 'webpacker'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
 
-gem 'autoprefixer-rails'
-gem 'bootstrap-sass'
-gem 'font-awesome-sass'
-gem 'devise'
-gem 'cloudinary'
-gem 'carrierwave', '~> 1.2'
-gem "geocoder"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
