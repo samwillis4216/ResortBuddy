@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row">
+    <div class="row-xs-6">
+      <h1>Add a new availability</h1>
+      <%= simple_form_for [:admin, @activity, @availability] do |f| %>
+        <%= f.submit "Add", class: "btn btn-primary" %>
+        <%= f.input :start_time, label: "start-date", as: :string, required: true, input_html: { class: 'datepickerinput', minDate: "today" } %>
+        <%= f.input :end_time, label: "end-date", as: :string, required: true, input_html: { class: 'datepickerinput', minDate: "today" } %>
+      <% end %>
+    </div>
+  </div>
+</div>

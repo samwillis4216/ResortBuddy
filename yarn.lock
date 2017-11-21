@@ -1988,6 +1988,10 @@ find-up@^2.0.0, find-up@^2.1.0:
   dependencies:
     locate-path "^2.0.0"
 
+flatpickr@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-4.1.2.tgz#2bbebe46e1fd74d7ef10bf987229aa23eaac1265"
+
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
@@ -2697,6 +2701,10 @@ isstream@~0.1.2:
 javascript-natural-sort@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/javascript-natural-sort/-/javascript-natural-sort-0.7.1.tgz#f9e2303d4507f6d74355a73664d1440fb5a0ef59"
+
+jquery@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.3.2"
@@ -5374,6 +5382,10 @@ webpack@^3.5.5:
     watchpack "^1.4.0"
     webpack-sources "^1.0.1"
     yargs "^8.0.2"
+
+webpacker@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/webpacker/-/webpacker-0.0.3.tgz#e90398e037cd4935c85b903bb7e71188cacf486f"
 
 websocket-driver@>=0.5.1:
   version "0.7.0"

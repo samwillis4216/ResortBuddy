@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_guest!
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
