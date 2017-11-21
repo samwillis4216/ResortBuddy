@@ -15,20 +15,39 @@
     cursor: pointer;
 }
 
-.child {
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    transition: 0.7s;
-}
-
 .left {
   background-position: 90% 50%;
 }
 
 .right {
   background-position: 80% 50%;
+}
+
+
+@media (max-width: 600px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .parent {
+    width: 100vw;
+  }
+
+  .left {
+    background-position: 90% 70%;
+  }
+
+  .right {
+    background-position: 80% 70%;
+  }
+}
+
+.child {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: 0.7s;
 }
 
 .parent:hover .child, .parent:focus .child {
@@ -70,6 +89,4 @@
     font-size: 50px;
     font-weight: bold;
 }
-
-// Specific CSS for your home-page
 
