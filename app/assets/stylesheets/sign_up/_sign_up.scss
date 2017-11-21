@@ -1,0 +1,26 @@
+.header {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.form-control {
+  border-radius: 50px;
+}
+
+@media screen and (min-width: 1024px) {
+    .background {
+      background-image: url('sign_up_background.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .background {
+      background-image: url('sign_up_background_mobile.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+}
+
+
