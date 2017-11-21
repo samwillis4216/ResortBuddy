@@ -1,0 +1,70 @@
+.booking {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(150, 150, 150, 0.4);
+  margin: 10px;
+  position: relative;
+}
+.book-info {
+  flex-grow: 1;
+  padding: 0 10px;
+  border-right: 1px solid rgba(150, 150, 150, 0.4);
+}
+.book-date {
+  padding: 0 10px;
+  border-right: 1px solid rgba(150, 150, 150, 0.4);
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  z-index: 3;
+}
+.book-price {
+  padding: 0 10px;
+  width: 95px;
+}
+.booking-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background: black;
+  opacity: 0;
+  z-index: 1;
+}
+.colored-side {
+  background: #30A19A;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 7px;
+  height: 100%;
+  border-top-left-radius: 11px;
+  border-bottom-left-radius: 11px;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+}
+.booking:hover {
+  .colored-side {
+    width: 150px;
+  }
+  .book-date {
+    color: white;
+
+  }
+}
+.person {
+  display: flex;
+  .guests {
+    color: #D88F3C;
+    font-size: 13px;
+  }
+}
+.booker {
+  box-shadow: 1px 1px 1px rgba(150, 150, 150, 0.5);
+}
+.people {
+  margin: 0 4px;
+}
