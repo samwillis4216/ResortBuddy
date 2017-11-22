@@ -1,5 +1,4 @@
 class ActivitiesController < ApplicationController
-  before_action :authenticate_guest!
 
   def index
   end
