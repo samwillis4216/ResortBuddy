@@ -39,9 +39,8 @@ gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
 gem 'figaro'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-
-gem 'devise'
 gem 'geocoder'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
