@@ -56,19 +56,16 @@
   box-sizing: border-box;
 }
 
-.form-control {
-  border: 0;
-  -webkit-box-shadow: none;
-   box-shadow: none;
-  -webkit-transition: none;
-    transition: none;
-    font-size: 40px;
-    font-family: "Raleway", "Helvetica", "sans-serif";
-    font-weight: 500;
-    color: #484848;
-        margin-bottom: 10px;
-
-  }
+// DO NOT APPLY CSS ON FORM CONTROL
+// .form-control {
+//   border: 0;
+//   box-shadow: none;
+//   transition: none;
+//   font-size: 40px;
+//   font-weight: 500;
+//   color: #484848;
+//   margin-bottom: 10px;
+// }
 
 #booking_noofppl {
   // width: 60px;

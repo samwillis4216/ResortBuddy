@@ -1,0 +1,31 @@
+.top {
+  text-align: center;
+  padding-top: 20px;
+  h2, p {
+  color: white;
+  }
+}
+
+.form-change {
+  border-radius: 10px;
+}
+
+.form-add {
+  color: white;
+}
+
+@media screen and (min-width: 1024px) {
+    .background2 {
+      background-image: url('sign_in_background.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .background2 {
+      background-image: url('sign_in_background_mobile.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+}

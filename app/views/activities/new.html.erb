@@ -1,2 +1,31 @@
-<h1>Activities#new</h1>
-<p>Find me in app/views/activities/new.html.erb</p>
+<%= content_for(:navbar_class, "navbar-home") %>
+<div style=" background-size: cover; background-color: #F9F9F9; background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 1%), url('https://images.unsplash.com/photo-1504619679259-7db48eb87a0b?auto=format&fit=crop&w=1680&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
+<div class="container" style=" width: 37%; background-color: transparent; border-radius: 20px; color: white; padding-top: 70px;" >
+
+<h1>Add an activity</h1>
+<div class="transparent-form">
+<%= simple_form_for [@activity] do |f| %>
+<% if @activity.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @activity.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :capacity %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.input :duration %>
+  <%= f.input :category, :collection => Activity::CATEGORIES %>
+  <%= f.input :photo, label: "Image of activity" %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit "Add", class: "btn btn-primary"%>
+<% end %>
+</div>
+
+</div>
+</div>

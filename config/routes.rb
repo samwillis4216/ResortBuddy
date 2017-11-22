@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  get '/home_guest', to: 'pages#home_guest'
+
+  get 'home_guest', to: 'pages#home_guest'
 
   # Devise
   devise_for :employees
@@ -17,9 +18,9 @@ Rails.application.routes.draw do
   end
 
   # Guests
-  resources :activities, only: [:index, :show] do
-    resources :bookings, only: [:index, :create]
+  resources :activities, only: [:index, :show, :new] do
+    resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:destroy]
-
+  resources :bookings, only: [:index, :show, :destroy]
+  get '/my_activities', to: 'activities#my_activities'
 end
