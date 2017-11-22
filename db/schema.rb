@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171121160153) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20171121160153) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "employee_id"
+    t.bigint "employee_id"
     t.index ["employee_id"], name: "index_activities_on_employee_id"
   end
 
@@ -108,4 +111,5 @@ ActiveRecord::Schema.define(version: 20171121160153) do
     t.index ["guest_id"], name: "index_stays_on_guest_id"
   end
 
+  add_foreign_key "activities", "employees"
 end

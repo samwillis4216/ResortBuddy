@@ -24,9 +24,9 @@ Rails.application.routes.draw do
   end
 
   # Guests
-  resources :activities, only: [:index, :show] do
-    resources :bookings, only: [:index, :create]
+  resources :activities, only: [:index, :show, :new] do
+    resources :bookings, only: [:create]
   end
-  resources :bookings, only: [:destroy]
-
+  resources :bookings, only: [:index, :show, :destroy]
+  get '/my_activities', to: 'activities#my_activities'
 end

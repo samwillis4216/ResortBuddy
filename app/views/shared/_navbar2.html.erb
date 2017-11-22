@@ -1,0 +1,11 @@
+<div class="navbar-wagon-dd">
+  <div class="info-next">
+    <i class="fa fa-user" aria-hidden="true" id="box-icon"> </i>
+     <p class="box"> 1 </p>
+  </div>
+  <div>
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    <i class="fa fa-minus-circle" aria-hidden="true"></i>
+  </div>
+  <%= link_to "Next", activity_dates_path(@activity, date: Date.today.strftime('%d-%m-%Y')), class: "next-link" %>
+</div>
