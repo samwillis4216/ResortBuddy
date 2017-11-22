@@ -3,13 +3,13 @@
   padding-top: 20px;
 }
 
-.form-control {
-  background-color:transparent !important;
-  border-top:none !important;
-  border-left:none !important;
-  border-right:none !important;
+.transparent-input {
+  background-color: transparent !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
   border-bottom: black;
-  box-shadow:none !important;
+  box-shadow: none !important;
   color: white;
   font-size: 20px;
 }

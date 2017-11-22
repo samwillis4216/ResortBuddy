@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  layout "guest"
+
   def index
   end
 

@@ -1,4 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_guest!
+
+  def after_sign_in_path_for(resource)
+    if resource.class == Guest
+      home_guest_path
+    elsif resource.class == Employee
+      admin_activities_path
+    else
+      root_path
+    end
+  end
 end

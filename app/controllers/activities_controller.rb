@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+  layout "guest"
+
   def index
     @category = params[:category]
     if params[:price].present?

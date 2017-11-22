@@ -1,4 +1,5 @@
 class Admin::AvailabilitiesController < ApplicationController
+  layout "admin"
 
   def index
   end

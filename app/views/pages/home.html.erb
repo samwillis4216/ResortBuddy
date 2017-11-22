@@ -1,23 +1,21 @@
 <div class="wrapper">
-      <div class="parent">
-        <a data-toggle="modal" data-target="#myModal">
-          <div class="child left" style='background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url(<%= image_path "home-guest.jpg" %>)'>
-            <h1 class="caption">Guest</h1>
-          </div>
-        </a>
+  <div class="parent">
+    <a data-toggle="modal" data-target="#guestModal">
+      <div class="child left" style='background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url(<%= image_path "home-guest.jpg" %>)'>
+        <h1 class="caption">Guest</h1>
       </div>
-     <div class="parent">
-        <a data-toggle="modal" data-target="#myModal1">
-          <div class="child right" style='background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url(<%= image_path "employee.jpg" %>)'>
-            <h1 class="caption">Employee</h1>
-          </div>
-        </a>
+    </a>
+  </div>
+  <div class="parent">
+    <a data-toggle="modal" data-target="#employeeModal">
+      <div class="child right" style='background-image: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), url(<%= image_path "employee.jpg" %>)'>
+        <h1 class="caption">Employee</h1>
       </div>
+    </a>
+  </div>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="guestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -25,25 +23,26 @@
         <h4 class="modal-title" id="myModalLabel"> Guest Log in</h4>
       </div>
       <div class="modal-body">
-           <%= simple_form_for(resource_guest, as: resource_name_guest, url: session_path(resource_name_guest)) do |f| %>
-             <%= f.error_notification %>
-             <div class="form-inputs">
-               <%= f.input :email, required: true, autofocus: true %>
-               <%= f.input :password, required: true %>
-             </div>
+        <%= simple_form_for :guest, url: guest_session_path do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+            <%= f.input :email, required: true, autofocus: true %>
+            <%= f.input :password, required: true %>
+          </div>
       </div>
       <div class="modal-footer">
         <div class="form-actions">
               <%= f.button :submit, "Log in" %>
             </div>
         <% end %>
-        <%= render "guests/shared/links" %>
       </div>
+      <%= link_to "Sign up", new_registration_path(Guest.new) %>
+      <%= link_to "Forgot your password?", new_password_path(Guest.new) %>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -63,8 +62,9 @@
               <%= f.button :submit, "Log in" %>
             </div>
         <% end %>
-        <%= render "guests/shared/links" %>
       </div>
+      <%= link_to "Sign up", new_registration_path(Employee.new) %>
+      <%= link_to "Forgot your password?", new_password_path(Employee.new) %>
     </div>
   </div>
 </div>
