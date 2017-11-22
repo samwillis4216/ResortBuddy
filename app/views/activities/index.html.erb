@@ -13,7 +13,7 @@
                 <h2><%= activity.name %></h2>
               </div>
               <div class="card-user">
-                <%= cl_image_tag activity.user.photo.url(:bright_face), class: "card-user" %>
+                <%= cl_image_tag activity.employee.photo.url(:bright_face), class: "card-user" %>
               </div>
               <%= link_to "", activity_path(activity, date: Date.today.strftime('%d-%m-%Y')), class: "card-link" %>
           </div>

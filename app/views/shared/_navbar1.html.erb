@@ -8,9 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
 <% if guest_signed_in? %>
-  <%=link_to "Add Activity", new_activity_path, class: "navbar-wagon-item navbar-wagon-link", id: "create" %>
-  <%=link_to "Bookings", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-  <%=link_to "Listed Activities", my_activities_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <%=link_to "Booked Activities", my_activities_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <div class="navbar-wagon-item">
       <div class="dropdown">
@@ -22,7 +20,6 @@
       </div>
 </div>
 <% else %>
-   <%=link_to "Add Activity", new_guest_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
    <%=link_to "Log in", new_guest_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
    <%=link_to "Sign up", new_guest_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
 <% end %>
