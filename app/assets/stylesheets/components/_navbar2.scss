@@ -1,0 +1,60 @@
+.navbar-wagon-dd{
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
+  background: white;
+  transition: all 0.3s ease;
+  height: 101px;
+  padding: 0px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-color: #D2D6DF;
+  border-style: solid;
+  position: relative;
+  text-align: center;
+}
+
+#box-icon {
+  font-size: 28px;
+}
+
+.box {
+  border: 1px solid black;
+  margin-left: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 2px 5px;
+
+}
+
+.info-next {
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.number-of-guests {
+  background: white;
+  height: 20px;
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.next-link {
+  width: 80px;
+  height: 40px;
+  padding: 10px;
+  background-color: #457AF6;
+  color: white;
+  border-radius: 30px;
+  box-shadow: 2px 2px 2px rgba(150, 150, 150, 0.4);
+  // position: absolute; right: 10;
+  // margin-left: 270px;
+  text-align: center;
+}
+
+.fa-plus-circle, .fa-plus-minus {
+}
+
+.next-link {
+}
