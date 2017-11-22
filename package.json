@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "bootstrap": "3",
+    "cloudinary": "^1.9.1",
     "coffeescript": "1.12.7",
     "flatpickr": "^4.1.2",
     "jquery": "^3.2.1",
