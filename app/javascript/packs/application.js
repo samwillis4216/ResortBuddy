@@ -12,3 +12,15 @@ console.log('Hello World from Webpacker')
 import "plugins/flatpickr.js";
 import "bootstrap";
 
+  //model open jquery
+$("#open-create").click(function(){
+  var scrollTop = window.scrollY;
+  $('#model-cover').css('top', scrollTop + "px");
+  $('#model-cover').fadeToggle();
+  $('body').css('overflow', 'hidden');
+});
+
+$("#model-close").click(function(){
+  $('#model-cover').fadeToggle();
+  $('body').css('overflow', 'scroll');
+});
