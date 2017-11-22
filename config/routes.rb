@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  scope :guests do
+    root to: 'pages#home_guest'
+  end
+  scope :employees do
+    root to: 'pages#home'
+  end
+
   root to: 'pages#home'
-  get '/home_guest', to: 'pages#home_guest'
 
   # Devise
   devise_for :employees
-  devise_for :guests
+  devise_for :guests, :controllers => { registrations: 'registrations' }
 
   # Employees
   namespace :admin do
