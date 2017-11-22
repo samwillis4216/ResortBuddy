@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   get '/home_guest', to: 'pages#home_guest'
-  
+
   # Devise
   devise_for :employees
   devise_for :guests
-
-  # Guests
-  resources :activities, only: [:index, :show] do
-    resources :bookings, only: [:index, :create]
-  end
-  resources :bookings, only: [:destroy]
 
   # Employees
   namespace :admin do
@@ -21,4 +15,11 @@ Rails.application.routes.draw do
       resources :availabilities
     end
   end
+
+  # Guests
+  resources :activities, only: [:index, :show] do
+    resources :bookings, only: [:index, :create]
+  end
+  resources :bookings, only: [:destroy]
+
 end

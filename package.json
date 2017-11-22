@@ -4,7 +4,10 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "bootstrap": "3",
-    "coffeescript": "1.12.7"
+    "coffeescript": "1.12.7",
+    "flatpickr": "^4.1.2",
+    "jquery": "^3.2.1",
+    "webpacker": "^0.0.3"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.9.4"

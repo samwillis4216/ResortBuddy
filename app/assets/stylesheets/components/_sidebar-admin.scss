@@ -1,0 +1,69 @@
+/* Sidebar */
+.sidebar ul {
+  list-style: none;
+  padding: 0px;
+  margin-top: 20px;
+}
+.sidebar li {
+  padding: 20px 20px;
+  font-weight: bold;
+}
+
+.sidebar li:hover {
+  background-color: #25282B;
+}
+
+.sidebar i:hover{
+  color: white;
+}
+
+.sidebar li:active {
+  background-color: #25282B;
+
+}
+
+.sidebar li:focus {
+  background-color: #25282B;
+}
+
+.sidebar i {
+  opacity: 0.5;
+  width: 15px;
+}
+
+.sidebar {
+  flex: 0 0 200px;
+  height: 100vh;
+  background: #2D3033;
+  color: white;
+  font-size: 14px;
+}
+
+
+/* Sidebar link */
+.sidebar-wagon-link {
+  color: #616668;
+  font-size: 14px;
+}
+.sidebar-wagon-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+/* Basic navbar item */
+.sidebar-wagon-item {
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+/* Blue line */
+.line {
+  height: 20px;
+  width: 5px;
+  background-color: #00BBE8;
+}
+
+.navi {
+  display: flex;
+}
+
