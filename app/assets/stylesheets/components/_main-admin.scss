@@ -1,0 +1,17 @@
+.main-container {
+  display: flex;
+}
+
+.page-content {
+  flex-grow: 1;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+#add {
+  margin: 15px;
+}
+
+.container {
+  width: 80%;
+}
