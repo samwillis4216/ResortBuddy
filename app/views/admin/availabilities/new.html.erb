@@ -3,7 +3,7 @@
     <h1>Add a new availability</h1>
   </div>
   <div class="form-post">
-        <%= simple_form_for [:admin, @activity, @availability] do |f| %>
+        <%= simple_form_for [:admin, @activity, @availability], defaults: { input_html: { class: "activity-form"} } do |f| %>
         <div class="form-group string required availability_start_time">
           <label class="control-label string required"  for="new-activity-text" id="new-activity-text" ><abbr title="required"></abbr> start-date *</label>
           <input class="form-control string required datepickerinput flatpickr-input" mindate="today" id="new-activity-text" required="required" aria-required="true" type="hidden" name="availability[start_time]">
@@ -13,7 +13,7 @@
           <input class="form-control string required datepickerinput flatpickr-input" mindate="today" required="required" aria-required="true" type="hidden" name="availability[end_time]" id="availability_end_time">
           <input class="form-control string required datepickerinput flatpickr-input form-control input" placeholder="" required="" type="text">
         </div>
-          <%= f.submit "Add", class: "btn btn-primary" %>
+        <%= f.submit "Add", class: "btn btn-primary" %>
         <% end %>
   </div>
 </div>
