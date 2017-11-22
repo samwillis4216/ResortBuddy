@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class GuestsrController < Devise::RegistrationsController
   private
 
   def sign_up_params
