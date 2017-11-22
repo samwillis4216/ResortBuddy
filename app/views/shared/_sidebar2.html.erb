@@ -1,23 +1,31 @@
 <% if params[:controller] == 'admin/activities' %>
-  <% highlighted = 'nav-active' %>
+  <% activities = 'nav-active' %>
+<% end %>
+
+<% if params[:controller] == 'admin/dashboard' %>
+  <% dashboard = 'nav-active' %>
+<% end %>
+
+<% if params[:controller] == 'admin/calendar' %>
+  <% calendar = 'nav-active' %>
 <% end %>
 
 
 <ul>
   <%= link_to admin_activities_path do %>
-    <li class="sidebar-wagon-item sidebar-wagon-link">
+    <li class="sidebar-wagon-item sidebar-wagon-link <%= dashboard %>">
       <i class="fa fa-bar-chart-o"></i>
       <p>Dashboard</p>
     </li>
   <% end %>
   <%= link_to admin_activities_path do %>
-    <li class="sidebar-wagon-item sidebar-wagon-link <%= highlighted %> " >
+    <li class="sidebar-wagon-item sidebar-wagon-link <%= calendar %> " >
       <i class="fa fa-calendar-check-o"></i>
       <p>Calendar</p>
     </li>
   <% end %>
   <%= link_to admin_activities_path do %>
-    <li class="sidebar-wagon-item sidebar-wagon-link">
+    <li class="sidebar-wagon-item sidebar-wagon-link <%= activities %>">
       <i class="fa fa-tags"></i>
       <p>Activities</p>
     </li>

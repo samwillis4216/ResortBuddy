@@ -5,6 +5,7 @@
   <div class="form-post">
         <%= simple_form_for [:admin, @activity, @availability], defaults: { input_html: { class: "activity-form"} } do |f| %>
         <%= f.association :employee %>
+
         <div class="form-group string required availability_start_time">
           <label class="control-label string required"  for="new-activity-text" id="new-activity-text" ><abbr title="required"></abbr> start-date *</label>
           <input class="form-control string required datepickerinput flatpickr-input" mindate="today" id="new-activity-text" required="required" aria-required="true" type="hidden" name="availability[start_time]">
