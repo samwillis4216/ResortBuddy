@@ -40,7 +40,6 @@ gem 'cloudinary'
 gem 'figaro'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
-gem 'devise'
 gem 'geocoder'
 
 # Use Capistrano for deployment

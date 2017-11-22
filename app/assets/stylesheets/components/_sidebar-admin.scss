@@ -1,4 +1,12 @@
 /* Sidebar */
+.sidebar {
+  flex: 0 0 200px;
+  height: 100vh;
+  background: #2D3033;
+  color: white;
+  font-size: 14px;
+}
+
 .sidebar ul {
   list-style: none;
   padding: 0px;
@@ -9,8 +17,30 @@
   font-weight: bold;
 }
 
-.sidebar li:hover {
+.sidebar ul li:hover {
   background-color: #25282B;
+  cursor: pointer;
+  text-decoration: none;
+  .fa {
+    color: white;
+    opacity: 1;
+  }
+  a {
+    color: white;
+  }
+}
+
+.nav-active {
+  background-color: #25282B;
+  cursor: pointer;
+  text-decoration: none;
+  .fa {
+    color: white;
+    opacity: 1;
+  }
+  a {
+    color: white;
+  }
 }
 
 .sidebar i:hover{
@@ -31,14 +61,6 @@
   width: 15px;
 }
 
-.sidebar {
-  flex: 0 0 200px;
-  height: 100vh;
-  background: #2D3033;
-  color: white;
-  font-size: 14px;
-}
-
 
 /* Sidebar link */
 .sidebar-wagon-link {
@@ -54,6 +76,7 @@
 .sidebar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+  display:flex;
 }
 
 /* Blue line */
