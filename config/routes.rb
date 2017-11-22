@@ -6,12 +6,6 @@ Rails.application.routes.draw do
   devise_for :employees
   devise_for :guests
 
-  # Guests
-  resources :activities, only: [:index, :show] do
-    resources :bookings, only: [:index, :create]
-  end
-  resources :bookings, only: [:destroy]
-
   # Employees
   namespace :admin do
     resources :bookings, only: [:index, :show, :edit, :update, :destroy]
@@ -21,4 +15,11 @@ Rails.application.routes.draw do
       resources :availabilities
     end
   end
+
+  # Guests
+  resources :activities, only: [:index, :show] do
+    resources :bookings, only: [:index, :create]
+  end
+  resources :bookings, only: [:destroy]
+
 end

@@ -1,0 +1,58 @@
+
+
+
+<div class="navbar-wagon <%= yield(:navbar_class) %>">
+
+  <!-- Logo -->
+  <a href="/" class="navbar-wagon-brand">
+  </a>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+<% if employee_signed_in? %>
+  <%=link_to "Add Activity", new_admin_activity_path, class: "navbar-wagon-item navbar-wagon-link", id: "create" %>
+  <%=link_to "Activities", admin_activities_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <% img = current_employee.photo? ? current_employee.photo.url(:bright_face)  : 'jsut0cgif0nnmpalnwpn' %>
+        <%= cl_image_tag img, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", 'data-toggle' => "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li> <%=link_to "Log Out", destroy_employee_session_path, method: :delete %></li>
+        </ul>
+      </div>
+</div>
+<% else %>
+   <%=link_to "Log in", new_employee_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+   <%=link_to "Sign up", new_employee_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+<% end %>
+  <!-- Profile picture with dropdown list -->
+  <!-- Dropdown appearing on mobile only -->
+</div>
+<% if employee_signed_in? %>
+<div class="hidden-lg hidden-md">
+    <div class="navbar-wagon-item">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%=link_to "Create", new_admin_activity_path %></li>
+        <li><%=link_to "Activities", admin_activities_path %></li>
+        <li><%=link_to "Log Out", destroy_employee_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </div>
+  <% else %>
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%=link_to "Create", new_employee_session_path %></li>
+        <li><%=link_to "Log in", new_employee_session_path %></li>
+        <li><%=link_to "Sign up", new_emloyee_registration_path %></li>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
