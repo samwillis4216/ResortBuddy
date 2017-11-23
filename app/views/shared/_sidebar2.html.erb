@@ -6,8 +6,8 @@
   <% dashboard = 'nav-active' %>
 <% end %>
 
-<% if params[:controller] == 'admin/calendar' %>
-  <% calendar = 'nav-active' %>
+<% if params[:controller] == 'admin/bookings' %>
+  <% bookings = 'nav-active' %>
 <% end %>
 
 
@@ -21,10 +21,10 @@
         </div>
       </li>
     <% end %>
-  <%= link_to admin_activities_path do %>
-    <li class="sidebar-wagon-item sidebar-wagon-link <%= calendar %> " >
+  <%= link_to admin_bookings_path do %>
+    <li class="sidebar-wagon-item sidebar-wagon-link <%= bookings %> " >
     <div class="sidebar-wagon-item">
-    <div class="line <%= calendar %>"></div>
+    <div class="line <%= bookings %>"></div>
       <i class="fa fa-calendar-check-o"></i>
       <p>Calendar</p>
           </div>
