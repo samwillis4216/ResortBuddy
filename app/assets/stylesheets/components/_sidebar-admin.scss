@@ -14,7 +14,7 @@
   text-decoration: none;
 }
 .sidebar li {
-  padding: 20px 20px;
+  padding: 0px 0px;
   font-weight: bold;
 }
 
@@ -29,11 +29,24 @@
   }
   a {
     color: white;
+    text-decoration: none;
   }
-    p {
+    p:hover {
     color: white;
     text-decoration: none;
   }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+p:hover {
+  text-decoration: none;
+}
+
+i:hover {
+  text-decoration: none;
 }
 
 .nav-active {
@@ -50,6 +63,12 @@
   p {
     color: white;
   }
+  .line:hover {
+  height: 50px;
+  width: 5px;
+  background-color: #00BBE8;
+  margin-right: 20px;
+}
 }
 
 .sidebar i:hover{
@@ -77,6 +96,8 @@
 .sidebar-wagon-link {
   color: #616668;
   font-size: 14px;
+      display:flex;
+  align-items: center;
 }
 .sidebar-wagon-link:hover {
   color: white;
@@ -84,17 +105,39 @@
 }
 
 /* Basic navbar item */
+.sidebar-wagon-item :hover {
+  cursor: pointer;
+}
+
 .sidebar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
-  display:flex;
+        display:flex;
+    align-items: center;
+    p {
+margin: 0;
+    }
 }
 
 /* Blue line */
 .line {
-  height: 20px;
+  height: 50px;
+  width: 5px;
+  background-color: transparent;
+  margin-right: 20px;
+}
+
+.line:hover {
+  height: 50px;
   width: 5px;
   background-color: #00BBE8;
+  margin-right: 20px;
+}
+
+.line.nav-active{
+  height: 50px;
+  width: 5px;
+  background-color: #00BBE8;
+    margin-right: 20px;
 }
 
 .navi {
