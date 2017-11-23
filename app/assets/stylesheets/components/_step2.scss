@@ -3,7 +3,7 @@
   color: white;
 }
 
-#bookings-wrapper {
+.bookings-wrapper {
   width: 1200px;
   display: flex;
   margin-top: 0px;
@@ -50,6 +50,14 @@
   margin-bottom: 5px;
   font-weight: regular;
 }
+}
+
+.samcustombookings {
+  max-height: 45px;
+}
+
+.samcustombookingwrapper {
+  margin-left: 1px;
 }
 
 
