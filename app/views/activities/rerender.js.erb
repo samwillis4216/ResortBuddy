@@ -1,0 +1,17 @@
+console.log('hello!')
+step2_hello = document.getElementById('step2_form')
+step2_hello.innerHTML = "<%= j render 'shared/step2', hidden: false %>";
+
+
+// hiding and showing step 1 and 2
+submit_hello = document.querySelector('.submit-step')
+
+// selecting a time
+timeslots_hello = document.querySelectorAll(".bookings")
+timeslots_hello.forEach(timeslot => {
+  timeslot.addEventListener("click", event => {
+    timeslots_hello.forEach(timeslot => timeslot.classList.remove('selected'));
+    event.currentTarget.classList.add('selected');
+    submit.click();
+  });
+});

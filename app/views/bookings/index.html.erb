@@ -1,2 +1,46 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<div class="container">
+  <div class="title">
+   <h2>Your bookings</h2>
+  </div>
+
+  <% @bookings.each do |booking| %>
+    <div class="booking">
+      <div class="colored-side"></div>
+      <div class="book-date">
+       <p>
+        <strong><%= booking.availability.start_time.strftime("%b %d, %Y") %></strong>
+       </p>
+       <p>
+        <%= booking.availability.start_time.strftime("%I:%M %p") %>
+       </p>
+      </div>
+      <div class="book-info">
+        <p>
+        <strong><%= booking.availability.activity.name %></strong>
+        <%= link_to booking_path(booking),
+        method: :delete,
+        class: "delete-link",
+        data: { confirm: "Are you sure?" } do %>
+        <i class="fa fa-trash" aria-hidden="true"></i>
+        <% end %>
+        </p>
+        <p>
+        <%= booking.availability.activity.location %>
+        </p>
+      </div>
+      <div class="book-price">
+        <p>
+         £<%= booking.availability.activity.price * booking.no_ppl %>
+        </p>
+        <p>
+          <% booking.no_ppl.times do |i| %>
+            <i class="fa fa-user" aria-hidden="true"></i>
+          <% end %>
+        </p>
+      </div>
+      <a href="<%= booking_path(booking) %>" class="booking-link"></a>
+    </div>
+  <% end %>
+</div>
+
+
