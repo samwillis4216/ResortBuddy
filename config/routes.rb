@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'home_guest', to: 'pages#home_guest'
 
   # Devise
-  devise_for :employees, :controllers => { :registrations => "employees/employeesr" }
-  devise_for :guests, :controllers => { :registrations => "guests/guestsr" }
+  devise_for :employees, :controllers => { :registrations => "employees/registrations" }
+  devise_for :guests, :controllers => { :registrations => "guests/registrations" }
 
   # Employees
   namespace :admin do
