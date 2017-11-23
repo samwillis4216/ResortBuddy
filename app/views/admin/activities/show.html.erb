@@ -24,10 +24,22 @@
 
   <div class="schedule">
     <h1>Schedule</h1>
-    <ul>
-      <% @activity.availabilities.each do |d| %>
-      <li><%= d.start_time.strftime('%d-%m-%Y') %> <%= d.employee.name %></li>
-      <% end %>
-    </ul>
+    <div id="calendar"></div>
   </div>
 </div>
+
+
+
+<% content_for(:after_js) do %>
+  <script>
+    $('#calendar').fullCalendar({
+      weekends: false,
+      header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        events: '/admin/activities/<%= @activity_id %>/availabilities.json',
+    });
+  </script>
+<% end %>

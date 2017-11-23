@@ -7,6 +7,10 @@
   display: flex;
 }
 
+.form-minus, .form-plus {
+  cursor: pointer;
+}
+
 .group-master {
   display: flex;
   background-color: white;
@@ -22,6 +26,7 @@
 }
 
 .form-next {
+  cursor: pointer;
   background-color: #2BB2AC;
   width: 80px;
   height: 40px;
@@ -67,7 +72,7 @@
 //   margin-bottom: 10px;
 // }
 
-#booking_noofppl {
+#booking_no_ppl {
   // width: 60px;
   // height: 40px;
 }

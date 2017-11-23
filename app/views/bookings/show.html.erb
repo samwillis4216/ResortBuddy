@@ -1,2 +1,37 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<div class="booking-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @booking.availability.activity.photo %>');">
+  <div class="booking-content">
+    <h1>Your booking for <%= @booking.availability.activity.name %></h2>
+    <ul class="list-unstyled">
+      <li>
+        <h2>
+          <strong>When?  </strong><%= @booking.availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %>
+        </h2>
+      </li>
+      <li>
+        <h2>
+          <strong>Where?  </strong><%= @booking.availability.activity.location %>
+        </h2>
+      </li>
+      <li>
+        <h2>
+          <strong>How many people?  </strong><%= @booking.no_ppl %>
+        </h2>
+      </li>
+        <li>
+          <h2>
+            <strong>Total cost:  </strong>£<%= @booking.availability.activity.price * @booking.no_ppl %>
+          </h2>
+      </li>
+      <li>
+        <h2>
+          <strong>Booking ID:  </strong><%= @booking.id %>
+        </h2>
+      </li>
+      <li>
+        <h2>
+          <strong>Contact details:  </strong><%= @booking.availability.activity.employee.email %>
+        </h2>
+      </li>
+    </ul>
+  </div>
+</div>

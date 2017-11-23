@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'home_guest', to: 'pages#home_guest'
   get 'profile_guest', to: 'pages#profile_guest'
+  get 'activities/:id/rerender', to: 'activities#rerender', as: :rerender
 
   # Devise
   devise_for :employees, :controllers => { :registrations => "employees/registrations" }
