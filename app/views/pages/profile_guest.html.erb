@@ -1,22 +1,16 @@
 <div class="container">
   <div class="row">
-    <<div class="col-sm-6 col-sm-offset-3 col-xs-12">
+    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
     <h1>Your Profile Page</h1>
     </div>
-  </div>
-  <div class="row">
     <div class="col-sm-6 col-sm-offset-3 col-xs-12">
       <%= current_guest.first_name %> <%= current_guest.last_name %>
     </div>
-  </div>
-  <div class="row">
     <div class="col-sm-6 col-sm-offset-3 col-xs-12">
       <div class="profile-pic">
-        <%= cl_image_tag current_guest.photo %>
+        <%= cl_image_tag current_guest.photo, class: "avatar" %>
       </div>
     </div>
-  </div>
-  <div class="row">
     <div class="col-sm-6 col-sm-offset-3 col-xs-12">
       <%= current_guest.email %>
     </div>
