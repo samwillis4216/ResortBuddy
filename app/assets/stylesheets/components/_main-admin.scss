@@ -1,0 +1,18 @@
+.main-container {
+  display: flex;
+}
+
+.page-content {
+  flex-grow: 1;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: #F4F8F9;
+}
+
+#add {
+  margin: 15px;
+}
+
+.container {
+  width: 80%;
+}

@@ -1,0 +1,146 @@
+/* Sidebar */
+.sidebar {
+  flex: 0 0 200px;
+  height: 100vh;
+  background: #2D3033;
+  color: white;
+  font-size: 14px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+.sidebar li {
+  padding: 0px 0px;
+  font-weight: bold;
+}
+
+.sidebar ul li:hover {
+  background-color: #25282B;
+  cursor: pointer;
+  text-decoration: none;
+  .fa {
+    color: white;
+    opacity: 1;
+    text-decoration: none;
+  }
+  a {
+    color: white;
+    text-decoration: none;
+  }
+    p:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+p:hover {
+  text-decoration: none;
+}
+
+i:hover {
+  text-decoration: none;
+}
+
+.nav-active {
+  background-color: #25282B;
+  cursor: pointer;
+  text-decoration: none;
+  .fa {
+    color: white;
+    opacity: 1;
+  }
+  a {
+    color: white;
+  }
+  p {
+    color: white;
+  }
+  .line:hover {
+  height: 50px;
+  width: 5px;
+  background-color: #00BBE8;
+  margin-right: 20px;
+}
+}
+
+.sidebar i:hover{
+  color: white;
+}
+
+.sidebar li:active {
+  background-color: #25282B;
+
+}
+
+.sidebar li:focus {
+  background-color: #25282B;
+}
+
+.sidebar i {
+  opacity: 0.5;
+  width: 15px;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+
+/* Sidebar link */
+.sidebar-wagon-link {
+  color: #616668;
+  font-size: 14px;
+      display:flex;
+  align-items: center;
+}
+.sidebar-wagon-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+/* Basic navbar item */
+.sidebar-wagon-item :hover {
+  cursor: pointer;
+}
+
+.sidebar-wagon-item {
+  cursor: pointer;
+        display:flex;
+    align-items: center;
+    p {
+margin: 0;
+    }
+}
+
+/* Blue line */
+.line {
+  height: 50px;
+  width: 5px;
+  background-color: transparent;
+  margin-right: 20px;
+}
+
+.line:hover {
+  height: 50px;
+  width: 5px;
+  background-color: #00BBE8;
+  margin-right: 20px;
+}
+
+.line.nav-active{
+  height: 50px;
+  width: 5px;
+  background-color: #00BBE8;
+    margin-right: 20px;
+}
+
+.navi {
+  display: flex;
+}
+

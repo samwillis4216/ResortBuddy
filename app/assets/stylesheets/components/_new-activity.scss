@@ -1,0 +1,115 @@
+.new-activity {
+
+}
+
+.new-activity input {
+}
+
+.new-activity textarea {
+}
+.new-activity select {
+
+}
+
+.new-activity-card {
+  width: 635px;
+  height: 615px;
+  background: white;
+}
+
+
+
+.container-add {
+  align-items: center;
+  padding: 20px !important;
+}
+
+.activity-form {
+  border: 1px solid #E9EFF4;
+  border-radius: 4px;
+  font-size: 13px;
+
+}
+
+.activity-form .form-control {
+  border-radius: 4px;
+}
+
+.control-label .texts .string {
+  color: blue !important;
+}
+
+#new-activity-text {
+  color: #323C47;
+  font-family: avenir;
+  font-weight: 100;
+}
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.new_button {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: #d3394c;
+  display: inline-block;
+  cursor: pointer;
+  padding: 15px 32px;
+  text-align: center;
+
+}
+
+.top-line {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 50px;
+  margin-right: 50px;
+  h1 {
+    font-family: avenir;
+    font-weight: 100;
+    color: #233539;
+  }
+}
+
+#next-activity-button {
+  font-family: avenir;
+  font-weight: 100;
+}
+
+#cancel {
+  font-family: avenir;
+  font-weight: 100;
+  width: 99px;
+  height: 44px;
+  background-color: #9B9B9B;
+  border: none;
+}
+
+
+.form-post {
+  background: white;
+  margin: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #666666;
+    margin-bottom: 50px;
+    margin-top: 0px;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+  }
+}

@@ -4,9 +4,15 @@
   "dependencies": {
     "@rails/webpacker": "^3.0.2",
     "bootstrap": "3",
-    "coffeescript": "1.12.7"
+    "cloudinary": "^1.9.1",
+    "coffeescript": "1.12.7",
+    "flatpickr": "^4.1.2",
+    "fullcalendar": "^3.7.0",
+    "jquery": "^3.2.1",
+    "webpacker": "^0.0.3"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.9.4"
+    "webpack-dev-server": "^2.9.4",
+    "webpack-rails": "^0.1.3"
   }
 }

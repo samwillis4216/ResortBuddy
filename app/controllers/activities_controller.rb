@@ -1,7 +1,14 @@
 class ActivitiesController < ApplicationController
-  skip_before_action :authenticate_guest!, only: [:index, :show]
+  layout "guest"
 
   def index
+    @category = params[:category]
+    if params[:price].present?
+      @price = params[:price]
+      @activities = Activity.where("category iLIKE '%#{@category}%'").where("price <= #{@price}").order(price: :asc)
+    else
+      @activities = Activity.where("category iLIKE '%#{@category}%'").order(price: :asc)
+    end
   end
 
   def show
@@ -20,5 +27,8 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+  end
+
+  def my_activities
   end
 end
