@@ -37,6 +37,7 @@ gem 'simple_form'
 gem 'webpacker'
 gem 'carrierwave', '~> 1.2'
 gem 'cloudinary'
+gem 'weather-api'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
