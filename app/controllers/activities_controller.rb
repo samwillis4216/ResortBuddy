@@ -12,6 +12,10 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
+    @date = Date.parse(params[:date])
+    @activity = Activity.find(params[:id])
+    @availabilities = @activity.availabilities.where("start_time > ? AND start_time < ?", @date, @date + 1)
   end
 
   def new
@@ -30,5 +34,11 @@ class ActivitiesController < ApplicationController
   end
 
   def my_activities
+  end
+
+  def rerender
+    @date = Date.parse(params[:date])
+    @activity = Activity.find(params[:id])
+    @availabilities = @activity.availabilities.where("start_time > ? AND start_time < ?", @date, @date + 1)
   end
 end

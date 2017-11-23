@@ -2,6 +2,8 @@ class Admin::AvailabilitiesController < ApplicationController
   layout "admin"
 
   def index
+    @user = current_user
+    @availabilities = Availability.where("activity.user_id = #{@user.id}")
   end
 
   def show

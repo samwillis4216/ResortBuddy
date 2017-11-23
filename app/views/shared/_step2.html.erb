@@ -21,7 +21,7 @@
 
           <label for="booking_availability_id_<%= availability.id %>">
             <input class="radio_buttons required hidden" type="radio" value="<%= availability.id %>" name="booking[availability_id]" id="booking_availability_id_<%= availability.id %>">
-            <%= availability.timeslot.strftime("%I:%M %p") %>
+            <%= availability.start_time.strftime("%I:%M %p") %>
           </label>
         </span>
       <% end %>

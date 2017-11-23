@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'home_guest', to: 'pages#home_guest'
+  get 'activities/:id/rerender', to: 'activities#rerender', as: :rerender
 
   # Devise
   devise_for :employees, :controllers => { :registrations => "employees/registrations" }

@@ -1,4 +1,4 @@
-<<%= simple_form_for(@booking) do |f| %>
+<%= simple_form_for([@activity, @booking]) do |f| %>
   <!-- Step 1 - adding number of people -->
   <div class="step-1" id="navbar-form">
 
@@ -7,10 +7,10 @@
     </div>
 
     <div class="group-master">
-      <div class="form-group integer optional booking_noofppl" id="ppl">
+      <div class="form-group integer optional booking_no_ppl" id="ppl">
         <div class="plusminus">
-          <label class="control-label integer optional" for="booking_noofppl"></label>
-          <input class="form-control numeric integer optional" placeholder="0" type="number" step="1" name="booking[noofppl]" id="booking_noofppl">
+          <label class="control-label integer optional" for="booking_no_ppl"></label>
+          <input class="form-control numeric integer optional" placeholder="0" type="number" step="1" name="booking[no_ppl]" id="booking_no_ppl" value="1">
 
 
         <div class="form-minus"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></div>
@@ -30,8 +30,9 @@
   <%= f.submit "go", class: 'submit-step hidden' %>
 <% end %>
 
-<% content_for(:after_js) do %>
-<script>
+<%= content_for(:after_js) do %>
+  <script>
+    console.log('hello')
     // hiding and showing step 1 and 2
     const step2 = document.querySelector(".step-2")
     const step1 = document.querySelector(".step-1")
@@ -45,7 +46,7 @@
     });
 
     // Adding and minus ppl
-    const x = document.getElementById("booking_noofppl");
+    const x = document.getElementById("booking_no_ppl");
     const y = document.querySelector(".form-plus");
     const z = document.querySelector(".form-minus");
 
