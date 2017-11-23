@@ -1,8 +1,109 @@
-<div class="banner" style="height: 100vh; background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 1%), url('https://images.unsplash.com/photo-1504665972199-8e1eeab59fc3?auto=format&fit=crop&w=2550&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
-  <%= content_for(:navbar_class, "navbar-home") %>
-  <div class="banner-content">
-    <h1>Smack dat!</h1>
-    <p>Find an activity near you</p>
+ <% @response = Weather.lookup(28743663, Weather::Units::CELSIUS) %>
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <div class="text">Bora Bora</div>
+    <%= image_tag 'home/one.jpg', class: "homepic"%>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="text">Bora Bora</div>
+    <%= image_tag 'home/two.jpg', class: "homepic"%>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="text">Bora Bora</div>
+    <%= image_tag 'home/three.jpg', class: "homepic"%>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<div class="homeinfo">
+  <div class="weatherinfo">
+    <p><%= @response.condition.text %></p>
+    <p><%= @response.condition.temp %> °C</p>
+    <% if @response.condition.text == "Cloudy" || "Mostly Cloudy" %>
+       <%= image_tag 'weather/cloudy.png', class: "weather"%>
+    <% elsif @response.condition.text == "Rain" %>
+        <%= image_tag 'weather/rain.png' %>
+    <% elsif @response.condition.text == "Sunny" %>
+        <%= image_tag 'weather/sunny.png' %>
+    <% elsif @response.condition.text == "Partly Cloudy" %>
+        <%= image_tag 'weather/sunclouds.png' %>
+    <% end %>
+  </div>
+  <div class="sunrise">
+    <p>sunrise <%= @response.astronomy.sunrise.strftime('%H:%M') %></p>
+    <p>sunset <%= @response.astronomy.sunset.strftime('%H:%M') %></p>
   </div>
 </div>
+
+  <div class="container-fluid" id="testben">
+    <div class="row">
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(16, 123, 137,0.3), rgba(16, 123, 137,0.2)), url('https://images.unsplash.com/photo-1477894387642-00a731c511b3?auto=format&fit=crop&w=2079&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
+            <div class="card-description">
+              <h2>SPORTS</h2>
+            </div>
+            <%# link_to "", activity_path(activity, date: Date.today.strftime('%d-%m-%Y')), class: "card-link" %>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(133, 9, 87,0.3), rgba(133, 9, 87,0.2)), url('https://images.pexels.com/photos/3188/love-romantic-bath-candlelight.jpg?w=940&h=650&dpr=2&auto=compress&cs=tinysrgb');">
+            <div class="card-description">
+              <h2>SPA</h2>
+            </div>
+            <%# link_to "", activity_path(activity, date: Date.today.strftime('%d-%m-%Y')), class: "card-link" %>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(207, 96, 36,0.3), rgba(207, 96, 36,0.2)), url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1650&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
+            <div class="card-description">
+              <h2>FOOD</h2>
+            </div>
+            <%# link_to "", activity_path(activity, date: Date.today.strftime('%d-%m-%Y')), class: "card-link" %>
+        </div>
+      </div>
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1472523405455-f2ea719bf02c?auto=format&fit=crop&w=1500&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);">
+          <div class="card-description">
+            <h2>EVENTS</h2>
+          </div>
+          <%# link_to "", activity_path(activity, date: Date.today.strftime('%d-%m-%Y')), class: "card-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- <div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div> -->
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    // var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+       slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    // for (i = 0; i < dots.length; i++) {
+    //     dots[i].className = dots[i].className.replace(" active", "");
+    // }
+    slides[slideIndex-1].style.display = "block";
+    // dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
 
