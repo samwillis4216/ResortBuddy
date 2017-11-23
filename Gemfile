@@ -43,6 +43,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 gem 'geocoder'
 gem "recurrence"
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 
 # Use Capistrano for deployment
