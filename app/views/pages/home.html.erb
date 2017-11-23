@@ -15,12 +15,14 @@
   </div>
 </div>
 
+
 <div class="modal fade" id="guestModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+    <div class="container" class= "x">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel"> Guest Log in</h4>
+        <h4 class="modal-title" id="myModalLabel"> Guest Log In</h4>
       </div>
       <div class="modal-body">
         <%= simple_form_for :guest, url: guest_session_path do |f| %>
@@ -29,25 +31,29 @@
             <%= f.input :email, required: true, autofocus: true %>
             <%= f.input :password, required: true %>
           </div>
+          <%= link_to "Forgot your password?", new_password_path(Guest.new) %>
       </div>
       <div class="modal-footer">
         <div class="form-actions">
-              <%= f.button :submit, "Log in" %>
+              <%= f.button :submit, "Log in", class: "d" %>
             </div>
+          <%= link_to "Sign up", new_registration_path(Guest.new), class: "l" %>
         <% end %>
       </div>
-      <%= link_to "Sign up", new_registration_path(Guest.new) %>
-      <%= link_to "Forgot your password?", new_password_path(Guest.new) %>
     </div>
   </div>
 </div>
+</div>
+
+
 
 <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
+    <div class="container" class= "x">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel"> Employee Log in</h4>
+        <h4 class="modal-title" id="myModalLabel"> Employee Log In</h4>
       </div>
       <div class="modal-body">
            <%= simple_form_for(resource_employee, as: resource_name_employee, url: session_path(resource_name_employee)) do |f| %>
@@ -56,15 +62,16 @@
                <%= f.input :email, required: true, autofocus: true %>
                <%= f.input :password, required: true %>
              </div>
+              <%= link_to "Forgot your password?", new_password_path(Employee.new) %>
       </div>
       <div class="modal-footer">
         <div class="form-actions">
-              <%= f.button :submit, "Log in" %>
+              <%= f.button :submit, "Log in", class: "d" %>
             </div>
+          <%= link_to "Sign up", new_registration_path(Employee.new), class: "l" %>
         <% end %>
       </div>
-      <%= link_to "Sign up", new_registration_path(Employee.new) %>
-      <%= link_to "Forgot your password?", new_password_path(Employee.new) %>
     </div>
   </div>
+</div>
 </div>

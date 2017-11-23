@@ -1,0 +1,36 @@
+.modal-backdrop.fade.in {
+animation-name: none;
+}
+
+.modal-dialog {
+opacity: 0.8;
+}
+
+.modal-content {
+ background-color: #E3F1FC;
+ border-radius: 23px;
+}
+
+.d {
+ background-color: transparent;
+ border-color: #B5DCFC;
+ border-width: 2px;
+}
+
+.d:hover{
+ background-color: #B5DCFC;
+ border-color: #B5DCFC;
+}
+
+.l{
+ padding-left: 8px;
+}
+
+.x{
+ text-align: center;
+}
+
+.modal-footer {
+  text-align: left !important;
+}
+
