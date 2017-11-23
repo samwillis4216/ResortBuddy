@@ -1,16 +1,19 @@
 <div id="calendar"></div>
 
-
 <% content_for(:after_js) do %>
   <script>
     $('#calendar').fullCalendar({
-      weekends: false,
+      themeSystem: "bootstrap3",
+      allDaySlot: false,
+      defaultView: "agendaWeek",
+      minTime: "09:00:00",
+      maxTime: "18:00:00",
       header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
+            left: '',
+            center: 'prev title next',
+            right: 'agendaWeek,agendaDay today'
         },
-        events: '/admin/activities/<%= @activity_id %>/availabilities.json',
+        events: '/admin/bookings.json',
     });
   </script>
 <% end %>
