@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout 'guest', only: :home_guest
+  layout 'guest', only: [:home_guest, :profile_guest]
 
   before_action :authenticate_guest!, only: :home_guest
 
@@ -12,7 +12,11 @@ class PagesController < ApplicationController
   end
 
   def home_guest
-
-
   end
+
+  def profile_guest
+    @current_guest = current_guest
+  end
+
+
 end
