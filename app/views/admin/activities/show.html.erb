@@ -1,21 +1,33 @@
-<div class="container">
-<% img = @activity.photo? ? @activity.photo : 'iyq4gxp0oltwleiwafrx6' %>
-<div class="booking-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path img %>');">
-  <div class="booking-content">
-    <h1 id="title"><%= @activity.name %></h1>
-    <h2><strong>Location: </strong><%= @activity.location %></h2>
-    <h2><strong>Price: </strong>£<%= @activity.price %></h2>
-    <h2><strong>Cpacity: </strong><%= @activity.capacity %></h2>
-    <h2><strong>Duration: </strong><%= @activity.duration %>h</h2>
+<div class="container-activity">
+  <% img = @activity.photo? ? @activity.photo : 'iyq4gxp0oltwleiwafrx6' %>
+  <div class="booking-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path img %>');">
+    <div class="booking-content">
+      <h1 id="title"><%= @activity.name %></h1>
+      <h2><strong>Location: </strong><%= @activity.location %></h2>
+      <h2><strong>Price: </strong>£<%= @activity.price %></h2>
+      <h2><strong>Cpacity: </strong><%= @activity.capacity %></h2>
+      <h2><strong>Duration: </strong><%= @activity.duration %>h</h2>
+    </div>
   </div>
 </div>
-  <h3 class="sub-title">Brief introducition to <%= @activity.name %></h3>
-  <h3><%= @activity.description %></h3>
-  <hr class="line-break">
-  <h3 class="sub-title">Location</h3>
-  <p><%= @activity.location %></p>
-  <%= link_to "Home", admin_activities_path, class: "btn btn-primary" %>
+
+<%= link_to "Home", admin_activities_path, class: "btn btn-primary" %>
+<div class="activity-info">
+  <div class="info">
+    <h1>Info</h1>
+    <h3 class="sub-title">Brief introducition to <%= @activity.name %></h3>
+    <p><%= @activity.description %></p>
+    <hr class="line-break">
+    <h3 class="sub-title">Location</h3>
+    <p><%= @activity.location %></p>
+  </div>
+
+  <div class="schedule">
+    <h1>Schedule</h1>
+    <ul>
+      <% @activity.availabilities.each do |d| %>
+      <li><%= d.start_time.strftime('%d-%m-%Y') %> <%= d.employee.name %></li>
+      <% end %>
+    </ul>
+  </div>
 </div>
-
-
-
