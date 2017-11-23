@@ -1,0 +1,16 @@
+<div id="calendar"></div>
+
+
+<% content_for(:after_js) do %>
+  <script>
+    $('#calendar').fullCalendar({
+      weekends: false,
+      header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        events: '/admin/activities/<%= @activity_id %>/availabilities.json',
+    });
+  </script>
+<% end %>

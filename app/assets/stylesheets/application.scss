@@ -1,4 +1,4 @@
-// Graphical variables
+// Graphical variable
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
@@ -8,10 +8,12 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "fullcalendar";
 
 // Your CSS partials
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
 
-@import "sign_up/index"
+@import "sign_up/index";
+

@@ -2,8 +2,8 @@ class Admin::AvailabilitiesController < ApplicationController
   layout "admin"
 
   def index
-    @user = current_user
-    @availabilities = Availability.where("activity.user_id = #{@user.id}")
+    @availabilities = Availability.where(activity_id: params[:activity_id])
+    @activity_id = params[:activity_id]
   end
 
   def show
