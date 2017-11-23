@@ -10,14 +10,10 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render "shared/employee-nav" %>
+    <%= render 'shared/guest-nav' %>
     <%= render 'shared/flashes' %>
-    <div class="main-container">
-      <div class="sidebar"><%= render "shared/sidebar2" %></div>
-      <div class="page-content"><%= yield %></div>
-    </div>
+    <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <%= yield(:after_js) %>
   </body>
 </html>

@@ -11,4 +11,3 @@ console.log('Hello World from Webpacker')
 
 import "plugins/flatpickr.js";
 import "bootstrap";
-

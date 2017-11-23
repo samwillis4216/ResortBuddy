@@ -1,3 +1,21 @@
-<h1>Activities#index</h1>
-<p>Find me in app/views/activities/index.html.erb</p>
-
+<div class="container-fluid" id="list">
+  <div class="row">
+    <% @activities.each do |activity| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <% img = activity.photo? ? activity.photo : "yq4gxp0oltwleiwafrx6" %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path img %>');">
+          <div class="card-category">
+            £<%= activity.price %>
+          </div>
+            <div class="card-description">
+              <h2><%= activity.name %></h2>
+            </div>
+            <div class="card-user">
+              <%= cl_image_tag activity.employee.photo.url(:bright_face), class: "card-user" %>
+            </div>
+            <%= link_to "", activity_path(activity, date: Date.today.strftime('%d-%m-%Y')), class: "card-link" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
