@@ -26,10 +26,12 @@
   border-radius: 7px;
   padding: 2px 12px;
 }
-.card-description {
+.samcustom {
   position: absolute;
-  bottom: 10px;
+  bottom: 20px;
   left: 10px;
+  color: #6b6b6b;
+  text-shadow: none !important;
 }
 .card-description h2 {
   font-size: 24px;
