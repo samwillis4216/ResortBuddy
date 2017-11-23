@@ -1,19 +1,40 @@
-
 <%= link_to "add new", new_admin_activity_path, class: "btn btn-primary", id: "add" %>
 
- <div class="container-fluid" id="testben">
-    <div class="row">
-      <% @activities.each do |activity| %>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <% img = activity.photo? ? activity.photo : "yq4gxp0oltwleiwafrx6" %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path img %>');">
-            <div class="card-category">
-              £<%= activity.price %>
-            </div>
-              <div class="card-description">
-                <h2><%= activity.name %></h2>
+<div class="container-fluid" id="list">
+  <div class="row">
+    <% @activities.each do |activity| %>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <% img = activity.photo? ? activity.photo : "yq4gxp0oltwleiwafrx6" %>
+          <div class="card samcustomcard">
+
+            <div class="top">
+              <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path img %>');"></div>
+              <div class="card-category">
+                £<%= activity.price %>
               </div>
-              <%= link_to "", admin_activity_path(activity), class: "card-link" %>
-          </div>
-        </div>
-      <% end %>
+            </div>
+
+          <div class="bottom">
+            <div class="card-description samcustomdescription">
+              <h2><%= activity.name %></h2>
+            </div>
+
+              <div class="scrolls">
+                <div class="bookings-wrapper samcustombookingwrapper">
+                  <% activity.availabilities.each do |availability| %>
+                    <div class="bookings samcustombookings">
+                      <p class="p-bar">
+                        <%= availability.start_time.strftime("%I:%M %p") %>
+                      </p>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+
+            <%= link_to "", admin_activity_path(activity), class: "card-link" %>
+            </div>
+      </div>
+    <% end %>
+  </div>
+</div>

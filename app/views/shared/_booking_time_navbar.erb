@@ -1,0 +1,26 @@
+<div class="navbar-wagon-d">
+  <div class="date-choose" id="date-choose">
+    <%# @date = Date.today %>
+    <% @date = Date.parse(params[:date]) %>
+    <%= link_to activity_path(@activity, date: (@date - 1.day).strftime('%d-%m-%Y')), remote: true do %>
+      <i class="fa fa-angle-left"></i>
+    <% end %>
+
+
+    <h2><%= @date.strftime("%b %d, %Y") %></h2>
+    <%= link_to activity_path(@activity, date: (@date + 1.day).strftime('%d-%m-%Y')), remote: true do %>
+      <i class="fa fa-angle-right"></i>
+    <% end %>
+  </div>
+  <div class="scrolls">
+    <div class="bookings-wrapper">
+      <% @availabilities.each do |availability| %>
+        <div class="bookings">
+          <p class="p-bar">
+            <%= availability.timeslot.strftime("%I:%M %p") %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
