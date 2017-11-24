@@ -1,0 +1,28 @@
+
+
+<h1>Sort By</h1>
+<div class="price-range">
+  <%= form_tag(activities_path, method: :get, name: "priceform") do %>
+    <% @activities.each_with_index do |activity, index| %>
+      <%= label_tag "#{activity.id}", activity.name %>
+      <%= check_box_tag "category[]", activity.name %>
+    <% end %>
+    <%= label_tag 'maximum price £ ' %>
+    <input name="price" id="price" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="75" data-slider-step="1" data-slider-value="25"/>
+    <%= submit_tag 'Search' %>
+  <% end %>
+</div>
+
+
+<%= content_for(:after_js) do %>
+<script>
+  $('#price').slider({
+  formatter: function(value) {
+    return 'Current value: ' + value;
+  }
+});
+  </script>
+  <% end %>
+
+
+

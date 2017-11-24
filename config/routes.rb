@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index, :show, :destroy]
   get '/my_activities', to: 'activities#my_activities'
+  get '/filter', to: 'activities#filter'
 end

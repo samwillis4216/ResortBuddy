@@ -3,34 +3,37 @@
     <% @activities.each do |activity| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <% img = activity.photo? ? activity.photo : "yq4gxp0oltwleiwafrx6" %>
-          <div class="card samcustomcard">
+        <!-- the show page isn't working yet so I just linked it to the filter page, when its working change it back to show page -->
+          <%= link_to filter_path, :action => 'go' do %>
 
-            <div class="top">
-              <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path img %>');"></div>
-              <div class="card-category">
-                £<%= activity.price %>
-              </div>
-            </div>
+            <div class="card samcustomcard">
 
-          <div class="bottom">
-            <div class="card-description samcustomdescription">
-              <h2><%= activity.name %></h2>
-            </div>
-
-              <div class="scrolls">
-                <div class="bookings-wrapper samcustombookingwrapper">
-                  <% activity.availabilities.each do |availability| %>
-                    <div class="bookings samcustombookings">
-                      <p class="p-bar">
-                        <%= availability.start_time.strftime("%I:%M %p") %>
-                      </p>
-                    </div>
-                  <% end %>
+              <div class="top">
+                <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path img %>');"></div>
+                <div class="card-category">
+                  £<%= activity.price %>
                 </div>
               </div>
-            </div>
 
-            </div>
+            <div class="bottom">
+              <div class="card-description samcustomdescription">
+                <h2><%= activity.name %></h2>
+              </div>
+
+                <div class="scrolls">
+                  <div class="bookings-wrapper samcustombookingwrapper">
+                    <% activity.availabilities.each do |availability| %>
+                      <div class="bookings samcustombookings">
+                        <p class="p-bar">
+                          <%= availability.start_time.strftime("%I:%M %p") %>
+                        </p>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              </div>
+          <% end %>
       </div>
     <% end %>
   </div>

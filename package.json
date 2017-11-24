@@ -8,6 +8,7 @@
     "coffeescript": "1.12.7",
     "flatpickr": "^4.1.2",
     "fullcalendar": "^3.7.0",
+    "gsap": "^1.20.3",
     "jquery": "^3.2.1",
     "webpacker": "^0.0.3"
   },
