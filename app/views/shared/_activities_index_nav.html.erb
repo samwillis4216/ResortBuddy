@@ -1,7 +1,7 @@
 <div class="navbar-wagon <%= yield(:navbar_class) %>">
   <!-- Logo -->
   <a href="/filter" class="navbar-wagon-brand">
-    <div class="ll"><%= image_tag "funnel.png", class: "logo" %></div>
+    <div class="ll"><i class="fa fa-search funnel-logo" aria-hidden="true"></i></div>
   </a>
 
   <!-- Right Navigation -->
@@ -24,6 +24,7 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%=link_to "Home", home_guest_path %></li>
         <li><%=link_to "Profile", profile_guest_path %></li>
         <li><%=link_to "Booked Activities", my_activities_path %></li>
         <li><%=link_to "Log Out", destroy_guest_session_path, method: :delete %></li>
