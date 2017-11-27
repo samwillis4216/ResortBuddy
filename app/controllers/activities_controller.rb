@@ -7,13 +7,16 @@ class ActivitiesController < ApplicationController
   end
 
   def index
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @category = params[:category]
     @price = params[:price]
     @numpeople = params[:numpeople]
     if params[:category] && params[:price] && params[:numpeople]
-      @activities = Activity.where(category: @category.map(&:capitalize)).where("price <= #{@price}").order(price: :asc).where("capacity >= #{@numpeople}").order(capacity: :asc)
+      @activities = Activity.where(category: @category.map(&:capitalize)).where("price <= ?", @price).order(price: :asc).where("capacity >= ?", @numpeople).order(capacity: :asc)
+      @activities = @activities.select {|activity| activity.availabilities.any? {|availability| availability.start_time.to_date == @date}}
     else
       @activities = Activity.all
+      @activities = @activities.select {|activity| activity.availabilities.any? {|availability| availability.start_time.to_date == @date}}
     end
   end
 

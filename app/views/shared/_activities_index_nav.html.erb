@@ -1,8 +1,14 @@
 <div class="navbar-wagon <%= yield(:navbar_class) %>">
   <!-- Logo -->
-  <a href="/filter" class="navbar-wagon-brand">
-    <div class="ll"><i class="fa fa-search funnel-logo" aria-hidden="true"></i></div>
-  </a>
+  <% if @date %>
+    <a href="/filter?date=<%= @date.strftime("%Y-%m-%d") %>" class="navbar-wagon-brand" id="filter-button">
+      <div class="ll"><%= image_tag "funnel.png", class: "logo filter-image" %></div>
+    </a>
+  <% else %>
+    <a href="/filter" class="navbar-wagon-brand" id="filter-button">
+      <div class="ll"><i class="fa fa-search funnel-logo" aria-hidden="true"></i></div>
+    </a>
+  <% end %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">

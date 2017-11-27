@@ -7,6 +7,6 @@ class Guest < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :messages, as: :messageable
+  has_many :messages, as: :messageable, dependent: :destroy
 
 end

@@ -18,6 +18,7 @@
       <br>
       <input id="ex7" name="numpeople" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide"/>
     </div>
+    <input type="hidden" name="date" value="<%= params[:date] %>">
     <%= submit_tag 'Filter', class: "search" %>
   <% end %>
 </div>

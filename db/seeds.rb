@@ -6,9 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning database...'
-Activity.destroy_all
-Availability.destroy_all
 Booking.destroy_all
+Chatroom.destroy_all
+Availability.destroy_all
+Activity.destroy_all
 Employee.destroy_all
 Guest.destroy_all
 #don't fuck with the order above
