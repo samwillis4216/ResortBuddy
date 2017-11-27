@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
   root to: 'pages#home'
   resources :pages
 
@@ -9,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'activities/:id/rerender', to: 'activities#rerender', as: :rerender
 
+
   # Devise
   devise_for :employees, :controllers => { :registrations => "employees/registrations" }
   devise_for :guests, :controllers => { :registrations => "guests/registrations" }
@@ -16,8 +18,9 @@ Rails.application.routes.draw do
   # Employees
   namespace :admin do
     resources :bookings, only: [:index, :show, :edit, :update, :destroy]
-
+    get 'my_activities', to: 'activities#my_activities'
     resources :activities do
+
       resources :bookings, only: [:new, :create]
       resources :availabilities
     end
@@ -26,7 +29,12 @@ Rails.application.routes.draw do
   # Guests
   resources :activities, only: [:index, :show, :new] do
     resources :bookings, only: [:create]
+    resources :availabilities, only: [:show] do
+    end
   end
   resources :bookings, only: [:index, :show, :destroy]
-  get '/my_activities', to: 'activities#my_activities'
+
+  resources :chatrooms do
+    resources :messages, only: [:create]
+  end
 end

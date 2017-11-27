@@ -1,23 +1,19 @@
-.container-bookings {
-  margin: 10px;
-}
-.booking {
+.activity {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px 20px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgba(150, 150, 150, 0.4);
   margin: 10px;
   position: relative;
 }
-.book-info {
+.act-info {
   flex-grow: 1;
   padding: 0 10px;
   border-right: 1px solid rgba(150, 150, 150, 0.4);
-  font-size: 15px;
 }
-.book-date {
+.act-date {
   padding: 0 10px;
   border-right: 1px solid rgba(150, 150, 150, 0.4);
   -webkit-transition: color 0.3s;
@@ -25,51 +21,64 @@
   z-index: 3;
   font-size: 15px;
 }
-.book-price {
+.act-price {
   padding: 0 10px;
-  font-size: 15px;
+  width: 95px;
 }
-.booking-link {
+.activity-link {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   width: 100%;
+  z-index: 2;
   background: black;
   opacity: 0;
   z-index: 1;
 }
-.colored-side {
-  background: #30A19A;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 7px;
-  height: 100%;
-  border-top-left-radius: 11px;
-  border-bottom-left-radius: 11px;
-  -webkit-transition: width 0.3s;
-  transition: width 0.3s;
-}
-.booking:hover {
+.activity:hover {
   .colored-side {
     width: 150px;
   }
-  .book-date {
+  .act-date {
     color: white;
 
   }
 }
-.person {
-  display: flex;
-  .guests {
-    color: #D88F3C;
-    font-size: 13px;
-  }
+.delete-link {
+  z-index: 2;
+  position: absolute;
+  color: #D88F3C !important;
 }
-.booker {
-  box-shadow: 1px 1px 1px rgba(150, 150, 150, 0.5);
+.act-cont {
+  display: flex;
+  padding: 2px 0;
 }
 .people {
-  margin: 0 4px;
+  border-top: 1px solid rgba(150, 150, 150, 0.4);
+  display: flex;
+}
+.booker {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 3px;
+}
+.guests {
+  color: #30A19A;
+  font-weight: bold;
+}
+.act-right {
+  flex-grow: 1;
+  padding: 0 10px;
+}
+.activity-link:hover {
+  opacity: 0 !important;
+}
+.title {
+  margin: 0 10px;
+  h2 {
+    font-weight: bold;
+    font-size: 30px;
+  }
 }

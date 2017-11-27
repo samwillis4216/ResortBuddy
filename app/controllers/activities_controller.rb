@@ -33,9 +33,6 @@ class ActivitiesController < ApplicationController
   def destroy
   end
 
-  def my_activities
-  end
-
   def rerender
     @date = Date.parse(params[:date])
     @activity = Activity.find(params[:id])
