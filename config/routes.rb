@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :bookings, only: [:index, :show, :edit, :update, :destroy]
     get 'my_activities', to: 'activities#my_activities'
+    get 'dashboard', to: 'activities#dashboard'
     resources :activities do
 
       resources :bookings, only: [:new, :create]

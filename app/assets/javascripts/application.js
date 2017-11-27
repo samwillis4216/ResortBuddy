@@ -3,5 +3,5 @@
 //= require moment
 //= require fullcalendar
 //= require_tree .
-
-
+//= require highcharts
+//= require chartkick
