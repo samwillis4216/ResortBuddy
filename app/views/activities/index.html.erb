@@ -7,8 +7,7 @@
       <div class="col-xs-12 col-sm-6 col-md-4">
         <% img = activity.photo? ? activity.photo : "yq4gxp0oltwleiwafrx6" %>
         <!-- the show page isn't working yet so I just linked it to the filter page, when its working change it back to show page -->
-          <%= link_to filter_path, :action => 'go' do %>
-
+          <%= link_to activity_path(activity, date: Date.today.strftime('%d-%m-%Y')), :action => 'go' do %>
             <div class="card samcustomcard">
 
               <div class="top">
