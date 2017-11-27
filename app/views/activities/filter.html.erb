@@ -1,0 +1,41 @@
+<h1 class="filter-title text-center">Filter By</h1>
+<div class="price-range">
+  <%= form_tag(activities_path, method: :get, name: "priceform") do %>
+    <% @activities.each_with_index do |activity, index| %>
+      <%= label_tag "#{activity.id}", activity.name.capitalize, class: "category" %>
+      <%= check_box_tag "category[]", activity.name, true%>
+      <br>
+      <br>
+    <% end %>
+    <br>
+    <div class="slider">
+      <span id="ex6CurrentSliderValLabel" class="filter-subtitle">Filter by price: £<span id="ex6SliderVal">50</span></span>
+      <br>
+      <input id="ex6"  name="price" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide"/>
+      <br>
+      <br>
+      <span id="ex7CurrentSliderValLabel" class="filter-subtitle">Filter by number of people: <span id="ex7SliderVal">1</span></span>
+      <br>
+      <input id="ex7" name="numpeople" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide"/>
+    </div>
+    <%= submit_tag 'Filter', class: "search" %>
+  <% end %>
+</div>
+
+
+<%= content_for(:after_js) do %>
+<script>
+  $("#ex6").slider();
+$("#ex6").on("slide", function(slideEvt) {
+  $("#ex6SliderVal").text(slideEvt.value);
+});
+
+ $("#ex7").slider();
+$("#ex7").on("slide", function(slideEvt) {
+  $("#ex7SliderVal").text(slideEvt.value);
+});
+  </script>
+  <% end %>
+
+
+
