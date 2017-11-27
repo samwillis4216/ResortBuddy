@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
+  resources :pages
 
   get 'home_guest', to: 'pages#home_guest'
+
   get 'profile_guest', to: 'pages#profile_guest'
+  patch 'profile_guest', to: 'pages#profile_update'
+
   get 'activities/:id/rerender', to: 'activities#rerender', as: :rerender
 
   # Devise
