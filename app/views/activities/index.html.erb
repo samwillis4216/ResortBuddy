@@ -1,5 +1,8 @@
 <div class="container-fluid" id="list">
   <div class="row">
+  <% if @activities.count == 0 %>
+      <h3>There are no activities that match your filter requirements</h3>
+      <% end %>
     <% @activities.each do |activity| %>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <% img = activity.photo? ? activity.photo : "yq4gxp0oltwleiwafrx6" %>

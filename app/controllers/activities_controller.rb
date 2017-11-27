@@ -9,11 +9,9 @@ class ActivitiesController < ApplicationController
   def index
     @category = params[:category]
     @price = params[:price]
-
-    if params[:category] && params[:price]
-      @activities = Activity.where(category: @category.map(&:capitalize)).where("price <= #{@price}").order(price: :asc)
-    elsif params[:category]
-      @activities = Activity.where(category: @category.map(&:capitalize)).order(price: :asc)
+    @numpeople = params[:numpeople]
+    if params[:category] && params[:price] && params[:numpeople]
+      @activities = Activity.where(category: @category.map(&:capitalize)).where("price <= #{@price}").order(price: :asc).where("capacity >= #{@numpeople}").order(capacity: :asc)
     else
       @activities = Activity.all
     end
