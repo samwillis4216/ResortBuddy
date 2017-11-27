@@ -38,7 +38,15 @@ class Admin::ActivitiesController < ApplicationController
   end
 
   def my_activities2
+    @my_availabilities = Availability.where('employee_id = ?', current_employee.id)
+    # @ppl = Booking.where("availability_id = #{availability.id}")
+    # @sumofppl = 0
+    # @ppl.each do |i|
+    # @sumofppl += i.no_ppl
+    # end
   end
+
+
 
   private
 

@@ -1,0 +1,63 @@
+  <div class="container-add" >
+  <div class="top-line">
+    <h1>Your Activity</h1>
+      <%= link_to "add a new availability", new_admin_activity_availability(activity, class: "btn btn-primary", id: "add" %>
+  </div>
+
+  <div class="tabs">
+  <a class="tab active" href="#">
+    <p>Activity Details</p>
+  </a>
+  <a class="tab" href="#">
+    <p>Activity Schedule</p>
+  </a>
+</div>
+
+<div class="container-activity">
+  <% img = @activity.photo? ? @activity.photo : 'iyq4gxp0oltwleiwafrx6' %>
+  <div class="booking-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path img %>');">
+    <div class="booking-content">
+      <h1 id="title"><%= @activity.name %></h1>
+      <h2><strong>Location: </strong><%= @activity.location %></h2>
+      <h2><strong>Price: </strong>£<%= @activity.price %></h2>
+      <h2><strong>Cpacity: </strong><%= @activity.capacity %></h2>
+      <h2><strong>Duration: </strong><%= @activity.duration %>h</h2>
+    </div>
+  </div>
+</div>
+
+<%= link_to "Home", admin_activities_path, class: "btn btn-primary" %>
+<div class="activity-info">
+  <div class="info">
+    <h1>Info</h1>
+    <h3 class="sub-title">Brief introducition to <%= @activity.name %></h3>
+    <p><%= @activity.description %></p>
+    <hr class="line-break">
+    <h3 class="sub-title">Location</h3>
+    <p><%= @activity.location %></p>
+  </div>
+
+  <div class="schedule">
+    <h1>Schedule</h1>
+    <div id="calendar"></div>
+  </div>
+</div>
+</div>
+<% content_for(:after_js) do %>
+  <script>
+    $('#calendar').fullCalendar({
+      themeSystem: "bootstrap3",
+      allDaySlot: false,
+      defaultView: "agendaWeek",
+      minTime: "09:00:00",
+      maxTime: "18:00:00",
+      header: {
+            left: '',
+            center: 'prev title next',
+            right: 'today'
+        },
+        events: '/admin/activities/<%= @activity_id %>/availabilities.json',
+    });
+  </script>
+<% end  %>
+

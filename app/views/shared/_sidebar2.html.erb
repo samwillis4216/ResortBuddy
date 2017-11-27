@@ -6,7 +6,7 @@
   <% dashboard = 'nav-active' %>
 <% end %>
 
-<% if params[:controller] == 'admin/bookings' %>
+<% if params[:controller] == 'admin/my_activities2' %>
   <% bookings = 'nav-active' %>
 <% end %>
 
@@ -21,7 +21,7 @@
         </div>
       </li>
     <% end %>
-  <%= link_to admin_bookings_path do %>
+  <%= link_to admin_my_activities2_path do %>
     <li class="sidebar-wagon-item sidebar-wagon-link <%= bookings %> " >
     <div class="sidebar-wagon-item">
     <div class="line <%= bookings %>"></div>
