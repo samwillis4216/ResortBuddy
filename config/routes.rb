@@ -35,7 +35,12 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index, :show, :destroy]
 
+
   resources :chatrooms do
     resources :messages, only: [:create]
   end
+
+  get '/my_activities', to: 'activities#my_activities'
+  get '/filter', to: 'activities#filter'
+
 end

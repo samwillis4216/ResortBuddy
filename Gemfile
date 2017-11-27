@@ -48,8 +48,7 @@ gem 'geocoder'
 gem "recurrence"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-
-
+gem 'bootstrap-slider-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

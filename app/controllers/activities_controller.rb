@@ -1,13 +1,19 @@
 class ActivitiesController < ApplicationController
-  layout "guest"
+  layout 'guest', :only => [:show]
+  layout 'activities_index', :only => [:index]
+
+  def filter
+    @activities = Activity.all
+  end
 
   def index
     @category = params[:category]
-    if params[:price].present?
-      @price = params[:price]
-      @activities = Activity.where("category iLIKE '%#{@category}%'").where("price <= #{@price}").order(price: :asc)
+    @price = params[:price]
+    @numpeople = params[:numpeople]
+    if params[:category] && params[:price] && params[:numpeople]
+      @activities = Activity.where(category: @category.map(&:capitalize)).where("price <= #{@price}").order(price: :asc).where("capacity >= #{@numpeople}").order(capacity: :asc)
     else
-      @activities = Activity.where("category iLIKE '%#{@category}%'").order(price: :asc)
+      @activities = Activity.all
     end
   end
 
