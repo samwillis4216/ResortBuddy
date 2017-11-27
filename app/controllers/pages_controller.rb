@@ -15,8 +15,23 @@ class PagesController < ApplicationController
   end
 
   def profile_guest
-    @current_guest = current_guest
   end
 
+  def profile_update
+    if current_guest.update(user_params)
+      sign_in(current_guest, bypass: true)
+      redirect_to home_guest_path, notice: 'Profile Update!'
+    else
+      redirect_to profile_guest_path, alert: "Something went wrong! #{current_guest.errors.full_messages.join(' ')}"    end
+  end
 
+  def update
+    @current_guest.save
+  end
+
+  private
+
+  def user_params
+    params.require(:guest).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
 end

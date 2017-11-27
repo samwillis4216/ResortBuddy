@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123122017) do
+ActiveRecord::Schema.define(version: 20171124132814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 20171123122017) do
   end
 
   create_table "availabilities", force: :cascade do |t|
-    t.integer "activity_id"
-    t.integer "employee_id"
+    t.bigint "activity_id"
+    t.bigint "employee_id"
     t.datetime "start_time"
     t.datetime "end_time"
     t.datetime "created_at", null: false
@@ -42,13 +42,20 @@ ActiveRecord::Schema.define(version: 20171123122017) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "availability_id"
-    t.integer "guest_id"
+    t.bigint "availability_id"
+    t.bigint "guest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "no_ppl"
     t.index ["availability_id"], name: "index_bookings_on_availability_id"
     t.index ["guest_id"], name: "index_bookings_on_guest_id"
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.bigint "availability_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["availability_id"], name: "index_chatrooms_on_availability_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -92,24 +99,32 @@ ActiveRecord::Schema.define(version: 20171123122017) do
     t.index ["reset_password_token"], name: "index_guests_on_reset_password_token", unique: true
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.string "body"
+    t.bigint "chatroom_id"
+    t.string "messageable_type"
+    t.bigint "messageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
+    t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id"
+  end
+
   create_table "resorts", force: :cascade do |t|
     t.string "name"
     t.string "address"
-    t.integer "employee_id"
+    t.bigint "employee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["employee_id"], name: "index_resorts_on_employee_id"
   end
 
-  create_table "stays", force: :cascade do |t|
-    t.integer "guest_id"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.string "room_no"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["guest_id"], name: "index_stays_on_guest_id"
-  end
-
   add_foreign_key "activities", "employees"
+  add_foreign_key "availabilities", "activities"
+  add_foreign_key "availabilities", "employees"
+  add_foreign_key "bookings", "availabilities"
+  add_foreign_key "bookings", "guests"
+  add_foreign_key "chatrooms", "availabilities"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "resorts", "employees"
 end

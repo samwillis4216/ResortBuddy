@@ -1,2 +1,30 @@
-<h1>Availabilities#show</h1>
-<p>Find me in app/views/availabilities/show.html.erb</p>
+<div class="chat-room">
+  <% @messages.each do |message| %>
+    <div class="message">
+      <%# image_tag message.user.avatar_url, class: "avatar" %>
+      <div class="message-content">
+        <%= message.messageable.first_name %> - <%= message.body %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div id="create-message">
+  <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+    <%= f.input :body, label: false %>
+  <% end %>
+</div>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+    App['chat_room_<%= @chatroom.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ChatRoomsChannel', chat_room_id: <%= @chatroom.id %> },
+      { received: (data) => {
+          const chatroom = document.querySelector('.chat-room');
+          const message = document.createElement('p');
+          message.innerText = data.sender + ' - ' + data.body
+          chatroom.appendChild(message);
+        }
+      });
+  </script>
+<% end %>

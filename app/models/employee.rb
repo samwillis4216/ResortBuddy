@@ -6,6 +6,8 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :messages, as: :messageable
+
   def name
     first_name || email
   end

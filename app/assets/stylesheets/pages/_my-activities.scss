@@ -1,0 +1,84 @@
+.activity {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(150, 150, 150, 0.4);
+  margin: 10px;
+  position: relative;
+}
+.act-info {
+  flex-grow: 1;
+  padding: 0 10px;
+  border-right: 1px solid rgba(150, 150, 150, 0.4);
+}
+.act-date {
+  padding: 0 10px;
+  border-right: 1px solid rgba(150, 150, 150, 0.4);
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  z-index: 3;
+  font-size: 15px;
+}
+.act-price {
+  padding: 0 10px;
+  width: 95px;
+}
+.activity-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+  z-index: 1;
+}
+.activity:hover {
+  .colored-side {
+    width: 150px;
+  }
+  .act-date {
+    color: white;
+
+  }
+}
+.delete-link {
+  z-index: 2;
+  position: absolute;
+  color: #D88F3C !important;
+}
+.act-cont {
+  display: flex;
+  padding: 2px 0;
+}
+.people {
+  border-top: 1px solid rgba(150, 150, 150, 0.4);
+  display: flex;
+}
+.booker {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 3px;
+}
+.guests {
+  color: #30A19A;
+  font-weight: bold;
+}
+.act-right {
+  flex-grow: 1;
+  padding: 0 10px;
+}
+.activity-link:hover {
+  opacity: 0 !important;
+}
+.title {
+  margin: 0 10px;
+  h2 {
+    font-weight: bold;
+    font-size: 30px;
+  }
+}

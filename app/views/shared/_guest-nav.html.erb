@@ -6,7 +6,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-  <%=link_to "Booked Activities", my_activities_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  <%=link_to "Booked Activities", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <% img = current_guest.photo? ? current_guest.photo.url(:bright_face)  : 'jsut0cgif0nnmpalnwpn' %>
@@ -25,7 +25,7 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><%=link_to "Profile", profile_guest_path %></li>
-        <li><%=link_to "Booked Activities", my_activities_path %></li>
+        <li><%=link_to "Booked Activities", bookings_path %></li>
         <li><%=link_to "Log Out", destroy_guest_session_path, method: :delete %></li>
       </ul>
     </div>
