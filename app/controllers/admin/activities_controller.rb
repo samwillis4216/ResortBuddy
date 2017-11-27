@@ -34,6 +34,9 @@ class Admin::ActivitiesController < ApplicationController
   def destroy
   end
 
+  def my_activities
+  end
+
   private
 
   def activity_params

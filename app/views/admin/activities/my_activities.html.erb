@@ -1,0 +1,64 @@
+<% @my_availabilities = Availability.where('employee_id = ?', current_employee.id) %>
+
+<div class="container">
+  <div class="title">
+    <h2>Your Activities</h2>
+  </div>
+  <% @my_availabilities.each do |availability| %>
+    <div class="activity">
+      <div class="colored-side"></div>
+      <div class="act-date">
+       <p>
+        <strong><%= availability.start_time.strftime("%b %d, %Y") %></strong>
+       </p>
+       <p>
+        <%= availability.start_time.strftime("%I:%M %p") %>
+       </p>
+      </div>
+      <div class="act-right">
+        <div class="act-cont">
+          <div class="act-info">
+            <p>
+            <strong><%= availability.activity.name %></strong>
+            <%= link_to activity_path(availability.activity),
+            method: :delete,
+            class: "delete-link",
+            data: { confirm: "Are you sure?" } do %>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+            </p>
+            <p>
+            <%= availability.activity.location %>
+            </p>
+          </div>
+          <div class="act-price">
+            <p>
+              <% @ppl = Booking.where("availability_id = #{availability.id}") %>
+              <% @sumofppl = 0 %>
+              <% @ppl.each do |i| %>
+                <% @sumofppl += i.no_ppl %>
+              <% end %>
+              <%= @sumofppl %>/<%= availability.activity.capacity %>
+            </p>
+             <i class="fa fa-users" aria-hidden="true"></i>
+          </div>
+        </div>
+        <div class="people">
+          <% @bookings = Booking.where("availability_id = #{availability.id}") %>
+          <% @bookings.each do |booking| %>
+          <div class="person">
+            <% img = booking.guest.photo? ? booking.guest.photo.url(:bright_face) : "jsut0cgif0nnmpalnwpn" %>
+            <% if booking.no_ppl > 1 %>
+              <%= cl_image_tag img, class: "booker" %>
+              <p class="guests">+<%= booking.no_ppl - 1 %></p>
+            <% else %>
+                <%= cl_image_tag img, class: "booker" %>
+             <% end %>
+          </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

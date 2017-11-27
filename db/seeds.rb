@@ -18,3 +18,4 @@ surfing = Activity.create!(name:"surfing", location: "tahiti", description: "ree
 monday = Availability.create!(activity_id: surfing.id, employee_id: sandra.id, start_time: "2017-11-23T12:00:00.000Z", end_time: "2017-11-23T13:00:00.000Z")
 sam = Guest.create!(first_name: "Sam", last_name: "Willis", email: "s@gmail.com", password: "donkey" )
 sambook = Booking.create!(availability_id: monday.id, guest_id: sam.id, no_ppl: "2")
+chatroom = Chatroom.create!(availability_id: monday.id)
