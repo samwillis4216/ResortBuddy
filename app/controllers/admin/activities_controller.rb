@@ -37,6 +37,9 @@ class Admin::ActivitiesController < ApplicationController
   def my_activities
   end
 
+  def my_activities2
+  end
+
   private
 
   def activity_params

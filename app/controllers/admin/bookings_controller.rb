@@ -3,6 +3,8 @@ class Admin::BookingsController < ApplicationController
 
   def index
     @bookings = Booking.all
+    @availabilities = Availability.all
+    @activities = Activity.all
   end
 
   def show
