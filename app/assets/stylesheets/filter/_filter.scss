@@ -1,0 +1,34 @@
+.filter-title {
+  font-family: $filter-title-font;
+  padding-bottom: 10px;
+}
+
+.category {
+  float:left;
+  font-size: 20px;
+  font-family: $filter-font;
+  margin-left: 8px;
+}
+
+input[type="radio"], input[type="checkbox"]
+{
+  float:right;
+  margin-right: 8px;
+  width:31px;
+  height:21px;
+}
+
+.slider {
+  margin-left: 8px;
+}
+
+.search {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+
+.filter-subtitle {
+  font-size: 20px;
+  font-family: $filter-font;
+}
