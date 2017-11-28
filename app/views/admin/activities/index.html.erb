@@ -1,7 +1,21 @@
-  <div class="top-line">
-    <h1>Your Activities</h1>
-      <%= link_to "add new", new_admin_activity_path, class: "btn btn-primary", id: "add" %>
+<div class="show-page-header" >
+  <div class="calendar-header">
+    <div class="top-line-show">
+      <h1>Your Activities</h1>
+        <%= link_to "add new", new_admin_activity_path, class: "btn btn-primary", id: "add" %>
+    </div>
   </div>
+
+    <div class="tabs">
+    <p class="tab active" id="schedule"> all</p>
+    <% @activities.each do |activity| %>
+      <p class="tab active" id="schedule"><%=  activity.category %></p>
+      <% end %>
+    </div>
+
+
+</div>
+
 
 
 <div class="container-fluid" id="list">

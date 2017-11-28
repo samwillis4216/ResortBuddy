@@ -1,6 +1,5 @@
 .tabs {
   display: flex;
-  border-bottom: 1px #00BBE8 solid;
 }
 .tabs a {
   color: black;
@@ -28,8 +27,6 @@
 .tab.active {
   color: black;
   background-color: 0;
-
-  border-bottom: 3px #00BBE8 solid;
 }
 
 .activity-info {
