@@ -42,7 +42,8 @@ class Admin::ActivitiesController < ApplicationController
     @my_availabilities = Availability.where('employee_id = ?', current_employee.id)
   end
 
-
+  def dashboard
+  end
 
   private
 

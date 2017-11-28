@@ -1,15 +1,15 @@
 .header {
   text-align: center;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 
 .transparent-input {
   background-color: transparent !important;
-  border-top: none !important;
-  border-left: none !important;
-  border-right: none !important;
-  border-bottom: black;
+  // border-top: none !important;
+  // border-left: none !important;
+  // border-right: none !important;
+   border-bottom: white !important;
   box-shadow: none !important;
   color: white;
   font-size: 20px;
@@ -32,6 +32,7 @@
       background-image: url('sign_up_background_desktop.jpg');
       background-size: cover;
       background-position: center;
+      height: 100%;
     }
 }
 
@@ -40,6 +41,7 @@
       background-image: url('sign_up_background_laptop.jpg');
       background-size: cover;
       background-position: center;
+      height: 100%;
     }
 }
 
@@ -49,6 +51,7 @@
       background-size: cover;
       background-position: center;
       color:white;
+      height: 100%;
     }
 }
 

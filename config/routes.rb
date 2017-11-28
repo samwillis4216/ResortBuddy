@@ -20,8 +20,9 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :show, :edit, :update, :destroy]
     get 'my_activities', to: 'activities#my_activities'
     get 'my_activities2', to: 'activities#my_activities2'
-    resources :activities do
+    get 'dashboard', to: 'activities#dashboard'
 
+    resources :activities do
       resources :bookings, only: [:new, :create]
       resources :availabilities
     end
@@ -35,7 +36,12 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index, :show, :destroy]
 
+
   resources :chatrooms do
     resources :messages, only: [:create]
   end
+
+  get '/my_activities', to: 'activities#my_activities'
+  get '/filter', to: 'activities#filter'
+
 end

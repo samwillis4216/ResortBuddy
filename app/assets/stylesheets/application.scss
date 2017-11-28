@@ -6,6 +6,7 @@
 // External libraries
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-slider";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "fullcalendar";
@@ -16,4 +17,5 @@
 @import "pages/index";
 
 @import "sign_up/index";
+@import "filter/index";
 
