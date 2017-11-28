@@ -33,6 +33,7 @@
 
 <%= content_for(:after_js) do %>
   <script>
+      // var flag = false;
 
     document.getElementById('free').addEventListener('change', () => {
       const priceSlider = document.getElementById('price');
@@ -47,14 +48,33 @@
         // priceSliderValBeforeChkBx = priceSliderVal.innerHTML;
         // priceSlider.value = 0
         // priceSliderVal.innerHTML = 0
-        fetch(`/count?price=${0}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
+        // flag = true;
+        if (buildCategoryArray() === null) {
+        <% arrRuby = @activities %>;
+        var arr = arrRuby;
+        var str = "";
+        for (var i = 0 ; i < (arr.length-1); i++)
+        {
+          str = "category[]=" + arr[i].category + "&";
+        }
+        fetch(`/count?price=${0}&capacity=${$('#capacity').val()}&${str}date=${'<%= params[:date] %>'}`)//category will be empty so it will try find activities with price equal to zero but it cant do that because categories are empty
           .then(response => response.json())
           .then(data => {
             document.getElementById('submit').value = `show ${data.count} results`
           })
+        }
+        else
+        {
+          fetch(`/count?price=${0}&capacity=${$('#capacity').val()}&${buildCategoryArray()}date=${'<%= params[:date] %>'}`)//category will be empty so it will try find activities with price equal to zero but it cant do that because categories are empty
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('submit').value = `show ${data.count} results`
+          })
+        }
       } else {
         // priceSlider.value = priceBeforeChkBx;
         // priceSliderVal.innerHTML = priceSliderValBeforeChkBx;
+        // flag = false;
         $("#price").slider("enable");
         fetch(`/count?price=${$('#price').val()}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
           .then(response => response.json())
@@ -87,11 +107,20 @@
 
     document.querySelectorAll('.respondToInput').forEach(checkbox => {
       checkbox.addEventListener('change', (e) => {
+        // if (flag == false) {
         fetch(`/count?price=${$('#price').val()}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
           .then(response => response.json())
           .then(data => {
             document.getElementById('submit').value = `show ${data.count} results`
           })
+        // }
+        if (buildCategoryArray() === null) {
+          fetch(`/count?price=${0}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('submit').value = `show ${data.count} results`
+          })
+        }
       })
     })
 
