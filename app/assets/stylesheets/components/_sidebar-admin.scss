@@ -66,7 +66,7 @@ i:hover {
   .line:hover {
   height: 50px;
   width: 5px;
-  background-color: #00BBE8;
+  background-color: $blue;
   margin-right: 20px;
 }
 }
@@ -129,14 +129,14 @@ margin: 0;
 .line:hover {
   height: 50px;
   width: 5px;
-  background-color: #00BBE8;
+  background-color: $blue;
   margin-right: 20px;
 }
 
 .line.nav-active{
   height: 50px;
   width: 5px;
-  background-color: #00BBE8;
+  background-color: $blue;
     margin-right: 20px;
 }
 
