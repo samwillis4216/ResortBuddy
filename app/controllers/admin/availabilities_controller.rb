@@ -28,7 +28,7 @@ class Admin::AvailabilitiesController < ApplicationController
       availability.activity = @activity
       availability.employee = employee
       availability.save
-      chatroom = Chatroom.create!(availability.id)
+      # chatroom = Chatroom.create!(availability.id)
 
       start_time += 7.day
       end_time += 7.day
