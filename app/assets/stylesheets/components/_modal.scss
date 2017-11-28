@@ -13,18 +13,19 @@ opacity: 0.8;
 
 .d {
  background-color: transparent;
- border-color: #B5DCFC;
+ border-color: $blue;
  border-width: 2px;
 }
 
 .d:hover{
- background-color: #B5DCFC;
- border-color: #B5DCFC;
+ background-color: $blue;
+ border-color: $blue;
+ color: white;
 }
 
 .d:active{
  background-color: #9FD2FC !important;
- border-color: #B5DCFC !important;
+ border-color: $blue !important;
 }
 
 .l{

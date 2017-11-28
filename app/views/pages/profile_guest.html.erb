@@ -15,9 +15,10 @@
       <%= current_guest.email %>
     </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-    <h8>Edit your details:</h8>
+  <hr>
+    <h8><strong>Edit your details:</strong></h8>
     <%= simple_form_for(current_guest, url: profile_guest_path, method: :patch) do |f| %>
-
+    <br>
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.input :email %>
