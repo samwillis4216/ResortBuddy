@@ -1,42 +1,124 @@
 <h1 class="filter-title text-center">Filter By</h1>
 <div class="price-range">
   <%= form_tag(activities_path, method: :get, name: "priceform") do %>
+  <% arr = [] %>
     <% @activities.each_with_index do |activity, index| %>
-      <%= label_tag "#{activity.id}", activity.name.capitalize, class: "category" %>
-      <%= check_box_tag "category[]", activity.name, true%>
-      <br>
-      <br>
+      <% unless arr.include?(activity.category) %>
+        <% arr << activity.category %>
+        <%= label_tag "#{activity.id}", activity.name.capitalize, class: "category" %>
+        <%= check_box_tag "category[]", activity.category, true, class: "respondToInput" %>
+        <br>
+        <br>
+      <% end %>
     <% end %>
+    <%= label_tag 'Free', "Free activities", class: "category" %>
+    <%= check_box_tag 'free', 0 , false %>
+    <br>
+    <br>
     <br>
     <div class="slider">
-      <span id="ex6CurrentSliderValLabel" class="filter-subtitle">Filter by price: £<span id="ex6SliderVal">50</span></span>
+      <span id="ex6CurrentSliderValLabel" class="filter-subtitle">Filter by maximum price: £<span id="priceSliderVal">50</span></span>
       <br>
-      <input id="ex6"  name="price" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide"/>
+      <input id="price"  name="price" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" data-slider-enabled="true"/>
       <br>
       <br>
-      <span id="ex7CurrentSliderValLabel" class="filter-subtitle">Filter by number of people: <span id="ex7SliderVal">1</span></span>
+      <span id="ex7CurrentSliderValLabel" class="filter-subtitle">Filter by minimum number of people: <span id="peopleSliderVal">1</span></span>
       <br>
-      <input id="ex7" name="numpeople" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide"/>
+      <input id="capacity" name="numpeople" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide"/>
     </div>
     <input type="hidden" name="date" value="<%= params[:date] %>">
-    <%= submit_tag 'Filter', class: "search" %>
+    <%= submit_tag '', class: "filter", id: "submit" %>
   <% end %>
 </div>
 
-
 <%= content_for(:after_js) do %>
-<script>
-  $("#ex6").slider();
-$("#ex6").on("slide", function(slideEvt) {
-  $("#ex6SliderVal").text(slideEvt.value);
-});
+  <script>
 
- $("#ex7").slider();
-$("#ex7").on("slide", function(slideEvt) {
-  $("#ex7SliderVal").text(slideEvt.value);
-});
-  </script>
-  <% end %>
+    function getFreeCheckboxValue() {
+      console.log('CALLED')
+        var checkBx = document.getElementById('free')
+        if (checkBx.checked === true) {
+          console.log(checkBx.value);
+        }
+    }
+
+
+    document.getElementById('free').addEventListener('change', () => {
+      const priceSlider = document.getElementById('price');
+      const priceSliderVal = document.getElementById('priceSliderVal')
+      var checkBx = document.getElementById('free')
+      if (checkBx.checked) {
+        console.log(priceSlider.value)
+        $("#price").slider("disable");
+        priceSlider.value = 0
+        priceSliderVal.innerHTML = 0
+        fetch(`/count?price=${0}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+            document.getElementById('submit').value = `show ${data.count} results`
+          })
+      } else {
+        console.log(priceSlider.value)
+        priceSlider.value = 50
+        priceSliderVal.innerHTML = 50
+        $("#price").slider("enable");
+        fetch(`/count?price=${$('#price').val()}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log("bazinga4")
+            document.getElementById('submit').value = `show ${data.count} results`
+          })
+
+      }
+      })
+
+    $("#price").slider();
+    $("#price").on("change", function(e) {
+      console.log("bazinga")
+      $("#priceSliderVal").text(e.value.newValue);
+      fetch(`/count?price=${e.value.newValue}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log("bazinga2")
+          document.getElementById('submit').value = `show ${data.count} results`
+        })
+    });
+
+    $("#capacity").slider();
+    $("#capacity").on("change", function(e) {
+      $("#peopleSliderVal").text(e.value.newValue);
+      fetch(`/count?price=${$('#price').val()}&capacity=${e.value.newValue}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
+        .then(response => response.json())
+        .then(data => {
+          console.log("bazinga3")
+          document.getElementById('submit').value = `show ${data.count} results`
+        })
+    });
+
+    document.querySelectorAll('.respondToInput').forEach(checkbox => {
+      checkbox.addEventListener('change', (e) => {
+        console.log(e.target.checked)
+        fetch(`/count?price=${$('#price').val()}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
+          .then(response => response.json())
+          .then(data => {
+            console.log("bazinga4")
+            document.getElementById('submit').value = `show ${data.count} results`
+          })
+      })
+    })
+
+    function buildCategoryArray() {
+      arr = []
+      document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        if (checkbox.checked === true) {
+          arr.push(`category[]=${checkbox.value}`)
+        }
+      })
+      return arr.join('&')
+    }
+</script>
+<% end %>
 
 
 

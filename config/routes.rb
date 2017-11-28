@@ -41,5 +41,6 @@ Rails.application.routes.draw do
 
   get '/my_activities', to: 'activities#my_activities'
   get '/filter', to: 'activities#filter'
+  get '/count', to: 'activities#count'
 
 end
