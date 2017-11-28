@@ -8,10 +8,10 @@ class Admin::ActivitiesController < ApplicationController
   end
 
   def show
-  @activity = Activity.find(params[:id])
+    @activity = Activity.find(params[:id])
   end
 
- def new
+  def new
     @activity = Activity.new
   end
 
@@ -19,11 +19,12 @@ class Admin::ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     @activity.employee = current_employee
     if @activity.save
-      redirect_to admin_activity_path(@activity)
+      redirect_to new_admin_activity_availability_path(@activity)
     else
       render "new"
     end
   end
+
 
   def edit
   end
@@ -39,11 +40,6 @@ class Admin::ActivitiesController < ApplicationController
 
   def my_activities2
     @my_availabilities = Availability.where('employee_id = ?', current_employee.id)
-    # @ppl = Booking.where("availability_id = #{availability.id}")
-    # @sumofppl = 0
-    # @ppl.each do |i|
-    # @sumofppl += i.no_ppl
-    # end
   end
 
 

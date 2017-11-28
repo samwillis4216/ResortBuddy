@@ -2,7 +2,6 @@
 
 
   <div class="schedule">
-    <h1>Schedule</h1>
     <div id="calendar"></div>
   </div>
 
@@ -21,7 +20,7 @@
             center: 'prev title next',
             right: 'today'
         },
-        events: '/admin/activities/<%= @activity_id %>/availabilities.json',
+        events: '/admin/activities/<%= @activity.id %>.json',
     });
   </script>
 <% end  %>
