@@ -34,39 +34,31 @@
 <%= content_for(:after_js) do %>
   <script>
 
-    function getFreeCheckboxValue() {
-      console.log('CALLED')
-        var checkBx = document.getElementById('free')
-        if (checkBx.checked === true) {
-          console.log(checkBx.value);
-        }
-    }
-
-
     document.getElementById('free').addEventListener('change', () => {
       const priceSlider = document.getElementById('price');
       const priceSliderVal = document.getElementById('priceSliderVal')
       var checkBx = document.getElementById('free')
+      // const priceBeforeChkBx;
+      // const priceSliderValBeforeChkBx;
       if (checkBx.checked) {
         console.log(priceSlider.value)
         $("#price").slider("disable");
-        priceSlider.value = 0
-        priceSliderVal.innerHTML = 0
+        // priceBeforeChkBx = priceSlider.value;
+        // priceSliderValBeforeChkBx = priceSliderVal.innerHTML;
+        // priceSlider.value = 0
+        // priceSliderVal.innerHTML = 0
         fetch(`/count?price=${0}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
           .then(response => response.json())
           .then(data => {
-            console.log(data)
             document.getElementById('submit').value = `show ${data.count} results`
           })
       } else {
-        console.log(priceSlider.value)
-        priceSlider.value = 50
-        priceSliderVal.innerHTML = 50
+        // priceSlider.value = priceBeforeChkBx;
+        // priceSliderVal.innerHTML = priceSliderValBeforeChkBx;
         $("#price").slider("enable");
         fetch(`/count?price=${$('#price').val()}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
           .then(response => response.json())
           .then(data => {
-            console.log("bazinga4")
             document.getElementById('submit').value = `show ${data.count} results`
           })
 
@@ -75,12 +67,10 @@
 
     $("#price").slider();
     $("#price").on("change", function(e) {
-      console.log("bazinga")
       $("#priceSliderVal").text(e.value.newValue);
       fetch(`/count?price=${e.value.newValue}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
         .then(response => response.json())
         .then(data => {
-          console.log("bazinga2")
           document.getElementById('submit').value = `show ${data.count} results`
         })
     });
@@ -91,18 +81,15 @@
       fetch(`/count?price=${$('#price').val()}&capacity=${e.value.newValue}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
         .then(response => response.json())
         .then(data => {
-          console.log("bazinga3")
           document.getElementById('submit').value = `show ${data.count} results`
         })
     });
 
     document.querySelectorAll('.respondToInput').forEach(checkbox => {
       checkbox.addEventListener('change', (e) => {
-        console.log(e.target.checked)
         fetch(`/count?price=${$('#price').val()}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
           .then(response => response.json())
           .then(data => {
-            console.log("bazinga4")
             document.getElementById('submit').value = `show ${data.count} results`
           })
       })
