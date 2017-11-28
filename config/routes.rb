@@ -29,12 +29,14 @@ Rails.application.routes.draw do
   # Guests
   resources :activities, only: [:index, :show, :new] do
     resources :bookings, only: [:create]
-    resources :availabilities, only: [:show] do
-    end
+    resources :availabilities, only: [:show]
   end
   resources :bookings, only: [:index, :show, :destroy]
 
   resources :chatrooms do
     resources :messages, only: [:create]
   end
+
+  patch 'notifications/mark_as_read', to: 'notifications#mark_as_read'
+  patch 'notifications/mark_as_cleared', to: 'notifications#mark_as_cleared'
 end

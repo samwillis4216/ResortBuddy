@@ -1,0 +1,7 @@
+<% activity = notification.availability.activity %>
+<% availability = notification.availability %>
+<%= link_to activity_availability_path(activity, availability) do %>
+  <div class="notification">
+    <p><b><%= notification.availability.activity.name %></b>: notif from <b><%= notification.notifierable.first_name %></b></p>
+  </div>
+<% end %>

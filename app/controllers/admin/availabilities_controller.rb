@@ -7,6 +7,10 @@ class Admin::AvailabilitiesController < ApplicationController
   end
 
   def show
+    @availability = Availability.find(params[:id])
+    @chatroom = Chatroom.find(@availability.chatroom.id)
+    @message = Message.new
+    @messages = @chatroom.messages
   end
 
   def new

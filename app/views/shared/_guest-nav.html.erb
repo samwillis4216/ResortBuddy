@@ -4,6 +4,23 @@
     <div class="ll"><%= image_tag "logo.png", class: "logo" %></div>
   </a>
 
+
+<!-- Notifications -->
+<% is_displayed = current_guest.received_notifications.where(read: false).count > 0 ? '' : 'hide-notif' %>
+<div class="flex-center nav-notif">
+  <i class="fa fa-bell" aria-hidden="true"></i>
+  <div class="notif-badge <%= is_displayed %>">
+    <p><%= current_guest.received_notifications.where(read: false).count %></p>
+  </div>
+  <div class="notif-container hide-notif">
+    <%= link_to 'Mark all as read', notifications_mark_as_read_path, method: :patch %>
+    <%= link_to 'Clear all', notifications_mark_as_cleared_path, method: :patch %>
+    <% current_guest.received_notifications.where(cleared: false).each do |notification| %>
+      <%= render 'shared/notification', notification: notification %>
+    <% end %>
+  </div>
+</div>
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
   <%=link_to "Booked Activities", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -32,3 +49,14 @@
   </div>
 </div>
 </div>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+    let navNotif = document.querySelector('.nav-notif');
+    let notifContainer = document.querySelector('.notif-container');
+    navNotif.addEventListener('click', function() {
+      notifContainer.classList.toggle('hide-notif');
+    });
+  </script>
+<% end %>
