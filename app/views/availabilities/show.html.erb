@@ -1,30 +1,51 @@
-<div class="chat-room">
-  <% @messages.each do |message| %>
-    <div class="message">
-      <%# image_tag message.user.avatar_url, class: "avatar" %>
-      <div class="message-content">
-        <%= message.messageable.first_name %> - <%= message.body %>
-      </div>
-    </div>
-  <% end %>
-</div>
-<div id="create-message">
-  <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
-    <%= f.input :body, label: false %>
-  <% end %>
+<% img = @availability.activity.photo? ? @availability.activity.photo : "yq4gxp0oltwleiwafrx6" %>
+
+<div class="booking-info">
+  <div class="booking-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path img %>');">
+  <div class="booking-content">
+    <h1>Your booking for <%= @availability.activity.name %></h2>
+    <ul class="list-unstyled">
+      <li>
+        <h2>
+          <strong>When?  </strong><%= @availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %>
+        </h2>
+      </li>
+      <li>
+        <h2>
+          <strong>Where?  </strong><%= @availability.activity.location %>
+        </h2>
+      </li>
+    </ul>
+  </div>
 </div>
 
+<div class="chat-window-guest">
+  <div class="chat-room">
+    <% @messages.each do |message| %>
+      <% user = !current_guest.nil? ? current_guest : current_employee %>
+      <%= render "shared/message", message: message, user_is_messages_author: message.messageable == user %>
+    <% end %>
+  </div>
+  <div id="create-message">
+    <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+      <%= f.input :body, label: false, input_html: { class: 'message-input' } %>
+      <%= f.button :submit, "Send", class: "btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
 <%= content_for(:after_js) do %>
   <script>
+    scrollLastMessageIntoView();
     App['chat_room_<%= @chatroom.id %>'] = App.cable.subscriptions.create(
       { channel: 'ChatRoomsChannel', chat_room_id: <%= @chatroom.id %> },
       { received: (data) => {
-          const chatroom = document.querySelector('.chat-room');
-          const message = document.createElement('p');
-          message.innerText = data.sender + ' - ' + data.body
-          chatroom.appendChild(message);
+        if (data.sender.email !== "<%= current_guest.email %>") {
+          const chatRoom = document.querySelector('.chat-room');
+          chatRoom.insertAdjacentHTML('beforeend', data.message_partial);
+          scrollLastMessageIntoView();
         }
-      });
+      }
+    });
   </script>
 <% end %>

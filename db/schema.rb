@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124132814) do
+ActiveRecord::Schema.define(version: 20171128120337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,6 +110,21 @@ ActiveRecord::Schema.define(version: 20171124132814) do
     t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string "notifiable_type"
+    t.bigint "notifiable_id"
+    t.string "notifierable_type"
+    t.bigint "notifierable_id"
+    t.bigint "availability_id"
+    t.boolean "read", default: false
+    t.boolean "cleared", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["availability_id"], name: "index_notifications_on_availability_id"
+    t.index ["notifiable_type", "notifiable_id"], name: "index_notifications_on_notifiable_type_and_notifiable_id"
+    t.index ["notifierable_type", "notifierable_id"], name: "index_notifications_on_notifierable_type_and_notifierable_id"
+  end
+
   create_table "resorts", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -126,5 +141,6 @@ ActiveRecord::Schema.define(version: 20171124132814) do
   add_foreign_key "bookings", "guests"
   add_foreign_key "chatrooms", "availabilities"
   add_foreign_key "messages", "chatrooms"
+  add_foreign_key "notifications", "availabilities"
   add_foreign_key "resorts", "employees"
 end
