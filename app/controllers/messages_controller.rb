@@ -22,11 +22,22 @@ class MessagesController < ApplicationController
       end
     end
     notifiables = []
+    if @message.messageable.is_a?(Guest)
+      notification_partial = ApplicationController.renderer.render(
+        partial: "shared/notification-employee",
+        locals: { notification: notifications.first
+      })
+    else
+      notification_partial = ApplicationController.renderer.render(
+        partial: "shared/notification-guest",
+        locals: { notification: notifications.first
+      })
+    end
     notifications.each { |notification| notifiables << notification.notifiable }
     ActionCable.server.broadcast("notifications", {
       notifications: notifications,
       notifiables: notifiables,
-      notification_partial: ApplicationController.renderer.render(partial: "shared/notification", locals: { notification: notifications.first })
+      notification_partial: notification_partial
     });
     respond_to do |format|
       format.html { redirect_to chat_room_path(@chat_room) }
