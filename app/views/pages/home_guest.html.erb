@@ -1,30 +1,39 @@
+ <div id="whole">
  <% @response = Weather.lookup(28743663, Weather::Units::CELSIUS) %>
 
 <div class="slideshow-container">
-
-    <div class="text">All your activities here</div>
-    <%= video_tag 'ocean.mp4', autoplay: true, loop: :loop, class: "homepic" %>
+  <div class="text">Bora Bora</div>
+  <%= video_tag 'ocean.mp4', autoplay: true, loop: :loop, class: "homepic" %>
 </div>
 
 <div class="homeinfo">
   <div class="weatherinfo">
-    <p><%= @response.condition.text %></p>
-    <p><%= @response.condition.temp %> °C</p>
-    <p>Local time: <%= @response.condition.date.strftime('%H:%M') %></p>
-    <% if @response.condition.text == "Cloudy" %>
-       <%= image_tag 'weather/cloudy.png', class: "weather"%>
-    <% elsif @response.condition.text == "Rain" %>
-        <%= image_tag 'weather/rain.png', class: "weather" %>
-    <% elsif @response.condition.text == "Sunny" %>
-        <%= image_tag 'weather/sunny.png', class: "weather" %>
-    <% elsif @response.condition.text == "Partly Cloudy" || "Mostly Cloudy" %>
-        <%= image_tag 'weather/sunclouds.png', class: "weather" %>
-    <% end %>
+    <p>
+      <div class="weatherinfo-main">
+        <%= @response.condition.text %>
+        <p>
+          <i class="fa fa-thermometer-half"></i> <%= @response.condition.temp %> °C
+          <i class="fa fa-clock-o"></i> <%= @response.condition.date.strftime('%H:%M') %>
+          <div class="sunrise">
+            <p>
+              sunrise <%= @response.astronomy.sunrise.strftime('%H:%M') %> |
+              sunset <%= @response.astronomy.sunset.strftime('%H:%M') %>
+            </p>
+          </div>
+        </p>
+      </div>
+      <% if @response.condition.text == "Cloudy" %>
+         <%= image_tag 'weather/cloudy.png', class: "weather"%>
+      <% elsif @response.condition.text == "Rain" %>
+          <%= image_tag 'weather/rain.png', class: "weather" %>
+      <% elsif @response.condition.text == "Sunny" %>
+          <%= image_tag 'weather/sunny.png', class: "weather" %>
+      <% elsif @response.condition.text == "Partly Cloudy" || "Mostly Cloudy" %>
+          <%= image_tag 'weather/sunclouds.png', class: "weather" %>
+      <% end %>
+    </p>
   </div>
-  <div class="sunrise">
-    <p>sunrise <%= @response.astronomy.sunrise.strftime('%H:%M') %></p>
-    <p>sunset <%= @response.astronomy.sunset.strftime('%H:%M') %></p>
-  </div>
+
 </div>
 <h3 class="guesthead">Book your activity</h3>
 <div class="scrolls">
@@ -55,7 +64,7 @@
       </div>
   </div>
 </div>
-<h3 class="guesthead">Today's schedule</h3>
+<h3 class="guesthead">Your day</h3>
 <div class="today-schedule">
   <% @user = current_guest %>
   <% @todaybookings = Booking.all %>
@@ -70,4 +79,4 @@
   </div>
   <% end %>
 </div>
-
+</div>
