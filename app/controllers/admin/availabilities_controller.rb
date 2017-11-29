@@ -31,17 +31,16 @@ class Admin::AvailabilitiesController < ApplicationController
       availability.end_time = end_time
       availability.activity = @activity
       availability.employee = employee
-      availability.save
-      # chatroom = Chatroom.create!(availability.id)
+      if availability.save
+        chatroom = Chatroom.create!(availability: availability)
+      else
+        render :new
+      end
 
       start_time += 7.day
       end_time += 7.day
     end
-    # if
-      redirect_to admin_activity_path(@activity)
-    # else
-    #   render :new
-    # end
+    redirect_to admin_activity_path(@activity)
   end
 
   def edit
