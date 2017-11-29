@@ -25,6 +25,7 @@
   }
 
   .tabs {
+    padding-right: 320px;
     background: #3aa6d0;
 
     p {
@@ -40,11 +41,25 @@
   }
 
   .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
+    margin: 0;
+    width: 260px;
+    height: 64px;
     bottom: 0px;
-    right: 20px;
-    background-color: #3fa6d0;
+    right: 0px;
+    border: none;
+    border-radius: 0;
+    background: #098cc1;
     color: white;
+
+    .fa {
+      position: relative;
+      margin-right: 10px;
+      top: 1px;
+    }
   }
 
 
@@ -55,7 +70,9 @@
   text-align: center;
   align-items: center;
   justify-content: space-between;
+
   h1 {
+    margin: 0;
     font-family: avenir;
     font-weight: 100;
     color: #233539;
@@ -67,8 +84,20 @@
     background-color: transparent;
 }
 
-.activity-infos {
-  display: none;
+.activities-details {
+  display: flex;
+
+  .activity-picture {
+    width: 70%;
+    height: 460px;
+    background-size: cover;
+  }
+
+  .activity-info {
+    display: flex;
+    width: 30%;
+  }
+
 }
 
 
@@ -79,13 +108,6 @@
 
 .activity-schedule {
   display: none;
-}
-
-.activity-info {
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .schedule {
@@ -115,29 +137,26 @@
   margin: 15px;
   padding: 20px;
   background: white;
-  border-radius: 5px;
-  border-style: solid;
+
   h1 {
+    font-size: 2em;
     font-family: avenir;
     font-weight: 100;
     color: #233539;
   }
-    h2 {
-    font-family: avenir;
-    font-weight: 100;
-    color: #233539;
-    font-size: 14px;
-  }
-  h3 {
+
+  h2 {
     font-family: avenir;
     font-weight: 100;
     color: #233539;
     font-size: 18px;
+    margin: 12px 0;
   }
-    p {
+
+  p {
     font-family: avenir;
     font-weight: 100;
     color: #233539;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
