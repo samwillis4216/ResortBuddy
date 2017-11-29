@@ -1,0 +1,60 @@
+<div class="navbar-wagon <%= yield(:navbar_class) %>">
+  <!-- Logo -->
+<%= link_to activities_path(@) "Back" %>
+
+
+<!-- Notifications -->
+<% is_displayed = current_guest.received_notifications.where(read: false).count > 0 ? '' : 'hide-notif' %>
+<div class="flex-center nav-notif">
+  <i class="fa fa-bell" aria-hidden="true"></i>
+  <div class="notif-badge <%= is_displayed %>">
+    <p><%= current_guest.received_notifications.where(read: false).count %></p>
+  </div>
+  <div class="notif-container hide-notif">
+    <%= link_to 'Mark all as read', notifications_mark_as_read_path, method: :patch %>
+    <%= link_to 'Clear all', notifications_mark_as_cleared_path, method: :patch %>
+    <% current_guest.received_notifications.where(cleared: false).each do |notification| %>
+      <%= render 'shared/notification-guest', notification: notification %>
+    <% end %>
+  </div>
+</div>
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <%=link_to "Booked Activities", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <% img = current_guest.photo? ? current_guest.photo.url(:bright_face)  : 'jsut0cgif0nnmpalnwpn' %>
+        <%= cl_image_tag img, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", 'data-toggle' => "dropdown" %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%=link_to "Profile", profile_guest_path %></li>
+          <li> <%=link_to "Log Out", destroy_guest_session_path, method: :delete %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="hidden-lg hidden-md">
+    <div class="navbar-wagon-item">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><%=link_to "Profile", profile_guest_path %></li>
+        <li><%=link_to "Booked Activities", bookings_path %></li>
+        <li><%=link_to "Log Out", destroy_guest_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+    let navNotif = document.querySelector('.nav-notif');
+    let notifContainer = document.querySelector('.notif-container');
+    navNotif.addEventListener('click', function() {
+      notifContainer.classList.toggle('hide-notif');
+    });
+  </script>
+<% end %>

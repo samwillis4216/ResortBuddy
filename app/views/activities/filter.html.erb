@@ -2,17 +2,24 @@
 <div class="price-range">
   <%= form_tag(activities_path, method: :get, name: "priceform") do %>
   <% arr = [] %>
+  <h6 style="margin-bottom: 0px !important; margin-left: 4px !important;">Sports Categories</h6>
+  <hr style="margin-top: 10px !important; margin-left: 4px !important; margin-bottom: 4px">
     <% @activities.each_with_index do |activity, index| %>
       <% unless arr.include?(activity.category) %>
         <% arr << activity.category %>
-        <%= label_tag "#{activity.id}", activity.name.capitalize, class: "category" %>
-        <%= check_box_tag "category[]", activity.category, true, class: "respondToInput" %>
+        <div class="pretty p-default p-round p-thick shiftright">
+          <input type="checkbox" name="category[]", id="category[]", value="<%= activity.category %>", checked="checked", class="respondToInput"/>
+          <div class="state p-primary-o">
+            <label class="category"><%= activity.name.capitalize %></label>
+          </div>
+        </div>
         <br>
         <br>
       <% end %>
     <% end %>
     <%= label_tag 'Free', "Free activities", class: "category" %>
     <%= check_box_tag 'free', 0 , false %>
+    <br>
     <br>
     <br>
     <br>
@@ -26,6 +33,7 @@
       <br>
       <input id="capacity" name="numpeople" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide"/>
     </div>
+
     <input type="hidden" name="date" value="<%= params[:date] %>">
     <%= submit_tag '', class: "filter", id: "submit" %>
   <% end %>
@@ -35,6 +43,7 @@
   <script>
 
     document.getElementById('free').addEventListener('change', () => {
+      let priceSliderValBeforeClick = 0;
       const priceSlider = document.getElementById('price');
       const priceSliderVal = document.getElementById('priceSliderVal')
       var checkBx = document.getElementById('free')
@@ -53,6 +62,8 @@
           .then(data => {
             document.getElementById('submit').value = `show ${data.count} results`
           })
+          priceSliderValBeforeClick = priceSlider.value;
+          priceSlider.value = 0;
         }
 
         if (buildCategoryArray() != ""){
@@ -68,12 +79,15 @@
           .then(data => {
             document.getElementById('submit').value = `show ${data.count} results`
           })
+          priceSliderValBeforeClick = priceSlider.value;
+          priceSlider.value = 0;
         }
       }
       else {
         if (buildCategoryArray() === "") {
         $("#price").slider("enable");
           document.getElementById('submit').value = `show 0 results`
+          priceSlider.value = priceSliderValBeforeClick;
         }
 
         if (buildCategoryArray() != "") {
@@ -83,6 +97,7 @@
           .then(data => {
             document.getElementById('submit').value = `show ${data.count} results`
           })
+          priceSlider.value = priceSliderValBeforeClick;
           }
       }
       })
