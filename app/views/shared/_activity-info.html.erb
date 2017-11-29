@@ -1,20 +1,18 @@
 
-<div class="container-activity">
+<div class="activities-details">
+
   <% img = @activity.photo? ? @activity.photo : 'iyq4gxp0oltwleiwafrx6' %>
-  <div class="booking-show" id="info-photo"  style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path img %>');">
-  </div>
+  <div class="activity-picture" id="info-photo" style="background-image: url('<%= cl_image_path img %>');" ></div>
 
-
-<div class="activity-info">
-  <div class="info">
-    <h1 id="title"><%= @activity.name %></h1>
-    <h3 class="sub-title">Brief introducition to <%= @activity.name %></h3>
-    <p><%= @activity.description %></p>
-    <hr class="line-break">
-      <h2><strong>Location: </strong><%= @activity.location %></h2>
-      <h2><strong>Price: </strong>£<%= @activity.price %></h2>
-      <h2><strong>Capacity: </strong><%= @activity.capacity %></h2>
-      <h2><strong>Duration: </strong><%= @activity.duration %>h</h2>
+  <div class="activity-info">
+    <div class="info">
+      <h1 class="sub-title">Brief introducition to <%= @activity.name %></h1>
+      <p><%= @activity.description %></p>
+      <hr class="line-break">
+        <h2><strong>Location: </strong><%= @activity.location %></h2>
+        <h2><strong>Price: </strong>£<%= @activity.price %></h2>
+        <h2><strong>Capacity: </strong><%= @activity.capacity %></h2>
+        <h2><strong>Duration: </strong><%= @activity.duration %>h</h2>
     </div>
-</div>
+  </div>
 </div>

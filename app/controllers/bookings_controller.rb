@@ -22,6 +22,7 @@ class BookingsController < ApplicationController
     @booking.guest = current_guest
     @booking.availability = @availability
     @booking.save
+    flash[:notice] = "£#{@availability.activity.price * @booking.no_ppl} has been added to your room."
     redirect_to bookings_path
   end
 

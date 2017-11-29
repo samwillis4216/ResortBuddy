@@ -1,9 +1,18 @@
-<div class="container-add" >
-  <div class="top-line">
-    <h1>Add an activity</h1>
-      <%= link_to "cancel", admin_activities_path, class: "btn btn-primary", id: "cancel" %>
+<div class="show-page-header" >
+  <div class="calendar-header">
+    <div class="top-line-show">
+      <h1>Add an activity</h1>
+        <%= link_to admin_activities_path, class: "btn btn-primary", id: "add" do %>
+          <i class="fa fa-close"></i> Cancel
+        <% end %>
+    </div>
   </div>
-  <div class="form-post">
+  <div class="tabs" style="height: 65px;">
+  </div>
+</div>
+
+<div class="container-add" >
+  <div class="form-post" id="new-activity">
     <div class="new-activity">
       <%= simple_form_for [:admin, @activity], defaults: { input_html: { class: "activity-form"} } do |f| %>
         <% if @activity.errors.any? %>
@@ -66,6 +75,8 @@
                 <abbr title="required"></abbr> Description *</label>
                 <input class="form-control string required activity-form" type="text" name="activity[description]" id="activity_description">
             </div>
+            <div class="row">
+            <div class="col-xs-6">
           <div class="form-group file optional activity_photo">
             <label  for="activity_photo" id="new-activity-text">Image of activity</label>
             <input class="inputfile" type="file" name="activity[photo]" id="file" data-multiple-caption="{count} files selected" multiple>
@@ -74,8 +85,11 @@
           <div class="hidden">
             <%= f.input :photo %>
           </div>
+          </div>
+          <div class="col-xs-6">
           <%= f.submit "Next", class: "btn btn-primary", id: "next-activity-button"%>
       <% end %>
+      </div>
     </div>
 
   </div>
