@@ -4,6 +4,7 @@ class ActivitiesController < ApplicationController
     @date = Date.parse(params[:date])
     @activities = Activity.all
     @activitiesForFilter = @activities.select {|activity| activity.availabilities.any? {|availability| availability.start_time.to_date == @date}}
+    render layout: 'activities_filter'
   end
 
   def count
@@ -20,6 +21,7 @@ class ActivitiesController < ApplicationController
     @numpeople = params[:numpeople]
     if params[:price] && params[:numpeople]
       # this will only be run once a filter form has been submitted
+
       if params[:price] != 0
         @activities = Activity.where(category: @category&.map(&:capitalize)).where("price <= ?", @price).order(price: :asc).where("capacity >= ?", @numpeople).order(capacity: :asc)
         @activities = @activities.select {|activity| activity.availabilities.any? {|availability| availability.start_time.to_date == @date}}
@@ -36,7 +38,9 @@ class ActivitiesController < ApplicationController
       @activities = @activities.select {|activity| activity.availabilities.any? {|availability| availability.start_time.to_date == @date}}
       @first_enter_flag = true;
     end
+
     render layout: "activities_index"
+
   end
 
   def show
@@ -44,7 +48,7 @@ class ActivitiesController < ApplicationController
     @date = Date.parse(params[:date])
     @activity = Activity.find(params[:id])
     @availabilities = @activity.availabilities.where("start_time > ? AND start_time < ?", @date, @date + 1)
-    render layout: "guest"
+    render layout: 'guest'
   end
 
   def new

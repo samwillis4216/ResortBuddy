@@ -1,39 +1,55 @@
-<h1 class="filter-title text-center">Filter By</h1>
+ <h1 class="filter-title text-center">Filter By</h1>
 <div class="price-range">
   <%= form_tag(activities_path, method: :get, name: "priceform") do %>
   <% arr = [] %>
+  <h6 style="margin-bottom: 0px !important; margin-left: 4px !important; margin-top: 20px !important;">Sports Categories</h6>
+  <hr style="margin-top: 10px !important; margin-bottom: 10px !important; margin-left: 4px !important; margin-right: 4px !important;">
     <% @activities.each_with_index do |activity, index| %>
       <% unless arr.include?(activity.category) %>
         <% arr << activity.category %>
-        <%= label_tag "#{activity.id}", activity.name.capitalize, class: "category" %>
-        <%= check_box_tag "category[]", activity.category, true, class: "respondToInput" %>
+        <div class="pretty p-default p-round p-thick shiftright">
+          <input type="checkbox" name="category[]", id="category[]", value="<%= activity.category %>", checked="checked", class="respondToInput"/>
+          <div class="state p-primary-o">
+            <label class="category"><%= activity.name.capitalize %></label>
+          </div>
+        </div>
         <br>
         <br>
       <% end %>
     <% end %>
-    <%= label_tag 'Free', "Free activities", class: "category" %>
-    <%= check_box_tag 'free', 0 , false %>
+
+    <h6 style="margin-bottom: 0px !important; margin-left: 4px !important; margin-top: 20px !important;">List only free activities</h6>
+    <hr style="margin-top: 7px !important; margin-bottom: 7px !important; margin-left: 4px !important; margin-right: 4px !important;">
+    <div class="pretty p-default p-round p-thick shiftright">
+      <input type="checkbox" name="free", id="free", value="0", class="category"/>
+      <div class="state p-primary-o">
+        <label class="category"> Free Activities</label>
+      </div>
+    </div>
+    <hr style="margin-top: 7px !important; margin-bottom: 7px !important; margin-left: 4px !important; margin-right: 4px !important;">
     <br>
     <br>
-    <br>
+
+
     <div class="slider">
       <span id="ex6CurrentSliderValLabel" class="filter-subtitle">Filter by maximum price: £<span id="priceSliderVal">50</span></span>
-      <br>
+
       <input id="price"  name="price" type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" data-slider-tooltip="hide" data-slider-enabled="true"/>
       <br>
       <br>
       <span id="ex7CurrentSliderValLabel" class="filter-subtitle">Filter by minimum number of people: <span id="peopleSliderVal">1</span></span>
-      <br>
+
       <input id="capacity" name="numpeople" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide"/>
     </div>
+
     <input type="hidden" name="date" value="<%= params[:date] %>">
-    <%= submit_tag '', class: "filter", id: "submit" %>
+    <%= submit_tag '', class: "filter btn btn-primary", id: "submit" %>
   <% end %>
 </div>
 
 <%= content_for(:after_js) do %>
   <script>
-
+   let priceSliderValBeforeClick = 0;
     document.getElementById('free').addEventListener('change', () => {
       const priceSlider = document.getElementById('price');
       const priceSliderVal = document.getElementById('priceSliderVal')
@@ -53,6 +69,8 @@
           .then(data => {
             document.getElementById('submit').value = `show ${data.count} results`
           })
+          priceSliderValBeforeClick = priceSlider.value;
+          priceSlider.value = 0;
         }
 
         if (buildCategoryArray() != ""){
@@ -68,15 +86,22 @@
           .then(data => {
             document.getElementById('submit').value = `show ${data.count} results`
           })
+          priceSliderValBeforeClick = priceSlider.value;
+          priceSlider.value = 0;
         }
       }
       else {
         if (buildCategoryArray() === "") {
         $("#price").slider("enable");
           document.getElementById('submit').value = `show 0 results`
+          priceSlider.value = priceSliderValBeforeClick;
         }
 
         if (buildCategoryArray() != "") {
+          console.log("we're here");
+          console.log(priceSliderValBeforeClick);
+          priceSlider.value = priceSliderValBeforeClick;
+          console.log(priceSlider.value);
         $("#price").slider("enable");
         fetch(`/count?price=${$('#price').val()}&capacity=${$('#capacity').val()}&${buildCategoryArray()}&date=${'<%= params[:date] %>'}`)
           .then(response => response.json())
