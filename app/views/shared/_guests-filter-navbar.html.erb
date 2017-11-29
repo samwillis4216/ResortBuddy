@@ -1,6 +1,6 @@
 <div class="navbar-wagon <%= yield(:navbar_class) %>">
   <!-- Logo -->
-<%= link_to "Back", activities_path, class: "samback" %>
+<%= link_to "Back", activities_path(:date => params[:date]), class: "samback" %>
 
 
 <!-- Notifications -->
