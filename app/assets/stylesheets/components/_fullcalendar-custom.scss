@@ -1,6 +1,115 @@
 .fc {
   font-family: avenir;
-  // h2 {
-  // font-family: avenir;
-  // }
+  h2 {
+  font-family: avenir !important;
+  font-weight: 150;
+  }
+}
+
+.fc-scroller.fc-time-grid-container {
+  height: auto !important;
+}
+
+.fc-prev-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right {
+  background: none !important;
+  border: 0px !important;
+  color: #E0E0E0 !important;
+      box-shadow: none;
+}
+
+.fc-next-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right {
+  background: none !important;
+  border: 0px !important;
+  color: #E0E0E0 !important;
+  box-shadow: none;
+}
+
+.fc-agendaWeek-button.fc-button.fc-state-default.fc-corner-left.fc-state-active {
+  background: #E0E0E0 !important;
+  color: #333333 !important;
+    box-shadow: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-shadow: none;
+    border-style: solid !important;
+    border-width: 1.5px !important;
+    border-color: #4F4F4F !important;
+}
+
+.fc-agendaWeek-button.fc-button.fc-state-default.fc-corner-left {
+  background: white !important;
+  color: #333333 !important;
+    box-shadow: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-shadow: none;
+    border-style: solid !important;
+    border-width: 1.5px !important;
+    border-color: #4F4F4F !important;
+}
+
+.fc-agendaDay-button.fc-button.fc-state-default.fc-corner-right.fc-state-active {
+  background: #E0E0E0 !important;
+  color: #333333 !important;
+    box-shadow: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-shadow: none;
+    border-style: solid !important;
+    border-width: 1.5px !important;
+    border-color: #4F4F4F !important;
+}
+
+.fc-agendaDay-button.fc-button.fc-state-default.fc-corner-right {
+  background: white !important;
+  color: #333333 !important;
+    box-shadow: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-shadow: none;
+    border-style: solid !important;
+    border-width: 2px !important;
+    border-color: #4F4F4F !important;
+}
+
+.fc-today-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right.fc-state-disabled {
+  background: #E0E0E0 !important;
+  color: #333333 !important;
+    box-shadow: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-shadow: none;
+    border-style: solid !important;
+    border-width: 1.5px !important;
+    border-color: #4F4F4F !important;
+}
+
+.fc-today-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right {
+  background: white !important;
+  color: #333333 !important;
+    box-shadow: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-shadow: none;
+    border-style: solid !important;
+    border-width: 1.5px !important;
+    border-color: #4F4F4F !important;
+    margin-right: 20px;
+}
+
+.fc-right {
+  margin-right: 15px;
+}
+
+.fc-head {
+  font-family: avenir;
+  font-weight: 100 !important;
+  th{
+  font-weight: 300 !important;
+  }
+}
+
+.fc-axis.fc-widget-content {
+  font-family: avenir;
+  font-weight: 100 !important;
 }

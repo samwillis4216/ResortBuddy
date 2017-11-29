@@ -7,12 +7,26 @@
   <a href="/" class="navbar-wagon-brand">
   </a>
 
+  <!-- Notifications -->
+  <% is_displayed = current_employee.received_notifications.where(read: false).count > 0 ? '' : 'hide-notif' %>
+  <div class="flex-center nav-notif">
+    <i class="fa fa-bell" id="employee-bell" aria-hidden="true"></i>
+    <div class="notif-badge <%= is_displayed %>">
+      <p><%= current_employee.received_notifications.where(read: false).count %></p>
+    </div>
+    <div class="notif-container hide-notif">
+      <%= link_to 'Mark all as read', notifications_mark_as_read_path, method: :patch %>
+      <%= link_to 'Clear all', notifications_mark_as_cleared_path, method: :patch %>
+      <% current_employee.received_notifications.where(cleared: false).each do |notification| %>
+        <%= render 'shared/notification-employee', notification: notification %>
+      <% end %>
+    </div>
+  </div>
+
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
 <% if employee_signed_in? %>
-  <%=link_to "Add Activity", new_admin_activity_path, class: "navbar-wagon-item navbar-wagon-link", id: "create" %>
-  <%=link_to "Activities", admin_activities_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <div class="navbar-wagon-item">
       <div class="dropdown">
@@ -56,3 +70,13 @@
   <% end %>
 </div>
 </div>
+
+<%= content_for(:after_js) do %>
+  <script>
+    let navNotif = document.querySelector('.nav-notif');
+    let notifContainer = document.querySelector('.notif-container');
+    navNotif.addEventListener('click', function() {
+      notifContainer.classList.toggle('hide-notif');
+    });
+  </script>
+<% end %>

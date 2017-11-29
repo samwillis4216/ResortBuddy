@@ -1,18 +1,18 @@
-<% if params[:controller] == 'admin/activities' %>
+<% if params[:controller] == 'admin/activities' && params[:action] == 'index'  %>
   <% activities = 'nav-active' %>
 <% end %>
 
-<% if params[:controller] == 'admin/dashboard' %>
+<% if params[:controller] == 'admin/activities' && params[:action] == 'dashboard' %>
   <% dashboard = 'nav-active' %>
 <% end %>
 
-<% if params[:controller] == 'admin/bookings' %>
+<% if params[:controller] == 'admin/bookings' && params[:action] == "index" %>
   <% bookings = 'nav-active' %>
 <% end %>
 
 
 <ul>
-  <%= link_to admin_activities_path do %>
+  <%= link_to admin_dashboard_path do %>
       <li class="sidebar-wagon-item sidebar-wagon-link <%= dashboard %>">
         <div class="sidebar-wagon-item">
           <div class="line <%= dashboard %>"></div>
@@ -21,7 +21,7 @@
         </div>
       </li>
     <% end %>
-  <%= link_to admin_bookings_path do %>
+  <%= link_to admin_my_activities2_path do %>
     <li class="sidebar-wagon-item sidebar-wagon-link <%= bookings %> " >
     <div class="sidebar-wagon-item">
     <div class="line <%= bookings %>"></div>

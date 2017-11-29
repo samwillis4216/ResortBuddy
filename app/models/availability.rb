@@ -3,4 +3,5 @@ class Availability < ApplicationRecord
   belongs_to :employee
   has_many :bookings, dependent: :destroy
   has_one :chatroom
+  has_many :notifications
 end

@@ -1,0 +1,35 @@
+<div class="calendar-container">
+
+  <div id="calendar" style="background-color:white; padding-top:20px; padding-left:10px; padding-rigth:10px;"></div>
+  <div class="status-bar">
+    <ul>
+      <li><p><i class="fa fa-circle" id="no-bookings"></i> No bookings</p> </li>
+      <li><p><i class="fa fa-circle" id="bookings"></i> Bookings</p> </li>
+      <li><p><i class="fa fa-circle" id="fully-booked"></i> Fully Booked</p> </li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+
+<% content_for(:after_js) do %>
+  <script>
+    $('#calendar').fullCalendar({
+      themeSystem: "bootstrap3",
+      allDaySlot: false,
+      firstDay: 1,
+      defaultView: "agendaWeek",
+      minTime: "09:00:00",
+      maxTime: "18:00:00",
+      header: {
+            left: '',
+            center: 'prev title next',
+            right: 'agendaWeek,agendaDay today'
+        },
+        events: '/admin/my_activities2.json',
+    });
+  </script>
+<% end %>

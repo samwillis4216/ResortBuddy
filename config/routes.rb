@@ -19,8 +19,10 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :bookings, only: [:index, :show, :edit, :update, :destroy]
     get 'my_activities', to: 'activities#my_activities'
-    resources :activities do
+    get 'my_activities2', to: 'activities#my_activities2'
+    get 'dashboard', to: 'activities#dashboard'
 
+    resources :activities do
       resources :bookings, only: [:new, :create]
       resources :availabilities
     end
@@ -29,8 +31,7 @@ Rails.application.routes.draw do
   # Guests
   resources :activities, only: [:index, :show, :new] do
     resources :bookings, only: [:create]
-    resources :availabilities, only: [:show] do
-    end
+    resources :availabilities, only: [:show]
   end
   resources :bookings, only: [:index, :show, :destroy]
 
@@ -38,7 +39,9 @@ Rails.application.routes.draw do
   resources :chatrooms do
     resources :messages, only: [:create]
   end
-
+  
+  patch 'notifications/mark_as_read', to: 'notifications#mark_as_read'
+  patch 'notifications/mark_as_cleared', to: 'notifications#mark_as_cleared'
   get '/my_activities', to: 'activities#my_activities'
   get '/filter', to: 'activities#filter'
   get '/count', to: 'activities#count'

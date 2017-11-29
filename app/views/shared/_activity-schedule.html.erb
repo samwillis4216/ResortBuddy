@@ -1,0 +1,26 @@
+
+
+
+  <div class="schedule">
+    <div id="calendar"></div>
+  </div>
+
+
+
+<% content_for(:after_js) do %>
+  <script>
+    $('#calendar').fullCalendar({
+      themeSystem: "bootstrap3",
+      allDaySlot: false,
+      defaultView: "agendaWeek",
+      minTime: "09:00:00",
+      maxTime: "18:00:00",
+      header: {
+            left: '',
+            center: 'prev title next',
+            right: 'today'
+        },
+        events: '/admin/activities/<%= @activity.id %>.json',
+    });
+  </script>
+<% end  %>

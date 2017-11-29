@@ -24,6 +24,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_median (0.1.4)
+      activerecord
     activejob (5.1.4)
       activesupport (= 5.1.4)
       globalid (>= 0.3.6)
@@ -55,6 +57,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    chartkick (2.2.5)
     chronic (0.10.2)
     cloudinary (1.8.2)
       aws_cf_signer
@@ -91,6 +94,8 @@ GEM
     geocoder (1.4.4)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (3.2.0)
+      activesupport (>= 3)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.9.1)
@@ -243,10 +248,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_median
   autoprefixer-rails
   bootstrap-sass
   bootstrap-slider-rails
   carrierwave (~> 1.2)
+  chartkick
   cloudinary
   coffee-rails (~> 4.2)
   devise
@@ -254,6 +261,7 @@ DEPENDENCIES
   font-awesome-sass
   fullcalendar-rails
   geocoder
+  groupdate
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)
   listen (~> 3.0.5)

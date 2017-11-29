@@ -1,9 +1,15 @@
-<div id="calendar"></div>
+<div class="calendar-container">
+
+  <div id="calendar" style="background-color:white; padding-top:20px; padding-left:10px; padding-rigth:10px;"></div>
+  <div class="status-bar"> </div>
+</div>
+
+
+
 
 <% content_for(:after_js) do %>
   <script>
     $('#calendar').fullCalendar({
-      themeSystem: "bootstrap3",
       allDaySlot: false,
       defaultView: "agendaWeek",
       minTime: "09:00:00",

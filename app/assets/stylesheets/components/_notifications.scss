@@ -1,0 +1,56 @@
+.fa-bell {
+  font-size: 18px;
+  position: absolute;
+}
+
+.notification {
+  color: #4c4c4c;
+  font-size: 14px;
+  border-bottom: 1px solid #4c4c4c;
+  p {
+    margin: 0;
+  }
+}
+
+.notif-badge {
+  background-color: red;
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  position: relative;
+  bottom: 5px;
+  left: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    color: white;
+    font-size: 8px;
+    margin: 1px 1px 0 0 ;
+  }
+}
+
+.hide-notif {
+  display: none;
+}
+
+.notif-container {
+  max-height: 150px;
+  overflow: scroll;
+  background: white;
+  width: 225px;
+  position: absolute;
+  top: 60px;
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  z-index: 1000;
+  padding: 7px;
+}
+
+
+// Flexbox
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

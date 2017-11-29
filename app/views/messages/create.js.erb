@@ -1,0 +1,10 @@
+<% if @message.errors.any? %>
+  // handle validation errors later
+<% else %>
+  var chatRoom = document.querySelector('.chat-room');
+  chatRoom.insertAdjacentHTML('beforeend', '<%= j render "shared/message", message: @message, user_is_messages_author: true %>');
+  var input = document.getElementById('message_body');
+  input.value = '';
+  input.blur();
+  scrollLastMessageIntoView();
+<% end %>

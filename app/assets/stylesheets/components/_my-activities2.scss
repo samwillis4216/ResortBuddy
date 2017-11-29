@@ -1,0 +1,27 @@
+#no-bookings {
+  color: #66ee78;
+  list-style: none;
+}
+
+#bookings {
+  color: #1774F0;
+  list-style: none;
+}
+
+#fully-booked {
+  color: #FA403C;
+  list-style: none;
+}
+
+.status-bar {
+  display: flex;
+  background-color: white;
+  ul {
+  list-style: none;
+    display: flex;
+  }
+  li {
+  padding-left: 10px;
+  padding-right: 20px;
+  }
+}

@@ -38,7 +38,7 @@
           <% end %>
         </p>
       </div>
-      <a href="<%= booking_path(booking) %>" class="booking-link"></a>
+      <a href="<%= activity_availability_path(booking.availability.activity, booking.availability) %>" class="booking-link"></a>
     </div>
   <% end %>
 </div>
