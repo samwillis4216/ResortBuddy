@@ -1,0 +1,39 @@
+// page
+.dashboard-page {
+  display: block;
+  align-items: center;
+}
+
+// stats bar
+.top-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.stat {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+
+
+
+// chart
+.dashboard-chart {
+  width: 800px;
+  height: 400px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+.dashboard-chart-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
