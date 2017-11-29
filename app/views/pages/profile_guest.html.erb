@@ -1,18 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-    <h1>Your Profile Page</h1>
+    <h1 id="heading-edit">Your Profile Page</h1>
     </div>
     <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-      <%= current_guest.first_name.capitalize %> <%= current_guest.last_name.capitalize %>
-    </div>
-    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-      <div class="profile-pic">
-        <%= cl_image_tag current_guest.photo, class: "avatar" %>
+      <div class="edit-page-info">
+        <div class="profile-pic">
+          <%= cl_image_tag current_guest.photo? ? current_guest.photo.url(:bright_face)  : 'jsut0cgif0nnmpalnwpn', class: "avatar" %>
+        </div>
+        <div class="edit-info-text">
+          <p> Name: <%= current_guest.first_name.capitalize %> <%= current_guest.last_name.capitalize %> </p>
+          <p> Email: <%= current_guest.email %> </p>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-      <%= current_guest.email %>
     </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12">
   <hr>
@@ -25,8 +25,9 @@
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
-
+    <div class="padd">
 <%= link_to "Back", :back %>
+    </div>
   </div>
 </div>
 </div>
