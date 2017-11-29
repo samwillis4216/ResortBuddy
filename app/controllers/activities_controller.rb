@@ -3,7 +3,9 @@ class ActivitiesController < ApplicationController
   layout 'activities_index', :only => [:index]
 
   def filter
+    @date = Date.parse(params[:date])
     @activities = Activity.all
+    @activitiesForFilter = @activities.select {|activity| activity.availabilities.any? {|availability| availability.start_time.to_date == @date}}
   end
 
   def count
