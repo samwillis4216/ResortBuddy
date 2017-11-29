@@ -9,10 +9,15 @@
 
 .samback {
   font-size: 15px;
+  color: #333333;
 }
 
-.slider.slider-horizontal {
+.slider{
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+}
+
+.slider.slider-horizontal
+{
   width:100%;
-  margin-left: 4px;
-  margin-right: 4px;
 }
