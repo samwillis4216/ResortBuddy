@@ -1,0 +1,54 @@
+.samitem {
+  display: inline-block;
+}
+
+#name {
+  float: left;
+  margin-left: 25px !important;
+}
+
+#location {
+  float: right;
+  margin-right: 25px !important;
+}
+
+.row {
+  margin-top: 12px;
+}
+
+.samcontainer {
+  width: 95%;
+}
+
+.sam-name {
+  font-size: 25px !important;
+}
+
+.sam-location {
+  font-size: 17px !important;
+  padding-top: 6px;
+}
+
+
+.sam-row {
+  margin-top: 5px !important;
+}
+
+.sam-subheadings {
+  font-size: 17px !important;
+  color: $blue;
+}
+
+.sam-description {
+  font-size: 15px !important;
+}
+
+.sam-innercontainer {
+  margin-left: 0px !important;
+  margin-top: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+  width: 100%;
+  padding-right: 4px !important;
+  padding-left: 4px !important;
+}
