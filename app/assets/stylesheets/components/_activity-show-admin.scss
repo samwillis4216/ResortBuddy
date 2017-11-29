@@ -1,5 +1,81 @@
-.container-activity {
+.calendar-header {
+  position: relative;
+  background-color: #49bce9;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 
+  a {
+    p {
+    padding: 27px;
+    font-size: 14px;
+    color: black;
+    opacity: 0.4;
+    }
+  }
+
+  h1 {
+    color: white !important;
+    margin-top: 25px;
+    margin-bottom: 45px;
+    margin-left: 27px;
+  }
+  .tab.active {
+    background-color: transparent;
+
+  }
+
+  .tabs {
+    background: #3aa6d0;
+
+    p {
+      opacity: 1;
+      color: white;
+    }
+
+    .tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #3fa6d0;
+    color: white;
+  }
+}
+
+.top-line-show {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  h1 {
+    font-family: avenir;
+    font-weight: 100;
+    color: #233539;
+  }
+}
+
+.activity-infos.active {
+  display: block;
+    background-color: transparent;
+}
+
+.activity-infos {
+  display: none;
+}
+
+
+.activity-schedule.active {
+  display: block;
+  background-color: transparent;
+}
+
+.activity-schedule {
+  display: none;
 }
 
 .activity-info {
@@ -11,28 +87,8 @@
 
 .schedule {
   background: white;
-  flex-grow: 2;
-  padding: 20px;
-  margin: 15px;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  h1 {
-    font-family: avenir;
-    font-weight: 100;
-    color: #233539;
-  }
-  h2 {
-    font-family: avenir;
-    font-weight: 100;
-    color: #233539;
-    font-size: 14px;
-  }
-  h3 {
-    font-family: avenir;
-    font-weight: 100;
-    color: #233539;
-    font-size: 12px;
-  }
+  padding: 40px 20px;
+
 }
 
 .info {
@@ -66,6 +122,8 @@
   }
 }
 
-
+#info-photo {
+  height: 300px;
+}
 
 

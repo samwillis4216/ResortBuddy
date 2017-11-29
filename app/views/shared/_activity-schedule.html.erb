@@ -1,15 +1,16 @@
-<div class="calendar-container">
 
-  <div id="calendar" style="background-color:white; padding-top:20px; padding-left:10px; padding-rigth:10px;"></div>
-  <div class="status-bar"> </div>
-</div>
 
+
+  <div class="schedule">
+    <div id="calendar"></div>
+  </div>
 
 
 
 <% content_for(:after_js) do %>
   <script>
     $('#calendar').fullCalendar({
+      themeSystem: "bootstrap3",
       allDaySlot: false,
       defaultView: "agendaWeek",
       minTime: "09:00:00",
@@ -17,9 +18,9 @@
       header: {
             left: '',
             center: 'prev title next',
-            right: 'agendaWeek,agendaDay today'
+            right: 'today'
         },
-        events: '/admin/bookings.json',
+        events: '/admin/activities/<%= @activity.id %>.json',
     });
   </script>
-<% end %>
+<% end  %>

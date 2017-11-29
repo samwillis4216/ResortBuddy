@@ -1,15 +1,37 @@
 class MessagesController < ApplicationController
 
   def create
-    message = Message.new(message_params)
-    message.chatroom = Chatroom.find(params[:chatroom_id])
-    message.messageable = current_guest ? current_guest : current_employee
-    message.save
-    ActionCable.server.broadcast("chat_room_#{message.chatroom.id}", {
-        body: message.body,
-        sender: message.messageable.first_name
-    })
-    head :ok
+    @message = Message.new(message_params)
+    @message.chatroom = Chatroom.find(params[:chatroom_id])
+    @message.messageable = current_guest ? current_guest : current_employee
+    @message.save
+    notifications = []
+    if @message.messageable.is_a?(Guest)
+      notifications <<  Notification.create!(
+                          notifiable: @message.chatroom.availability.employee,
+                          notifierable: @message.messageable,
+                          availability: @message.chatroom.availability
+                        )
+    else
+      @message.chatroom.availability.bookings.each do |booking|
+        notifications <<  Notification.create!(
+                            notifiable: booking.guest,
+                            notifierable: @message.messageable,
+                            availability: @message.chatroom.availability
+                          )
+      end
+    end
+    notifiables = []
+    notifications.each { |notification| notifiables << notification.notifiable }
+    ActionCable.server.broadcast("notifications", {
+      notifications: notifications,
+      notifiables: notifiables,
+      notification_partial: ApplicationController.renderer.render(partial: "shared/notification", locals: { notification: notifications.first })
+    });
+    respond_to do |format|
+      format.html { redirect_to chat_room_path(@chat_room) }
+      format.js
+    end
   end
 
   private
