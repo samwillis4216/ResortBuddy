@@ -44,4 +44,6 @@ Rails.application.routes.draw do
   patch 'notifications/mark_as_cleared', to: 'notifications#mark_as_cleared'
   get '/my_activities', to: 'activities#my_activities'
   get '/filter', to: 'activities#filter'
+  get '/count', to: 'activities#count'
+
 end
