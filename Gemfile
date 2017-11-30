@@ -51,6 +51,7 @@ gem "recurrence"
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'bootstrap-slider-rails'
+gem 'redis', '~> 3.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
