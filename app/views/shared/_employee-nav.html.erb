@@ -11,7 +11,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
   <% is_displayed = current_employee.received_notifications.where(read: false).count > 0 ? '' : 'hide-notif' %>
   <div class="flex-center nav-notif dropdown dropdown-toggle">
-    <i class="fa fa-bell" id="employee-bell" data-toggle="dropdown" aria-hidden="true" style="padding-right: 15px"></i>
+    <i class="fa fa-bell" id="employee-bell" data-toggle="dropdown" aria-hidden="true" style="padding-right: 15px; color: #C4BABA;"></i>
     <div class="notif-badge <%= is_displayed %>">
       <p><%= current_employee.received_notifications.where(read: false).count %></p>
     </div>
