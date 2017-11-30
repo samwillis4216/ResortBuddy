@@ -3,4 +3,6 @@
     <div class="sidebar"><%= render "shared/sidebar2" %></div>
     <div class="page-content"><%= yield %></div>
   </div>
+<% else %>
+  <%= yield %>
 <% end %>
