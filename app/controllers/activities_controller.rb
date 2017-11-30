@@ -36,7 +36,7 @@ class ActivitiesController < ApplicationController
       @activities = @activities.select {|activity| activity.availabilities.any? {|availability| availability.start_time.to_date == @date}}
       @first_enter_flag = true;
     end
-    render layout: "activities_index"
+    render layout: "guest"
   end
 
   def show

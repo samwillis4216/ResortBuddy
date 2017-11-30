@@ -2,23 +2,36 @@
 
 <div class="booking-info">
   <div class="booking-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path img %>');">
-  <div class="booking-content">
-    <h1>Your booking for <%= @availability.activity.name %></h2>
-    <ul class="list-unstyled">
-      <li>
-        <h2>
-          <strong>When?  </strong><%= @availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %>
-        </h2>
-      </li>
-      <li>
-        <h2>
-          <strong>Where?  </strong><%= @availability.activity.location %>
-        </h2>
-      </li>
-    </ul>
-  </div>
+    <h1><%= @availability.activity.name %></h2>
 </div>
-
+<div class="booking-content">
+  <ul class="list-unstyled">
+    <li>
+      <h2>
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> <%= @availability.start_time.strftime("%A, %d %b %Y") %>
+      </h2>
+    </li>
+    <li>
+      <h2>
+        <i class="fa fa-clock-o" aria-hidden="true"></i> <%= @availability.start_time.strftime("%I:%M %p") %>
+      </h2>
+    </li>
+    <li>
+      <h2>
+        <i class="fa fa-map-marker" aria-hidden="true"></i> <%= @availability.activity.location %>
+      </h2>
+    </li>
+    <li>
+      <h2>
+        <i class="fa fa-money" aria-hidden="true"></i> £<%= @availability.activity.price * @booking.no_ppl %>
+      </h2>
+    </li>
+    <li>
+      <%= cl_image_tag @availability.activity.employee.photo, class: "avatar-msg" %> <%= @availability.activity.employee.first_name %> <%= @availability.activity.employee.last_name %>
+    </li>
+  </ul>
+  <h3 class="ask-question">Ask a question:</h3>
+</div>
 <div class="chat-window-guest">
   <div class="chat-room">
     <% @messages.each do |message| %>
@@ -27,9 +40,9 @@
     <% end %>
   </div>
   <div id="create-message">
-    <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+    <%= simple_form_for [@chatroom, @message], html: { class: "send-message-container" }, remote: true do |f| %>
       <%= f.input :body, label: false, input_html: { class: 'message-input' } %>
-      <%= f.button :submit, "Send", class: "btn-primary" %>
+      <%= f.button :submit, "Send", class: "btn-primary", id: "send-message-btn" %>
     <% end %>
   </div>
 </div>

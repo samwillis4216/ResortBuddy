@@ -1,5 +1,4 @@
 <div class="row">
-
   <div class="date-choose">
     <%= link_to activities_path(date: (@date - 1.day).strftime('%d-%m-%Y')), remote: true do %>
     <h2><i class="fa fa-angle-left" id="arrow-left"></i></h2>
@@ -23,8 +22,7 @@
       <% img = activity.photo? ? activity.photo : "yq4gxp0oltwleiwafrx6" %>
       <!-- the show page isn't working yet so I just linked it to the filter page, when its working change it back to show page -->
       <%= link_to activity_path(activity, date: Date.today.strftime('%d-%m-%Y')), :action => 'go' do %>
-        <div class="card samcustomcard">
-
+        <div class="card samcustomcard" id="custom-card">
           <div class="top">
             <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path img %>');"></div>
             <div class="card-category">
@@ -34,24 +32,46 @@
                 £<%= activity.price %>
               <% end %>
             </div>
+            <div id="card-duration">
+              <% if activity.duration > 1 %>
+                <%= activity.duration %> hours
+              <% else %>
+                <%= activity.duration %> hour
+              <% end %>
+            </div>
+            <div id="card-capacity">
+              <%= activity.capacity %>
+              <i class="fa fa-user-o"></i>
+            </div>
           </div>
-
-          <div class="bottom">
+          <div class="bottom" id="bottom-info-container">
             <div class="card-description samcustomdescription">
-              <h2><%= activity.category %></h2>
+              <h2><%= activity.name %></h2>
             </div>
 
             <div class="scrolls">
               <div class="bookings-wrapper samcustombookingwrapper">
                 <% activity.availabilities.each do |availability| %>
-                  <div class="bookings samcustombookings">
-                    <p class="p-bar">
-                      <%= availability.start_time.strftime("%I:%M %p") %>
-                    </p>
-                  </div>
+                  <!-- <h1><%= availability.start_time.to_date %></h1> -->
+                  <% if availability.start_time.to_date == date %>
+                    <div class="bookings samcustombookings">
+                      <p class="p-bar">
+                          <%= availability.start_time.strftime("%I:%M %p") %>
+                      </p>
+                    </div>
+                  <% end %>
                 <% end %>
               </div>
             </div>
+            <!-- <table>
+              <tbody>
+                <tr>
+                  <td>
+
+                  </td>
+                </tr>
+              </tbody>
+            </table> -->
           </div>
         </div>
       <% end %>

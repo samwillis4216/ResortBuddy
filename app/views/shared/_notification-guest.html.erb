@@ -1,7 +1,12 @@
 <% activity = notification.availability.activity %>
 <% availability = notification.availability %>
-<%= link_to activity_availability_path(activity, availability) do %>
+<% img = notification.notifierable.photo? ? notification.notifierable.photo.url(:bright_face)  : 'jsut0cgif0nnmpalnwpn' %>
+<li>
+  <%= link_to activity_availability_path(activity, availability), class: "dropdown-li-notifications" do %>
   <div class="notification">
-    <p><b><%= notification.availability.activity.name %></b>: notif from <b><%= notification.notifierable.first_name %></b></p>
+    <%= cl_image_tag img, class: "avatar-msg" %>
+    <p><%= notification.availability.activity.name %></p>
+    <i class="fa  fa-commenting-o"></i>
   </div>
 <% end %>
+</li>
