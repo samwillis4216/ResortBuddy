@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
+  url: redis://redistogo:9fbac462f243871ca36299b7e0d652c0@jack.redistogo.com:11845/
   channel_prefix: ResortBuddy_production
