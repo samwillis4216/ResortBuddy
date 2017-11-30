@@ -42,7 +42,7 @@ class ActivitiesController < ApplicationController
     end
     respond_to do |format|
       format.html { render layout: 'guest' }
-      format.js
+      format.js { render 'index', :locals => {date: @date} }
     end
   end
 

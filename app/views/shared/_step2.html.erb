@@ -1,6 +1,6 @@
-<div class="step-2 <%= 'hidden' if hidden %>" id="navbar-form">
+<div class="whatever step-2 <%= 'hidden' if hidden %>" id="navbar-form">
 
-  <div class="date-choose">
+  <div class="sam-custm date-choose">
     <%= link_to rerender_path(@activity, date: (@date - 1.day).strftime('%d-%m-%Y')), remote: true do %>
       <h2><i class="fa fa-angle-left"></i></h2>
     <% end %>

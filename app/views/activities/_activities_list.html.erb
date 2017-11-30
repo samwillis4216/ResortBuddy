@@ -1,17 +1,17 @@
 <div class="row">
   <div class="date-choose">
-    <%= link_to activities_path(date: (@date - 1.day).strftime('%d-%m-%Y')), remote: true do %>
+    <%= link_to activities_path(date: (date - 1.day).strftime('%d-%m-%Y')), remote: true do %>
     <h2><i class="fa fa-angle-left" id="arrow-left"></i></h2>
     <% end %>
 
-    <h2><%= @date.strftime("%b %d, %Y") %></h2>
+    <h2><%= date.strftime("%b %d, %Y") %></h2>
 
-    <%= link_to activities_path(date: (@date + 1.day).strftime('%d-%m-%Y')), remote: true do %>
+    <%= link_to activities_path(date: (date + 1.day).strftime('%d-%m-%Y')), remote: true do %>
       <h2><i class="fa fa-angle-right" id="arrow-right"></i></h2>
     <% end %>
   </div>
 
-  <button type="button" class="btn btn-primary sam-custom-filter-button" style="position: center">Filter</button>
+  <%= link_to "Filter", filter_path(date: date), class: "btn btn-primary sam-custom-filter-button" %>
 
   <% if @activities.count == 0 && @first_enter_flag == true %>
     <h3>There are no activities available today</h3>
@@ -23,7 +23,7 @@
     <div class="col-xs-12 col-sm-6 col-md-4">
       <% img = activity.photo? ? activity.photo : "yq4gxp0oltwleiwafrx6" %>
       <!-- the show page isn't working yet so I just linked it to the filter page, when its working change it back to show page -->
-      <%= link_to activity_path(activity, date: Date.today.strftime('%d-%m-%Y')), :action => 'go' do %>
+      <%= link_to activity_path(activity, date: date.strftime('%d-%m-%Y')), :action => 'go' do %>
         <div class="card samcustomcard" id="custom-card">
           <div class="top">
             <div class="picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path img %>');"></div>
@@ -58,7 +58,7 @@
                   <% if availability.start_time.to_date == @date %>
                     <div class="bookings samcustombookings">
                       <p class="p-bar">
-                          <%= availability.start_time.strftime("%I:%M %p") %>
+                        <%= availability.start_time.strftime("%I:%M %p") %>
                       </p>
                     </div>
                   <% end %>
