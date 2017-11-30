@@ -1,0 +1,30 @@
+<% availability_id = params[:id] %>
+<% availability = Availability.find(availability_id) %>
+<% img = availability.activity.photo? ? availability.activity.photo : "yq4gxp0oltwleiwafrx6" %>
+
+
+<div class="activities-details">
+  <div class="activity-info">
+    <div class="info">
+      <h1 class="sub-title">Booking Info</h1>
+      <hr class="line-break">
+        <h2><strong>Location: </strong><%= @activity.location %></h2>
+        <h2><strong>Price: </strong>£<%= @activity.price %></h2>
+        <h2><strong>Capacity: </strong><%= @activity.capacity %></h2>
+        <h2><strong>Duration: </strong><%= @activity.duration %>h</h2>
+        <h2><strong>When: </strong><%= availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %></h2>
+    </div>
+  </div>
+
+  <div class="activity-info">
+    <div class="info">
+      <h1 class="sub-title">Guests</h1>
+      <hr class="line-break">
+        <h2><strong>Location: </strong><%= @activity.location %></h2>
+        <h2><strong>Price: </strong>£<%= @activity.price %></h2>
+        <h2><strong>Capacity: </strong><%= @activity.capacity %></h2>
+        <h2><strong>Duration: </strong><%= @activity.duration %>h</h2>
+        <h2><strong>When: </strong><%= availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %></h2>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+  <div class="chat-window-employee">
+    <div class="chat-room">
+      <% @messages.each do |message| %>
+        <% user = !current_guest.nil? ? current_guest : current_employee %>
+        <%= render "shared/message", message: message, user_is_messages_author: message.messageable == user %>
+      <% end %>
+    </div>
+    <div id="create-message">
+      <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
+        <%= f.input_field :body, label: false, input_html: { class: 'message-input' } %>
+        <%= f.input :availability_id, :as => :hidden, :input_html => { :value => params[:id] } %>
+        <%= f.button :submit, "Send", class: "btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+

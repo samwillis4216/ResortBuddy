@@ -1,41 +1,23 @@
 <% availability_id = params[:id] %>
 <% availability = Availability.find(availability_id) %>
 <% img = availability.activity.photo? ? availability.activity.photo : "yq4gxp0oltwleiwafrx6" %>
-<div class="booking-info">
-  <div class="booking-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path img %>');">
-  <div class="booking-content">
-    <h1>Your <%= availability.activity.name %> class</h2>
-    <ul class="list-unstyled">
-      <li>
-        <h2>
-          <strong>When?  </strong><%= availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %>
-        </h2>
-      </li>
-      <li>
-        <h2>
-          <strong>Where?  </strong><%= availability.activity.location %>
-        </h2>
-      </li>
-    </ul>
+<div class="show-page-header" >
+  <div class="calendar-header">
+    <div class="top-line-show">
+      <h1>Your <%= availability.activity.name %> at </h1> <h2><%= availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %></h2>
+    </div>
+  </div>
+
+  <div class="tabs">
+      <p class="tab active" id="schedule">Booking Info</p>
+      <p class="tab " id="details">Chat</p>
   </div>
 </div>
 
-<div class="chat-window-employee">
-  <div class="chat-room">
-    <% @messages.each do |message| %>
-      <% user = !current_guest.nil? ? current_guest : current_employee %>
-      <%= render "shared/message", message: message, user_is_messages_author: message.messageable == user %>
-    <% end %>
-  </div>
-  <div id="create-message">
-    <%= simple_form_for [@chatroom, @message], remote: true do |f| %>
-      <%= f.input_field :body, label: false, input_html: { class: 'message-input' } %>
-      <%= f.input :availability_id, :as => :hidden, :input_html => { :value => params[:id] } %>
-      <%= f.button :submit, "Send", class: "btn-primary" %>
-    <% end %>
-  </div>
+<div class="activities-details">
+  <div class="activity-infos "><%= render "shared/admin-booking-info"  %></div>
+  <div class="activity-schedule active"><%= render "shared/admin-booking-chat" %></div>
 </div>
-
 
 <%= content_for(:after_js) do %>
   <script>
@@ -49,6 +31,28 @@
           scrollLastMessageIntoView();
         }
       }
+    });
+        // hiding and showing activity-info and activity-schedule
+    const details_tab = document.getElementById("details")
+    const schedule_tab = document.getElementById("schedule")
+
+    const details = document.querySelector(".activity-infos")
+    const schedule = document.querySelector(".activity-schedule")
+
+    details_tab.addEventListener("click", event => {
+      details_tab.classList.toggle("active")
+      schedule_tab.classList.toggle("active")
+
+      details.classList.toggle("active");
+      schedule.classList.toggle("active")
+    });
+
+    schedule_tab.addEventListener("click", event => {
+      details_tab.classList.toggle("active")
+      schedule_tab.classList.toggle("active")
+
+      details.classList.toggle("active");
+      schedule.classList.toggle("active")
     });
   </script>
 <% end %>
