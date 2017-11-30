@@ -1,0 +1,30 @@
+<div class="chat-window-guest">
+  <div class="chat-room">
+    <% @messages.each do |message| %>
+      <% user = !current_guest.nil? ? current_guest : current_employee %>
+      <%= render "shared/message", message: message, user_is_messages_author: message.messageable == user %>
+    <% end %>
+  </div>
+  <div id="create-message">
+    <%= simple_form_for [@chatroom, @message], html: { class: "send-message-container" }, remote: true do |f| %>
+      <%= f.input :body, label: false, input_html: { class: 'message-input' } %>
+      <%= f.button :submit, "Send", class: "btn-primary", id: "send-message-btn" %>
+    <% end %>
+  </div>
+</div>
+
+<%= content_for(:after_js) do %>
+  <script>
+    scrollLastMessageIntoView();
+    App['chat_room_<%= @chatroom.id %>'] = App.cable.subscriptions.create(
+      { channel: 'ChatRoomsChannel', chat_room_id: <%= @chatroom.id %> },
+      { received: (data) => {
+        if (data.sender.email !== "<%= current_guest.email %>") {
+          const chatRoom = document.querySelector('.chat-room');
+          chatRoom.insertAdjacentHTML('beforeend', data.message_partial);
+          scrollLastMessageIntoView();
+        }
+      }
+    });
+  </script>
+<% end %>
