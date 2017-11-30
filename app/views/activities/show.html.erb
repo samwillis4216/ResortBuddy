@@ -1,20 +1,23 @@
 <% img = @activity.photo? ? @activity.photo : 'iyq4gxp0oltwleiwafrx6' %>
-<div class="booking-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path img %>');">
+<div class="booking-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path img %>'); width: 100%; height: 200px;">
   <div class="booking-content">
-    <h1 id="title"><%= @activity.name.capitalize %></h1>
-    <h2><strong>Location: </strong><%= @activity.location %></h2>
-    <h2><strong>Price: </strong>£<%= @activity.price %></h2>
-    <h2><strong>Capacity: </strong><%= @activity.capacity %></h2>
-    <h2><strong>Duration: </strong><%= @activity.duration %>h</h2>
   </div>
 </div>
-<div class="container">
-  <h4 class="sub-title">Brief introducition to <%= @activity.name %></h4>
-  <h5><%= @activity.description %></h5>
-  <h5><%= @activity.description %></h5>
-  <hr class="line-break">
-  <h6 class="sub-title">Location</h6>
-  <div id="map" style="height: 500px;"> </div>
-</div>
 
+<div class="container samcontainer">
+  <div class="row sam-row">
+    <div class="samitem" id="name"><h4 class="sam-name"><%= @activity.name.capitalize%></h4></div>
+    <div class="samitem" id="location"><h4 class="sam-location"><%= @activity.location.capitalize%></h4></div>
+    <div class="Location-icon" style="float:right; margin-top: 14px;"> <%= cl_image_tag 'placeholder_akrtrs', :width=>20, :height=>20, :crop=>:fit  %></div>
+  </div>
+  <hr style="margin-top: 8px !important; border-color: #d3d7dd !important; margin-left: 5px; margin-right: 5px; margin-bottom: 8px !important;">
+
+  <div class="container sam-innercontainer">
+    <h6 class="sam-subheadings">Brief introduction to <%= @activity.category %></h6>
+    <p class="sam-description"><%= @activity.description %></p>
+    <hr style="margin-top: 10px !important; border-color: #d3d7dd !important; margin-left: 1px; margin-right: 1px;">
+    <h6 class="sam-subheadings">Location</h6>
+    <div id="map" style="margin-bottom: 140px; height: 200px; width: 100%; background-image: url('<%= cl_image_path 'shandrani-map2_qltdro'%>'); background-size: cover;"><div class="location-icon-map" style="padding-top: 108px; padding-left: 87px;"><%= cl_image_tag 'placeholder_akrtrs', :width=>25, :height=>30, :crop=>:fit %></div></div>
+  </div>
+</div>
 <%= render "shared/booking_form" %>

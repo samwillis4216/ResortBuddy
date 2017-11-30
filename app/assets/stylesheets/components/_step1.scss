@@ -19,7 +19,6 @@
   display: flex;
   background-color: white;
   align-items: center;
-  justify-content: space-around;
 }
 .active {
   display: block;
@@ -32,14 +31,19 @@
 .form-next {
   cursor: pointer;
   background-color: $green;
-  width: 80px;
-  height: 40px;
+  width: 53px;
+  height: 25px;
   padding-bottom: 10px;
-  padding-top: 7px;
+  padding-top: 2px;
   border-radius: 50px;
   color: white;
   text-align: center;
+  font-size: 14px;
   // position: absolute;
+  padding-right: 11px;
+  padding-left: 9px;
+  margin-bottom: 3px;
+  margin-left: 104%;
 }
 
 
@@ -48,6 +52,7 @@
 }
 
 .step-title {
+  margin-bottom: 20px;
     h2 {
     margin-top: 0px;
     margin-left: 10px;
@@ -60,8 +65,8 @@
   border-color: #D2D6DF;
   border-width: 1px 0;
   background-color: white;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 7px;
+  padding-bottom: 7px;
   box-sizing: border-box;
   position: fixed;
   bottom: 0;
@@ -93,13 +98,11 @@
 }
 
 .fa-minus-circle {
-  color: #2BB2AC;
+  color: #028090;
 }
 
 .fa-plus-circle {
-  padding-left: 10px;
-  color: #2BB2AC;
-
+  color: #028090;
 }
 
 .submit-step {
@@ -110,4 +113,8 @@
   border-radius: 50px;
   color: white;
   text-align: center;
+}
+
+.fa-2x {
+  font-size: 24px !important;
 }
