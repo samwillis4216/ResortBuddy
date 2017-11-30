@@ -7,9 +7,11 @@
     <h2><%= @date.strftime("%b %d, %Y") %></h2>
 
     <%= link_to activities_path(date: (@date + 1.day).strftime('%d-%m-%Y')), remote: true do %>
-    <h2><i class="fa fa-angle-right" id="arrow-right"></i></h2>
+      <h2><i class="fa fa-angle-right" id="arrow-right"></i></h2>
     <% end %>
   </div>
+
+  <button type="button" class="btn btn-primary sam-custom-filter-button" style="position: center">Filter</button>
 
   <% if @activities.count == 0 && @first_enter_flag == true %>
     <h3>There are no activities available today</h3>
@@ -53,7 +55,7 @@
               <div class="bookings-wrapper samcustombookingwrapper">
                 <% activity.availabilities.each do |availability| %>
                   <!-- <h1><%= availability.start_time.to_date %></h1> -->
-                  <% if availability.start_time.to_date == date %>
+                  <% if availability.start_time.to_date == @date %>
                     <div class="bookings samcustombookings">
                       <p class="p-bar">
                           <%= availability.start_time.strftime("%I:%M %p") %>
