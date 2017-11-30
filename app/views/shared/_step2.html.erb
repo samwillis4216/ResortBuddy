@@ -2,18 +2,18 @@
 
   <div class="sam-custm date-choose">
     <%= link_to rerender_path(@activity, date: (@date - 1.day).strftime('%d-%m-%Y')), remote: true do %>
-      <h2><i class="fa fa-angle-left"></i></h2>
+      <h2 class="sam-custm3"><i class="fa fa-angle-left"></i></h2>
     <% end %>
 
-    <h2><%= @date.strftime("%b %d, %Y") %></h2>
+    <h2 class="sam-custm3"><%= @date.strftime("%b %d, %Y") %></h2>
 
     <%= link_to rerender_path(@activity, date: (@date + 1.day).strftime('%d-%m-%Y')), remote: true do %>
-      <h2><i class="fa fa-angle-right"></i></h2>
+      <h2 class="sam-custm3"><i class="fa fa-angle-right"></i></h2>
     <% end %>
   </div>
 
   <div class="scrolls">
-    <div class="form-group" id="bookings-wrapper">
+    <div class="form-group sam-custm2" id="bookings-wrapper">
       <input type="hidden" name="booking[availability_id]" value="">
       <!-- <div class="bookings-wrapper"> -->
       <% @availabilities.each do |availability| %>
