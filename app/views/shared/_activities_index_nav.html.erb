@@ -18,8 +18,8 @@
     <p><%= current_guest.received_notifications.where(read: false).count %></p>
   </div>
   <div class="notif-container hide-notif">
-    <%= link_to 'Mark all as read', notifications_mark_as_read_path, method: :patch %>
-    <%= link_to 'Clear all', notifications_mark_as_cleared_path, method: :patch %>
+    <%= link_to 'Mark all as read', notifications_mark_as_read_path, method: :patch, class: "read" %>
+    <%= link_to 'Clear all', notifications_mark_as_cleared_path, method: :patch, class: "cleared" %>
     <% current_guest.received_notifications.where(cleared: false).each do |notification| %>
       <%= render 'shared/notification-guest', notification: notification %>
     <% end %>

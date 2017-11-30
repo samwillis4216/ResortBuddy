@@ -24,11 +24,11 @@
       </div>
       <% if @response.condition.text == "Cloudy" %>
          <%= image_tag 'weather/cloudy.png', class: "weather"%>
-      <% elsif @response.condition.text == "Rain" %>
+      <% elsif ["Rain", "Showers"].include?(@response.condition.text) %>
           <%= image_tag 'weather/rain.png', class: "weather" %>
       <% elsif @response.condition.text == "Sunny" %>
           <%= image_tag 'weather/sunny.png', class: "weather" %>
-      <% elsif @response.condition.text == "Partly Cloudy" || "Mostly Cloudy" %>
+      <% elsif ["Partly Cloudy", "Mostly Cloudy"].include?(@response.condition.text) %>
           <%= image_tag 'weather/sunclouds.png', class: "weather" %>
       <% end %>
     </p>
@@ -36,8 +36,8 @@
 
 </div>
 <h3 class="guesthead">Book your activity</h3>
-<div class="scrolls">
-  <div class="bookings-wrapper samcustombookingwrapper">
+<div>
+  <div class="bookings-wrapper samcustombookingwrapper scrolls" id="home-activity-slider">
     <div class="card-cat" style="background-image: linear-gradient(rgba(16, 123, 137,0.3), rgba(16, 123, 137,0.2)), url('https://images.unsplash.com/photo-1477894387642-00a731c511b3?auto=format&fit=crop&w=2079&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');">
         <div class="card-description">
           <h2>SPORTS</h2>

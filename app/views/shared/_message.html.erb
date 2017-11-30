@@ -1,4 +1,5 @@
-<div class="message <%= user_is_messages_author ? 'right-side' : '' %>">
+
+<div class="message <%= user_is_messages_author ? 'right-side-msg' : '' %>">
   <% img = message.messageable.photo? ? message.messageable.photo.url(:bright_face)  : 'jsut0cgif0nnmpalnwpn' %>
   <%= cl_image_tag img, class: "avatar-msg" %>
   <div class="message-content">

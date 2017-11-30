@@ -5,14 +5,20 @@
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-position: center;
   display: flex;
+  height: 105px;
   // align-items: left;
   // justify-content: left;
   h1 {
     font-size: 35px;
+    margin: 10px;
   }
 }
+.booking-info {
+  position: center;
+}
 .booking-show h2 {
-  font-size: 20px;
+  font-size: 10px;
+  font-weight: normal;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 .booking-show p {
@@ -23,4 +29,15 @@
 }
 .booking-content {
   padding: 10px 20px;
+  height: 200px;
+  h2 {
+  margin: 7px 0;
+  font-size: 20px;
+  font-weight: normal;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+}
+.ask-question {
+  margin: 0;
+  font-size: 25px;
 }

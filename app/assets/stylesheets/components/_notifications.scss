@@ -2,16 +2,18 @@
   font-size: 18px;
   position: absolute;
 }
-
 .notification {
   color: #4c4c4c;
   font-size: 14px;
-  border-bottom: 1px solid #4c4c4c;
+  border-bottom: 1px solid #4c4c4c2b;
+  display: flex;
+  align-items: center;
   p {
-    margin: 0;
+    flex: 1 0 auto;
+    margin: 0 10px;
+    font-weight: bold;
   }
 }
-
 .notif-badge {
   background-color: red;
   border-radius: 50%;
@@ -39,15 +41,48 @@
   overflow: scroll;
   background: white;
   width: 225px;
-  position: absolute;
-  top: 60px;
-  border: 1px solid #dedede;
-  border-radius: 2px;
+  // position: absolute;
+  // top: 65px;
+  // left: 146px;
+  border: 1px solid #028090;
+  border-radius: 3px;
+  z-index: 1000;
+  padding: 7px;
+}
+// .notif-container:last-child {
+//   border-bottom: none;
+// }
+.notif-container-employee {
+  max-height: 150px;
+  overflow: scroll;
+  background: white;
+  width: 243px;
+  // position: absolute;
+  // top: 65px;
+  // left: 146px;
+  border: 1px solid #028090;
+  border-radius: 3px;
   z-index: 1000;
   padding: 7px;
 }
 
+.notif-container:last-child a > div {
+  border-bottom: none;
+}
 
+.read {
+  font-size: 13px;
+}
+.cleared {
+  font-size: 13px;
+}
+.clear-read {
+  display: flex;
+  justify-content: space-between;
+}
+#employee-bell {
+  color: white;
+}
 // Flexbox
 .flex-center {
   display: flex;

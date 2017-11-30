@@ -12,9 +12,10 @@
 }
 
 .scrolls {
-    overflow-x: scroll;
-    overflow-y: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
+
 .datechoice {
   display: flex;
 }
@@ -32,10 +33,12 @@
 
 .bookings {
   padding: 10px;
-  background-color: $green;
-  color: white;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px rgba(150, 150, 150, 0.4);
+  background-color: white;
+  color: black;
+  text-shadow: none;
+  border-radius: 2px;
+  border: solid 1px rgba(150, 150, 150, 0.2);
+  // box-shadow: 2px 2px 2px rgba(150, 150, 150, 0.4);
   cursor: pointer;
   min-width: 100px;
   align-items: center;
