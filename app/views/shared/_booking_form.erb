@@ -1,24 +1,24 @@
 <%= simple_form_for([@activity, @booking]) do |f| %>
   <!-- Step 1 - adding number of people -->
   <div class="step-1" id="navbar-form">
-
+    <div class="container sam-booking-form">
     <div class="step-title">
-      <h2>Number of guests</h2>
+      <h6 class="heading-floating-navbar">Number of guests</h6>
     </div>
 
     <div class="group-master">
       <div class="form-group integer optional booking_no_ppl" id="ppl">
         <div class="plusminus">
+          <div class="Location-icon" style="float:left;"> <%= cl_image_tag 'user-new-final_ddymcj', :width=>20, :height=>20, :crop=>:fit  %></div>
           <label class="control-label integer optional" for="booking_no_ppl"></label>
-          <input class="form-control numeric integer optional" placeholder="0" type="number" step="1" name="booking[no_ppl]" id="booking_no_ppl" value="1">
-
-
-        <div class="form-minus"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></div>
-        <div class="form-plus"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></div>
-      </div>
+          <input class="form-control numeric integer optional smaller-size inline-components" placeholder="0" type="number" step="1" name="booking[no_ppl]" id="booking_no_ppl" value="1">
+          <div class="form-minus" style="padding-right: 12px!important;"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></div>
+          <div class="form-plus inline-components"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></div>
+        </div>
       </div>
 
       <div class="form-next">Next</div>
+    </div>
     </div>
   </div>
 
