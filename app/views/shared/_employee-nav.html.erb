@@ -2,13 +2,16 @@
 
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
-    <div class="ll"><%= image_tag "logo.png", class: "logo" %></div>
+    <div class="ll" style="padding-left: 41px"><%= image_tag "logo.png", class: "logo" %></div>
   </a>
 
   <!-- Notifications -->
+
+  <!-- Right Navigation -->
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
   <% is_displayed = current_employee.received_notifications.where(read: false).count > 0 ? '' : 'hide-notif' %>
   <div class="flex-center nav-notif dropdown dropdown-toggle">
-    <i class="fa fa-bell" id="employee-bell" data-toggle="dropdown" aria-hidden="true"></i>
+    <i class="fa fa-bell" id="employee-bell" data-toggle="dropdown" aria-hidden="true" style="padding-right: 15px"></i>
     <div class="notif-badge <%= is_displayed %>">
       <p><%= current_employee.received_notifications.where(read: false).count %></p>
     </div>
@@ -22,9 +25,6 @@
       <% end %>
     </ul>
   </div>
-
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
 
 <% if employee_signed_in? %>
 
