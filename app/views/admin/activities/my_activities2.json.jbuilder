@@ -7,11 +7,11 @@ def get_color(availability)
   end
 
   if sumofppl == 0
-    return "#66ee78"
+    return "#FA403C"
   elsif sumofppl > 0 && sumofppl < capacity
     return "#1774F0"
   else
-    return "#FA403C"
+    return "#66ee78"
   end
 end
 
@@ -22,7 +22,7 @@ json.array!(@my_availabilities) do |availability|
   json.backgroundColor "#{
   get_color(availability)}"
   json.end availability.end_time
-  json.url admin_activity_path(availability.activity, format: :html)
+  json.url admin_activity_availability_path(availability.activity_id, availability.id,  format: :html)
 end
 
 

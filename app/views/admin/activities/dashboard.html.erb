@@ -1,38 +1,38 @@
+<div class="show-page-header" >
+  <div class="calendar-header">
+    <div class="top-line-show">
+      <h1 style="text-align: left;">How are we doing this week?<br><small style="color: black;">Let's catch up with our KPIs</small></h1>
+    </div>
+  </div>
+</div>
+
 
 <div class="dashboard-page">
 
   <div class="top-stats">
     <div class="stat">
       <div class="stat-inside">
-        <h2> Surfing</h2>
         <span>Most Popular Activity</span>
+        <h2> Surfing</h2>
       </div>
     </div>
     <div class="stat">
       <div class="stat-inside">
-        <h2> $12,000</h2>
         <span> Weekly Sales</span>
+        <h2> $12,000</h2>
       </div>
     </div>
     <div class="stat">
       <div class="stat-inside">
-          <div class="progress-pie-chart" data-percent="43">
-            <div class="ppc-progress">
-              <div class="ppc-progress-fill"></div>
-            </div>
-            <div class="ppc-percents">
-              <div class="pcc-percents-wrapper">
-                <span>%</span>
-              </div>
-            </div>
-          </div>
-          <span> Weekly Sales</span>
+        <span>Availabilities booked</span>
+        <h2>43%</h2>
       </div>
     </div>
   </div>
 
 
   <div class="dashboard-chart-div">
+    <span>Weekly Sales</span>
     <div class="dashboard-chart" id="chart_container"></div>
     <div></div>
   </div>
@@ -46,7 +46,7 @@
 
     Highcharts.chart('chart_container', {
         title: {
-            text: 'Guest Activities'
+            text: ''
         },
 
         subtitle: {
@@ -64,9 +64,9 @@
         },
 
         legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
+            layout: 'horizontal',
+            align: 'left',
+            verticalAlign: 'bottom'
         },
 
         plotOptions: {
@@ -81,25 +81,25 @@
 
         series: [{
             name: 'Surfing',
-            data: [233, 454, 654, 456, 799, 800, 754, 1011]
+            data: [23, 37, 18, 30, 48, 12, 67]
         }, {
             name: 'Yoga',
-            data: [233, 267, 300, 277, 288, 261, 312, 305]
+            data: [32, 39, 56, 76, 80, 71, 89, 101]
         }, {
             name: 'Paddleboarding',
-            data: [110, 130, 145, 165, 190, 210, 432, 560]
+            data: [23, 37, 18, 30, 48, 12, 67]
         }, {
             name: 'Snorkelling',
-            data: [null, null, 433, 568, 657, 650, 720, 790]
+            data: [null, null, 56, 76, 80, 71, 89, 101]
         }, {
             name: 'Watersports',
-            data: [120, 370, 340, 290, 270, 360, 320, 660]
+            data: [23, 37, 18, 30, 48, 12, 67]
         }],
 
         responsive: {
             rules: [{
                 condition: {
-                    maxWidth: 500
+                    maxWidth: 400
                 },
                 chartOptions: {
                     legend: {

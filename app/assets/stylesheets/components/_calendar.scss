@@ -1,0 +1,16 @@
+.fc-agendaWeek-button.fc-button.fc-state-default.fc-corner-left,
+.fc-agendaDay-button.fc-button.fc-state-default.fc-corner-right {
+  opacity: 0.4;
+}
+
+.fc-agendaWeek-button.fc-button.fc-state-default.fc-corner-left.fc-state-active,
+.fc-agendaDay-button.fc-button.fc-state-default.fc-corner-right.fc-state-active {
+  border: none;
+  background: white !important;
+  margin: 0 10px;
+  opacity: 1;
+}
+
+.fc-right {
+  margin: 0;
+}

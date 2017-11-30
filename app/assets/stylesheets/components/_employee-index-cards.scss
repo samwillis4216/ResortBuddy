@@ -37,6 +37,7 @@
   justify-content: flex-start;
   width: 33.33333%;
   max-width: 105px;
+  min-width: 105px;
   height:100%;
 }
 
@@ -55,9 +56,9 @@
   span {
     text-transform: capitalize;
     font-family: avenir;
-    font-size: 2em;
+    font-size: 1.4em;
     font-weight: 600;
-    line-height: 1em;
+    line-height: 1.4em;
     opacity: 0.8;
   }
 }

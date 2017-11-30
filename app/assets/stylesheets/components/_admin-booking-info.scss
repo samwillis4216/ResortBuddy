@@ -1,23 +1,37 @@
 .info-booking {
   width: 100%;
-  height: 520px;
+  height: 593px;
   padding: 20px;
   background: white;
-  border-right: 1px solid #f9f9f9;
+  border-right: 1px solid #e2e2e2;
 
   h1 {
-    font-size: 2em;
+    font-size: 1.4em;
     font-family: avenir;
     font-weight: 100;
     color: #233539;
   }
 
+  hr {
+    color: #e2e2e2;
+  }
+
   h2 {
+    display: flex;
+    flex-direction: column;
     font-family: avenir;
     font-weight: 100;
     color: #233539;
-    font-size: 18px;
+    font-size: 22px;
     margin: 12px 0;
+
+    strong {
+      margin-bottom: 7px;
+      font-size: 16px;
+      font-weight: 400;
+      font-size: 16px;
+      opacity: 0.3;
+    }
   }
 
   p {
@@ -79,20 +93,21 @@
 
       #create-message {
         padding: 11px 10px 5px;
+        bottom: 0px;
+        height: 60px;
         background: #2e3033;
         border-radius: 0;
-        height: 60px;
 
         form {
           display: flex;
 
           input:nth-child(2){
             position: relative;
-            width: 80%;
+            width: 400px;
           }
 
           input[type="submit"]{
-            width: 20%;
+            width: 200px;
             border-radius: 0;
           }
         }

@@ -1,7 +1,14 @@
-<div class="calendar-container">
+<div class="show-page-header" >
+  <div class="calendar-header">
+    <div class="top-line-show">
+      <h1 style="text-align: left;">Week overview<br><small style="color: black;">Get a quick glance at all your activities bookings</small></h1>
+    </div>
+  </div>
+</div>
 
-  <div id="calendar" style="background-color:white; padding-top:20px; padding-left:10px; padding-rigth:10px;"></div>
-  <div class="status-bar">
+<div class="calendar-container">
+  <div id="calendar" style="background-color:white; padding: 40px 50px 0;"></div>
+  <div class="status-bar" style="margin-top: 20px;">
     <ul>
       <li><p><i class="fa fa-circle" id="no-bookings"></i> No bookings</p> </li>
       <li><p><i class="fa fa-circle" id="bookings"></i> Bookings</p> </li>
@@ -27,7 +34,7 @@
       header: {
             left: '',
             center: 'prev title next',
-            right: 'agendaWeek,agendaDay today'
+            right: 'agendaWeek,agendaDay'
         },
         events: '/admin/my_activities2.json',
     });

@@ -11,7 +11,7 @@ class Admin::AvailabilitiesController < ApplicationController
     @chatroom = Chatroom.find(@availability.chatroom.id)
     @message = Message.new
     @messages = @chatroom.messages
-    @activity = Activity.find(params[:id])
+    @activity = Activity.find(params[:activity_id])
   end
 
   def new

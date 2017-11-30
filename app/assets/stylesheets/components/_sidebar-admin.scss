@@ -1,10 +1,11 @@
 /* Sidebar */
 .sidebar {
   flex: 0 0 200px;
-  height: calc(100vh - 70px);
+  height: 100vh;
   background: #2D3033;
   color: white;
   font-size: 14px;
+  padding-top: 60px;
 }
 
 .sidebar ul {
