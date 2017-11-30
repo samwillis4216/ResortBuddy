@@ -26,15 +26,7 @@
   overflow: scroll;
   padding: 10px;
 }
-.chat-room-employee {
-  border: 1px solid grey;
-  border-radius: 7px;
-  height: 75vh;
-  width: 80%;
-  margin: auto;
-  overflow: scroll;
-  padding: 10px;
-}
+
 #create-message {
   padding: 5px;
   background-color: #ffffff;
@@ -69,4 +61,5 @@
   position: fixed;
   bottom: 0;
   right: 0;
+  background-color: white;
 }

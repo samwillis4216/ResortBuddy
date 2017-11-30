@@ -1,5 +1,5 @@
   <div class="chat-window-employee">
-    <div class="chat-room">
+    <div class="chat-room" id="employee">
       <% @messages.each do |message| %>
         <% user = !current_guest.nil? ? current_guest : current_employee %>
         <%= render "shared/message", message: message, user_is_messages_author: message.messageable == user %>

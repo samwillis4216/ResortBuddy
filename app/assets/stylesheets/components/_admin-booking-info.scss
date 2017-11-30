@@ -1,0 +1,47 @@
+.info-booking {
+  margin: 15px;
+  padding: 20px;
+  background: white;
+
+  h1 {
+    font-size: 2em;
+    font-family: avenir;
+    font-weight: 100;
+    color: #233539;
+  }
+
+  h2 {
+    font-family: avenir;
+    font-weight: 100;
+    color: #233539;
+    font-size: 18px;
+    margin: 12px 0;
+  }
+
+  p {
+    font-family: avenir;
+    font-weight: 100;
+    color: #233539;
+    font-size: 16px;
+  }
+}
+
+.activities-details-booking {
+  display: flex;
+
+  .activity-picture {
+    width: 70%;
+    height: 460px;
+    background-size: cover;
+  }
+
+  .activity-info-booking {
+    display: flex;
+    width: 40%;
+  }
+
+}
+
+#employee {
+  border: none;
+}
