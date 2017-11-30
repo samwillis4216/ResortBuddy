@@ -9,13 +9,13 @@
   </div>
 
     <div class="tabs">
-      <p class="tab active" id="schedule"><i class="fa fa-circle"></i> Activity Schedule</p>
       <p class="tab " id="details"> Activity Details</p>
+      <p class="tab active" id="schedule"> Activity Schedule</p>
     </div>
 </div>
 <div>
 
-  <div class="activity-infos "><%= render "shared/activity-info"  %></div>
+  <div class="activity-infos hidden"><%= render "shared/activity-info"  %></div>
   <div class="activity-schedule active"><%= render "shared/activity-schedule" %></div>
 </div>
 
@@ -28,6 +28,20 @@
 
     const details = document.querySelector(".activity-infos")
     const schedule = document.querySelector(".activity-schedule")
+
+    schedule_tab.addEventListener("click", event => {
+      details.classList = "hidden";
+      schedule.classList = "active";
+    });
+
+    details_tab.addEventListener("click", event => {
+      schedule.classList = "hidden";
+      details.classList = "active";
+    });
+
+    window.addEventListener("load", () => {
+      details_tab.click()
+    });
 
 </script>
 <% end %>

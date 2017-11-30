@@ -12,7 +12,7 @@
 </div>
 
 <div class="container-add" >
-  <div class="form-post" id="new-activity">
+  <div class="form-post" id="new-activity" style="margin: 0 50px 0; box-shadow: none;">
     <div class="new-activity">
       <%= simple_form_for [:admin, @activity], defaults: { input_html: { class: "activity-form"} } do |f| %>
         <% if @activity.errors.any? %>
@@ -24,60 +24,62 @@
             </ul>
           </div>
         <% end %>
-          <div class="row">
-            <div class="col-xs-6">
-              <div class="form-group string required activity_name">
-                <label class="control-label string required texts" for="activity_name" id="new-activity-text">
-                  <abbr title="required"></abbr> Name *
-                </label>
-                <input class="form-control string required activity-form" type="text" name="activity[name]" id="activity_name">
-              </div>
-           </div>
-            <div class="col-xs-6">
-              <div class="form-group string required activity_location">
-                <label class="control-label string required" for="activity_location" id="new-activity-text">
-                  <abbr title="required"></abbr> Location *</label>
-                  <input class="form-control string required activity-form" type="text" name="activity[location]" id="activity_location">
-              </div>
-           </div>
-         </div>
-          <div class="row">
-            <div class="col-xs-6">
-              <div class="form-group integer optional activity_capacity">
-                <label class="control-label integer optional" for="activity_capacity" id="new-activity-text">
-                Capacity</label>
-                <input class="form-control numeric integer optional activity-form" type="number" step="1" name="activity[capacity]" id="activity_capacity">
-              </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group string required activity_name">
+              <label class="control-label string required texts" for="activity_name">
+                <abbr title="required"></abbr> Name *
+              </label>
+              <input class="form-control string required activity-form" type="text" name="activity[name]" id="activity_name">
             </div>
-            <div class="col-xs-6">
-              <div class="form-group integer optional activity_price">
-                <label class="control-label integer optional" for="activity_price" id="new-activity-text">Price</label>
-                <input class="form-control numeric integer optional activity-form" type="number" step="1" name="activity[price]" id="activity_price">
-              </div>
-           </div>
-         </div>
-
+          </div>
+          <div class="col-xs-6">
+            <div class="form-group string required activity_location">
+              <label class="control-label string required" for="activity_location">
+                <abbr title="required"></abbr> Location *</label>
+                <input class="form-control string required activity-form" type="text" name="activity[location]" id="activity_location">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group integer optional activity_capacity">
+              <label class="control-label integer optional" for="activity_capacity">
+              Capacity</label>
+              <input class="form-control numeric integer optional activity-form" type="number" step="1" name="activity[capacity]" id="activity_capacity">
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="form-group integer optional activity_price">
+              <label class="control-label integer optional" for="activity_price">Price</label>
+              <input class="form-control numeric integer optional activity-form" type="number" step="1" name="activity[price]" id="activity_price">
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-xs-6">
             <div class="form-group select optional activity_category">
               <label class="control-label select optional" for="activity_category">
               Category
               </label>
-              <select class="form-control select optional activity-form" name="activity[category]" id="activity_category"><option value=""></option>
+              <select class="form-control select optional activity-form" name="activity[category]" id="activity_category">
+                <option value="">Pick a category</option>
               <% Activity::CATEGORIES.each do |category| %>
                 <option value="<%= category %>"><%= category %></option>
               <% end %>
+              </select>
             </div>
-
-          <div class="col-xs-6">
-            <%= f.input :duration %>
           </div>
-
+          <div class="col-xs-6">
+            <div class="form-group select optional activity_category">
+              <%= f.input :duration %>
+          </div>
+        </div>
         </div>
         <div class="row">
           <div class="col-xs-6">
             <div class="form-group string required activity_description">
-              <label class="control-label string required" for="activity_description" id="new-activity-text">
+              <label class="control-label string required" for="activity_description">
               Description *
               </label>
               <input class="form-control string required activity-form" type="text" name="activity[description]" id="activity_description">
@@ -95,12 +97,13 @@
               <%= f.input :photo %>
             </div>
           </div>
-          <div class="col-xs-6">
-            <%= f.submit "Next", class: "btn btn-primary", id: "next-activity-button"%>
+          <div class="col-xs-6" style="text-align: right; top: 34px;">
+            <%= f.submit "Next", class: "btn btn-primary", id: "next-activity-button", style: "max-width: 220px;" %>
             <% end %>
           </div>
         </div>
-
+      </div>
+    </div>
   </div>
 </div>
 

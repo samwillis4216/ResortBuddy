@@ -1,30 +1,30 @@
 // page
 .dashboard-page {
-  display: block;
+  display: flex;
+  width: 100%;
   align-items: center;
-  padding: 30px;
+  padding: 0 30px;
 }
 
 // stats bar
 .top-stats {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-left: 20px;
-  margin-right: 20px;
+  justify-content: space-around;
+  width: 33.33333%;
+  margin-top: -20px;
 }
 
 .stat {
   display: flex;
   align-items: center;
-  margin: 10px 0;
-  padding: 30px 30px;
   width: 300px;
   height: 150px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 16px rgba(150, 150, 150, 0.3);
+
 
   h2 {
+    margin-top: 10px;
     text-transform: capitalize;
     font-family: avenir;
     font-size: 2em;
@@ -33,12 +33,14 @@
     opacity: 0.8;
   }
   span {
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    opacity: 0.3;
     text-transform: capitalize;
     font-family: avenir;
-    font-size: 1em;
-    font-weight: 100;
     line-height: 1em;
-    opacity: 0.8;
   }
 }
 
@@ -53,17 +55,28 @@
 .dashboard-chart {
   width: 800px;
   height: 400px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-top: 20px;
+  margin-left: -34px;
 }
 
 
 .dashboard-chart-div {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
+  width: 66.66666%;
+  margin-top: 55px;
 
+  span {
+    margin-bottom: 7px;
+    font-size: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    opacity: 0.3;
+    text-transform: capitalize;
+    font-family: avenir;
+    line-height: 1em;
+  }
 }
 
 // progress bar
@@ -78,7 +91,7 @@
   height: $size;
 }
 
-$size: 200px;
+$size: 100px;
 .progress-pie-chart {
   width: $size;
   height: $size;
@@ -113,7 +126,7 @@ $size: 200px;
   display: table;
   span {
     display: block;
-    font-size: 2.6em;
+    font-size: 35px;
     font-weight: bold;
     color: #81CE97;
   }
