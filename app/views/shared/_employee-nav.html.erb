@@ -15,7 +15,7 @@
     <div class="notif-badge <%= is_displayed %>">
       <p><%= current_employee.received_notifications.where(read: false).count %></p>
     </div>
-    <ul class="notif-container-employee hide-notif dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+    <ul class="notif-container hide-notif dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
       <li class="clear-read">
         <%= link_to 'Mark all as read', notifications_mark_as_read_path, method: :patch, class: "read" %>
         <%= link_to 'Clear all', notifications_mark_as_cleared_path, method: :patch, class: "cleared" %>
