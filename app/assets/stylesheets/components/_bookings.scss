@@ -4,7 +4,7 @@
 .booking {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgba(150, 150, 150, 0.4);
@@ -28,6 +28,9 @@
 .book-price {
   padding: 0 10px;
   font-size: 15px;
+  i {
+    margin: 0;
+  }
 }
 .booking-link {
   position: absolute;
@@ -51,15 +54,15 @@
   -webkit-transition: width 0.3s;
   transition: width 0.3s;
 }
-// .booking:hover {
-//   .colored-side {
-//     width: 150px;
-//   }
-//   .book-date {
-//     color: white;
+.booking:hover {
+  .colored-side {
+    width: 125px;
+  }
+  .book-date {
+    color: white;
 
-//   }
-// }
+  }
+}
 .person {
   display: flex;
   .guests {
@@ -75,4 +78,7 @@
   flex-direction: column;
   margin: 0 4px;
   border-top: none !important;
+}
+.fa-user {
+  margin-right: 0 !important;
 }
