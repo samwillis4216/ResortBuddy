@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-  layout "guest"
 
   def index
     @user = current_guest

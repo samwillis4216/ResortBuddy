@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  layout 'guest', only: [:home_guest, :profile_guest]
+  # layout 'guest', only: [:home_guest, :profile_guest]
 
   before_action :authenticate_guest!, only: :home_guest
 

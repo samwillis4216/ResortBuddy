@@ -1,5 +1,4 @@
 class Admin::AvailabilitiesController < ApplicationController
-  layout "admin"
 
   def index
     @availabilities = Availability.where(activity_id: params[:activity_id])

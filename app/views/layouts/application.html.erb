@@ -12,7 +12,9 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
+    <%= render 'shared/nav' %>
     <%= render 'shared/flashes' %>
+    <%= render 'shared/side-nav' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

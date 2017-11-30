@@ -1,5 +1,4 @@
 class AvailabilitiesController < ApplicationController
-  layout "guest"
 
   def show
     @availability = Availability.find(params[:id])

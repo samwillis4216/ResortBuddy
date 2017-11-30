@@ -4,7 +4,6 @@ class ActivitiesController < ApplicationController
     @date = Date.parse(params[:date])
     @activities = Activity.all
     @activitiesForFilter = @activities.select {|activity| activity.availabilities.any? {|availability| availability.start_time.to_date == @date}}
-    render layout: 'activities_filter'
   end
 
   def count
@@ -50,7 +49,6 @@ class ActivitiesController < ApplicationController
     @date = Date.parse(params[:date])
     @activity = Activity.find(params[:id])
     @availabilities = @activity.availabilities.where("start_time > ? AND start_time < ?", @date, @date + 1)
-    render layout: 'guest'
   end
 
   def new

@@ -1,5 +1,4 @@
 class Admin::ActivitiesController < ApplicationController
-  layout "admin"
 
   before_action :authenticate_employee!
 

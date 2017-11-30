@@ -1,0 +1,7 @@
+<% if params[:controller] == 'activities' && params[:action] == 'filter' %>
+  <%= render "shared/guests-filter-navbar" %>
+<% elsif current_guest %>
+  <%= render "shared/guest-nav" %>
+<%  elsif current_employee %>
+  <%= render "shared/employee-nav" %>
+<% end %>
