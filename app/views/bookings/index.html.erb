@@ -17,12 +17,6 @@
       <div class="book-info">
         <p>
         <strong><%= booking.availability.activity.name %></strong>
-        <%= link_to booking_path(booking),
-        method: :delete,
-        class: "delete-link",
-        data: { confirm: "Are you sure?" } do %>
-        <i class="fa fa-trash" aria-hidden="true"></i>
-        <% end %>
         </p>
         <p>
         <%= booking.availability.activity.location %>
