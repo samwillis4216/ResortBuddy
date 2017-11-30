@@ -78,8 +78,9 @@
   // position: fixed;
   bottom: 0;
   width: 100%;
-  height: calc(100vh - 425px);
+  height: calc(100vh - 160px);
   overflow-y: auto;
+  background-color: white;
 }
 .msg-author {
   font-weight: bold;
