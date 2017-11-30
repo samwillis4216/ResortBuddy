@@ -10,7 +10,7 @@
         <div class="pretty p-default p-round p-thick shiftright">
           <input type="checkbox" name="category[]", id="category[]", value="<%= activity.category %>", checked="checked", class="respondToInput"/>
           <div class="state p-primary-o">
-            <label class="category"><%= activity.name.capitalize %></label>
+            <label class="category"><%= activity.category.capitalize %></label>
           </div>
         </div>
         <br>
@@ -30,7 +30,7 @@
     <br>
     <br>
 
-
+<div class="encapsulate">
     <div class="slider">
       <span id="ex6CurrentSliderValLabel" class="filter-subtitle">Filter by maximum price: £<span id="priceSliderVal">50</span></span>
 
@@ -41,6 +41,8 @@
 
       <input id="capacity" name="numpeople" type="text" data-slider-min="0" data-slider-max="20" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide"/>
     </div>
+</div>
+
 
     <input type="hidden" name="date" value="<%= params[:date] %>">
     <%= submit_tag '', class: "filter btn btn-primary", id: "submit" %>
