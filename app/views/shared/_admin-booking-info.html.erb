@@ -1,0 +1,42 @@
+<% availability_id = params[:id] %>
+<% availability = Availability.find(availability_id) %>
+<% img = availability.activity.photo? ? availability.activity.photo : "yq4gxp0oltwleiwafrx6" %>
+
+
+<div class="activities-details-booking">
+  <div class="activity-info-booking">
+    <div class="info-booking">
+      <h1 class="sub-title">Booking Info</h1>
+      <hr class="line-break">
+        <h2><strong>Location: </strong><%= @activity.location %></h2>
+        <h2><strong>Price: </strong>£<%= @activity.price %></h2>
+        <h2><strong>Capacity: </strong><%= @activity.capacity %></h2>
+        <h2><strong>Duration: </strong><%= @activity.duration %>h</h2>
+        <h2><strong>When: </strong><%= availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %></h2>
+    </div>
+  </div>
+
+  <div class="activity-info-booking">
+    <div class="info-booking">
+      <h1 class="sub-title">Guests</h1>
+      <hr class="line-break">
+        <div class="people">
+          <% @bookings = Booking.where("availability_id = #{availability.id}") %>
+          <% @bookings.each do |booking| %>
+          <div class="person">
+            <% img = booking.guest.photo? ? booking.guest.photo.url(:bright_face) : "jsut0cgif0nnmpalnwpn" %>
+            <% if booking.no_ppl > 1 %>
+              <%= cl_image_tag img, class: "booker" %>
+              <p class="guests">+<%= booking.no_ppl - 1 %></p>
+            <% else %>
+                <%= cl_image_tag img, class: "booker" %>
+             <% end %>
+          </div>
+          <div>
+          <h2 style="padding-left: 10px;"><%= booking.guest.first_name %></h2>
+          </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+</div>

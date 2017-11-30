@@ -22,7 +22,7 @@ json.array!(@my_availabilities) do |availability|
   json.backgroundColor "#{
   get_color(availability)}"
   json.end availability.end_time
-  json.url admin_my_activities2_path(availability, format: :html)
+  json.url admin_activity_path(availability.activity, format: :html)
 end
 
 

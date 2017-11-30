@@ -3,11 +3,6 @@ class Admin::ActivitiesController < ApplicationController
 
   before_action :authenticate_employee!
 
-  # def index
-  #   @activities = Activity.all
-
-  # end
-
     def index
     @category = params[:category]
     @price = params[:price]
