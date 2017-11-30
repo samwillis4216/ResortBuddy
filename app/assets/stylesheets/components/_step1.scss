@@ -41,7 +41,9 @@
   font-size: 14px;
   // position: absolute;
   padding-right: 11px;
- padding-left: 9px;
+  padding-left: 9px;
+  margin-bottom: 3px;
+  margin-left: 104%;
 }
 
 
@@ -96,13 +98,11 @@
 }
 
 .fa-minus-circle {
-  color: #d3d7dd;
+  color: #028090;
 }
 
 .fa-plus-circle {
-  padding-left: 10px;
-  color: #d3d7dd;
-
+  color: #028090;
 }
 
 .submit-step {
@@ -116,5 +116,5 @@
 }
 
 .fa-2x {
-  font-size: 20px !important;
+  font-size: 24px !important;
 }

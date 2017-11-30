@@ -9,15 +9,16 @@
     <div class="group-master">
       <div class="form-group integer optional booking_no_ppl" id="ppl">
         <div class="plusminus">
-          <div class="Location-icon" style="float:left;"> <%= cl_image_tag 'user-new-final_ddymcj', :width=>20, :height=>20, :crop=>:fit  %></div>
+          <div class="flex">
+          <div class="location-icon" style="float:left;"><i class="fa fa-users" aria-hidden="true"></i></div>
+          <div class="form-minus" style="padding-left: 10px;"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></div>
           <label class="control-label integer optional" for="booking_no_ppl"></label>
-          <input class="form-control numeric integer optional smaller-size inline-components" placeholder="0" type="number" step="1" name="booking[no_ppl]" id="booking_no_ppl" value="1">
-          <div class="form-minus" style="padding-right: 12px!important;"><i class="fa fa-2x fa-minus-circle" aria-hidden="true"></i></div>
-          <div class="form-plus inline-components"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></div>
+          <input class="form-control numeric integer optional smaller-size inline1" placeholder="0" type="number" step="1" name="booking[no_ppl]" id="booking_no_ppl" value="1">
+          <div class="form-plus inline2"><i class="fa fa-2x fa-plus-circle" aria-hidden="true"></i></div>
+          <div class="form-next">Next</div>
+          </div>
         </div>
       </div>
-
-      <div class="form-next">Next</div>
     </div>
     </div>
   </div>
