@@ -4,20 +4,15 @@
 <div class="show-page-header" >
   <div class="calendar-header">
     <div class="top-line-show">
-      <h1>Your <%= availability.activity.name %> at </h1> <h2><%= availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %></h2>
+      <h1 style="text-align: left;"><%= availability.activity.name %><br><small style="color: black;"><%= availability.start_time.strftime("%A, %d %b %Y %l:%M %p") %></small></h1>
     </div>
-  </div>
-
-  <div class="tabs">
-      <p class="tab active" id="schedule">Booking Info</p>
-      <p class="tab " id="details">Chat</p>
   </div>
 </div>
 
-
+<div class="activity-wrapper">
   <div class="activity-infos "><%= render "shared/admin-booking-info"  %></div>
   <div class="activity-schedule active"><%= render "shared/admin-booking-chat" %></div>
-
+</div>
 
 <%= content_for(:after_js) do %>
   <script>

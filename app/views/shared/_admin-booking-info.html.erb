@@ -20,23 +20,21 @@
     <div class="info-booking">
       <h1 class="sub-title">Guests</h1>
       <hr class="line-break">
-        <div class="people">
-          <% @bookings = Booking.where("availability_id = #{availability.id}") %>
-          <% @bookings.each do |booking| %>
-          <div class="person">
-            <% img = booking.guest.photo? ? booking.guest.photo.url(:bright_face) : "jsut0cgif0nnmpalnwpn" %>
-            <% if booking.no_ppl > 1 %>
-              <%= cl_image_tag img, class: "booker" %>
-              <p class="guests">+<%= booking.no_ppl - 1 %></p>
-            <% else %>
-                <%= cl_image_tag img, class: "booker" %>
-             <% end %>
-          </div>
-          <div>
-          <h2 style="padding-left: 10px;"><%= booking.guest.first_name %></h2>
-          </div>
+      <div class="people">
+        <% @bookings = Booking.where("availability_id = #{availability.id}") %>
+        <% @bookings.each do |booking| %>
+        <div class="person">
+          <% img = booking.guest.photo? ? booking.guest.photo.url(:bright_face) : "jsut0cgif0nnmpalnwpn" %>
+          <% if booking.no_ppl > 1 %>
+            <%= cl_image_tag img, class: "booker" %>
+            <p class="guests">+<%= booking.no_ppl - 1 %></p>
+          <% else %>
+            <%= cl_image_tag img, class: "booker" %>
           <% end %>
+          <h2 style="padding-left: 10px;"><%= booking.guest.first_name %></h2>
         </div>
+        <% end %>
+      <div>
     </div>
   </div>
 </div>
