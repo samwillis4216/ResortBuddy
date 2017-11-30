@@ -1,6 +1,5 @@
 var container = document.getElementById('list')
-container.innerHTML = '<%= j render "activities_list" %>'
-
+container.innerHTML = '<%= j render "activities_list", date: date %>'
 // var link = document.getElementById('filter-button')
 // console.log("link", link)
 // link.href = "filter?date=<%= @date.strftime('%Y-%m-%d')%>"
