@@ -29,20 +29,5 @@
     const details = document.querySelector(".activity-infos")
     const schedule = document.querySelector(".activity-schedule")
 
-    details_tab.addEventListener("click", event => {
-      details_tab.classList.toggle("active")
-      schedule_tab.classList.toggle("active")
-
-      details.classList.toggle("active");
-      schedule.classList.toggle("active")
-    });
-
-    schedule_tab.addEventListener("click", event => {
-      details_tab.classList.toggle("active")
-      schedule_tab.classList.toggle("active")
-
-      details.classList.toggle("active");
-      schedule.classList.toggle("active")
-    });
 </script>
 <% end %>

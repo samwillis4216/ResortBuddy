@@ -71,5 +71,8 @@
   box-shadow: 1px 1px 1px rgba(150, 150, 150, 0.5);
 }
 .people {
+  display: flex;
+  flex-direction: column;
   margin: 0 4px;
+  border-top: none !important;
 }

@@ -1,7 +1,9 @@
 .info-booking {
-  margin: 15px;
+  width: 100%;
+  height: 520px;
   padding: 20px;
   background: white;
+  border-right: 1px solid #f9f9f9;
 
   h1 {
     font-size: 2em;
@@ -37,11 +39,64 @@
 
   .activity-info-booking {
     display: flex;
-    width: 40%;
+    width: 25%;
   }
 
 }
 
 #employee {
   border: none;
+}
+
+.activity-wrapper {
+  display: flex;
+
+  .activity-infos {
+    width: 100%;
+  }
+
+  .activity-schedule.active {
+    display: flex;
+    width: 50%;
+    height: 480px;
+    background-color: transparent;
+
+    .chat-window-employee {
+      position: relative;
+      padding: 10px 0 20px;
+      width: 100%;
+
+      .chat-room {
+        position: relative;
+        padding: 0 20px;
+        width: 100%;
+        height: 100%;
+
+        .right-side {
+          padding: 10px 0 20px;
+        }
+      }
+
+      #create-message {
+        padding: 11px 10px 5px;
+        background: #2e3033;
+        border-radius: 0;
+        height: 60px;
+
+        form {
+          display: flex;
+
+          input:nth-child(2){
+            position: relative;
+            width: 80%;
+          }
+
+          input[type="submit"]{
+            width: 20%;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
 }

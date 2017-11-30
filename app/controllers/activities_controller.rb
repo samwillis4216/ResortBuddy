@@ -1,3 +1,4 @@
+require('pry')
 class ActivitiesController < ApplicationController
 
   def filter
@@ -15,6 +16,7 @@ class ActivitiesController < ApplicationController
   end
 
   def index
+    # binding.pry
     @date = params[:date] ? Date.parse(params[:date]) : Date.today
     @category = params[:category]
     @price = params[:price]
@@ -38,7 +40,10 @@ class ActivitiesController < ApplicationController
       @activities = @activities.select {|activity| activity.availabilities.any? {|availability| availability.start_time.to_date == @date}}
       @first_enter_flag = true;
     end
-    render layout: "guest"
+    respond_to do |format|
+      format.html { render layout: 'guest' }
+      format.js
+    end
   end
 
   def show
