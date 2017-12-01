@@ -14,12 +14,12 @@
 
   <div class="scrolls">
     <div class="form-group sam-custm2" id="bookings-wrapper">
-      <input type="hidden" name="booking[availability_id]" value="" id="booking-availability-id">
       <!-- <div class="bookings-wrapper"> -->
       <% @availabilities.each do |availability| %>
         <span class="bookings">
 
           <label for="booking_availability_id_<%= availability.id %>">
+            <input type="hidden" name="booking[availability_id]">
             <input class="radio_buttons required hidden" type="radio" value="<%= availability.id %>" name="booking[availability_id]" id="booking_availability_id_<%= availability.id %>">
             <%= availability.start_time.strftime("%I:%M %p") %>
           </label>
