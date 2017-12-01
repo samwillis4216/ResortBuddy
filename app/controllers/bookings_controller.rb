@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @availability = Availability.find(params[:booking][:availability_id])
+    @availability = Availability.find(params[:booking_availability_id])
     @booking = Booking.new(booking_params)
     @booking.guest = current_guest
     @booking.availability = @availability
