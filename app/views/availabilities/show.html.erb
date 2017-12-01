@@ -37,5 +37,9 @@
       bodyInfo.classList.toggle("hidden")
       bodyChat.classList.toggle("hidden")
     });
+
+    chatTab.addEventListener('click', function(){
+        scrollLastMessageIntoView();
+    });
 </script>
 <% end %>
