@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    binding.pry
     @availability = Availability.find(params[:booking][:availability_id])
     @booking = Booking.new(booking_params)
     @booking.guest = current_guest
