@@ -72,14 +72,5 @@
       });
     });
 
-    var radioButtons = document.querySelectorAll('.radio_buttons')
-    var bookingAvailabilityInput = document.getElementById('booking-availability-id')
-
-    radioButtons.forEach(function(radioButton, i){
-      radioButton.addEventListener('click', function(){
-        bookingAvailabilityInput.value = radioButton.value
-      })
-    })
-
   </script>
   <% end %>
