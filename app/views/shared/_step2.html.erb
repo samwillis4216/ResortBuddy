@@ -13,19 +13,19 @@
   </div>
 
   <div class="scrolls">
-    <div class="form-group sam-custm2" id="bookings-wrapper">
-      <!-- <div class="bookings-wrapper"> -->
-      <% @availabilities.each do |availability| %>
-        <span class="bookings">
+    <% @availabilities.each do |availability| %>
+      <div class="form-group sam-custm2 booking_availability_id_<%= availability.id %>" id="bookings-wrapper">
+        <!-- <div class="bookings-wrapper"> -->
+          <span class="bookings">
 
-          <label for="booking_availability_id_<%= availability.id %>">
-            <input type="hidden" name="booking[availability_id]">
-            <input class="radio_buttons required hidden" type="radio" value="<%= availability.id %>" name="booking[availability_id]" id="booking_availability_id_<%= availability.id %>">
-            <%= availability.start_time.strftime("%I:%M %p") %>
-          </label>
-        </span>
-      <% end %>
-        <!-- </div> -->
-    </div>
+            <label for="booking_availability_id_<%= availability.id %>">
+              <!-- <input type="hidden" name="booking[availability_id]"> -->
+              <input class="radio_buttons required hidden" type="radio" value="<%= availability.id %>" name="booking[availability_id]" id="booking_availability_id_<%= availability.id %>">
+              <%= availability.start_time.strftime("%I:%M %p") %>
+            </label>
+          </span>
+          <!-- </div> -->
+      </div>
+    <% end %>
   </div>
 </div>
