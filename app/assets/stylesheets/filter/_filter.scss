@@ -24,7 +24,7 @@ input[type="radio"], input[type="checkbox"]
 }
 
 .filter {
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   left:0px;
   width: 100%;
@@ -34,4 +34,8 @@ input[type="radio"], input[type="checkbox"]
 .filter-subtitle {
   font-size: 20px;
   font-family: $filter-font;
+}
+
+.encapsulate {
+  margin-bottom: 70px !important;
 }
