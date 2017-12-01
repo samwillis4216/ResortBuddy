@@ -30,5 +30,11 @@
     <%= javascript_pack_tag 'application' %>
     <%= tag :div, id: 'guest-notifications', data: {user: current_guest.to_json} %>
     <%= yield(:after_js) %>
+    <script>
+      // fixing broken dropdown iphone
+      $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
+          e.stopPropagation();
+      });
+    </script>
   </body>
 </html>
