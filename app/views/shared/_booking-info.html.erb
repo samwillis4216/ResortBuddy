@@ -7,9 +7,11 @@
 
 <div class="container samcontainer">
   <div class="row sam-row">
-    <div class="samitem" id="name"><h4 class="sam-name"><%= @booking.availability.activity.name.capitalize%></h4></div>
+    <div class="samitem" id="name" style="width: 30%; margin-top: 10px;"><h4 class="sam-name"><%= @booking.availability.activity.name.capitalize%></h4></div>
+    <div class="location-info">
     <div class="samitem" id="location"><h4 class="sam-location"><%= @booking.availability.activity.location.capitalize%></h4></div>
     <div class="Location-icon" style="float:right; margin-top: 14px;"> <%= cl_image_tag 'placeholder_akrtrs', :width=>20, :height=>20, :crop=>:fit  %></div>
+    </div>
   </div>
   <hr style="margin-top: 8px !important; border-color: #d3d7dd !important; margin-left: 5px; margin-right: 5px; margin-bottom: 8px !important;">
 
