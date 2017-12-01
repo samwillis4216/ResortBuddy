@@ -28,7 +28,7 @@
     <%= render 'shared/step2', hidden: true %>
   </div>
 
-  <%= f.submit "GOOOO", class: 'submit-step' %>
+  <%= f.submit "go", class: 'submit-step hidden-step' %>
 <% end %>
 
 <%= content_for(:after_js) do %>
@@ -63,9 +63,9 @@
     })
 
     // selecting a time
-    const timeslots = document.querySelectorAll(".bookings label")
+    const timeslots = document.querySelectorAll(".bookings input")
     timeslots.forEach(timeslot => {
-      timeslot.addEventListener("click", event => {
+      timeslot.addEventListener("change", event => {
         // timeslots.forEach(timeslot => timeslot.classList.remove('selected'));
         // event.currentTarget.classList.add('selected');
         // console.log(event.currentTarget.querySelector('input').checked);
