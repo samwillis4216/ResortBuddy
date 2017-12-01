@@ -32,8 +32,8 @@
     <%= yield(:after_js) %>
     <script>
       // fixing broken dropdown iphone
-      $('body').on('touchstart.dropdown', '.dropdown-menu', function (e) {
-          e.stopPropagation();
+      $(document).ready(function(){
+          $('.dropdown-toggle').dropdown();
       });
     </script>
   </body>
