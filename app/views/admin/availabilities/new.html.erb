@@ -9,15 +9,12 @@
 
 
 
-
-
-
 <div class="container-add" >
   <div class="top-line">
     <h1>Add a new availability</h1>
   </div>
 
-  <div class="form-post">
+  <div class="form-post" id="new-activity" style="margin: 0 50px 0; box-shadow: none;">
         <%= simple_form_for [:admin, @activity, @availability], defaults: { input_html: { class: "activity-form"} } do |f| %>
 
         <div class="form-group select required availability_employee">
