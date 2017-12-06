@@ -1,3 +1,15 @@
+
+
+// @font-face {
+//   font-family: "Canvas-Regular" !important;
+//   src: font-url("Canvas-Regular.otf") format("truetype");
+// }
+
+@font-face {
+  font-family: "titin" !important;
+  src: url('/assets/titin');
+}
+
 .header {
   text-align: center;
   padding-top: 0px;
@@ -107,25 +119,29 @@
   font-size: 17px !important;
   border: 1px solid #E0E2E5 !important;
   box-shadow: none !important;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
-.icon {
-  text-align: center;
-}
 
 .sam-icon {
     display: block;
     width: 100%;
     height: 39px;
-    padding: 6px 12px;
-    line-height: 1.428571429;
+    padding: 7px 9px;
+    line-height: 1;
     color: #E0E2E5;
     background-color: #fff;
     background-image: none;
-    font-size: 17px !important;
-    border: 1px solid #E0E2E5 !important;
+    font-size: 22px !important;
+    border-left: 1px solid #E0E2E5 !important;
+    border-top: 1px solid #E0E2E5 !important;
+    border-bottom: 1px solid #E0E2E5 !important;
     box-shadow: none !important;
-    border-radius: 2px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -139,4 +155,22 @@
 }
 :-moz-placeholder { /* Firefox 18- */
   color: #E0E2E5 !important;
+}
+
+.new_guest {
+  position: absolute;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 60%;
+}
+
+.sam-sign-up {
+  width: 252px;
+}
+
+.sam-title-name {
+  font-family: "BeautyDemo" !important;
+  margin-top: 2px !important;
+  margin-bottom: 0px !important;
 }

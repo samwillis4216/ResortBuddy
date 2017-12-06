@@ -1,6 +1,8 @@
 <div class="background-details">
 <div class="container samcontainer">
 <%= image_tag("logo.png", size: "50x50") %>
+<h3 class="sam-title-name">Resort</h3>
+<h3 class="sam-title-name"> Runner</h3>
 <br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -10,8 +12,10 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2 col-xs-12">
       <div class="field">
-        <div class="icon" style="float:left; width: 40px;"> <i class="fa fa-user-o sam-icon" aria-hidden="true"></i> </div>
-        <div class="user-input" style="float:left;"> <%= f.text_field :first_name, placeholder: "First Name", class: 'form-control sam-form-control' %> </div>
+        <div class="icon" style="float:left; width: 40px;"> <i class="material-icons sam-icon">person</i>
+        </div>
+        <div class="user-input" style="float:left;"> <%= f.text_field :first_name, placeholder: "First Name", class: 'form-control sam-form-control' %>
+        </div>
       </div>
     </div>
   </div>
@@ -19,9 +23,27 @@
 
 <div class="form-group">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
       <div class="field">
-        <%= f.text_field :last_name, placeholder: "Last Name", class: 'form-control' %>
+          <div class="icon" style="float:left; width: 40px;"> <i class="material-icons sam-icon">person</i>
+          </div>
+          <div class="user-input" style="float:left;">
+            <%= f.text_field :last_name, placeholder: "Last Name", class: 'form-control sam-form-control' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="form-group">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+      <div class="field">
+        <div class="icon" style="float:left; width: 40px;"> <i class="material-icons sam-icon">email</i>
+        </div>
+        <div class="user-input" style="float:left;">
+        <%= f.email_field :email, placeholder: "email", class: 'form-control sam-form-control' %>
+        </div>
       </div>
     </div>
   </div>
@@ -29,10 +51,14 @@
 
 <div class="form-group">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
       <div class="field">
-        <%= f.file_field :photo, class: 'form-control file' %>
-        <%= f.hidden_field :photo_cache, class: 'form-control' %>
+        <div class="icon" style="float:left; width: 40px;"> <i class="fa fa-key sam-icon" aria-hidden="true"></i>
+        </div>
+        <div class="user-input" style="float:left;">
+          <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: 'form-control sam-form-control' %>
+        </div>
+        <br/>
       </div>
     </div>
   </div>
@@ -40,32 +66,13 @@
 
 <div class="form-group">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
       <div class="field">
-        <%= f.email_field :email, placeholder: "email", class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-      <div class="field">
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-      <div class="field">
-        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "off", class: 'form-control' %>
+        <div class="icon" style="float:left; width: 40px;"><i class="fa fa-key sam-icon" aria-hidden="true"></i>
+        </div>
+        <div class="user-input" style="float:left;">
+          <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "off", class: 'form-control sam-form-control' %>
+        </div>
       </div>
     </div>
   </div>
@@ -73,8 +80,10 @@
 
 <div class="actions">
   <div class="row">
-    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
-      <%= f.button 'Sign Up', class: 'btn btn-primary' %>
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+      <div class="field">
+      <%= f.button 'Sign Up', class: 'btn btn-primary sam-sign-up' %>
+      </div>
     </div>
   </div>
 </div>
