@@ -1,12 +1,18 @@
 <div class="background-details">
 <div class="container samcontainer">
-<%= image_tag("logo.png", size: "50x50") %>
-<h3 class="sam-title-name">Resort</h3>
-<h3 class="sam-title-name"> Runner</h3>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+      <div class="text-center">
+        <h3 class="sam-top-title-name">Resort Runner</h3>
+      </div>
+    </div>
+  </div>
 <br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
+
+
 
 <div class="form-group">
   <div class="row">
@@ -42,7 +48,7 @@
         <div class="icon" style="float:left; width: 40px;"> <i class="material-icons sam-icon">email</i>
         </div>
         <div class="user-input" style="float:left;">
-        <%= f.email_field :email, placeholder: "email", class: 'form-control sam-form-control' %>
+        <%= f.email_field :email, placeholder: "Email", class: 'form-control sam-form-control' %>
         </div>
       </div>
     </div>
