@@ -1,100 +1,105 @@
 <div class="background-details">
-<div class="container samcontainer">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
-      <div class="text-center">
-        <h3 class="sam-top-title-name">Resort Runner</h3>
-      </div>
-    </div>
-  </div>
-<br>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
-      <div class="field">
-        <div class="icon" style="float:left; width: 40px;"> <i class="material-icons sam-icon">person</i>
-        </div>
-        <div class="user-input" style="float:left;"> <%= f.text_field :first_name, placeholder: "First Name", class: 'form-control sam-form-control' %>
+  <div class="container samcontainer">
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 col-xs-12">
+        <div class="text-center">
+          <h3 class="sam-top-title-name">Resort Runner</h3>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    <br>
 
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
-      <div class="field">
-          <div class="icon" style="float:left; width: 40px;"> <i class="material-icons sam-icon">person</i>
+
+
+    <div class="row">
+      <div class="col-sm-12 col-xs-12">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="field">
+                  <div class="icon"> <i class="material-icons sam-icon">person</i>
+                  </div>
+                  <div class="user-input"> <%= f.text_field :first_name, placeholder: "First Name", class: 'form-control sam-form-control' %>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="user-input" style="float:left;">
-            <%= f.text_field :last_name, placeholder: "Last Name", class: 'form-control sam-form-control' %>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="field">
+                    <div class="icon"> <i class="material-icons sam-icon">person</i>
+                    </div>
+                    <div class="user-input">
+                      <%= f.text_field :last_name, placeholder: "Last Name", class: 'form-control sam-form-control' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="field">
+                  <div class="icon"> <i class="material-icons sam-icon">email</i>
+                  </div>
+                  <div class="user-input">
+                  <%= f.email_field :email, placeholder: "Email", class: 'form-control sam-form-control' %>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="field">
+                  <div class="icon"> <i class="fa fa-key sam-icon" aria-hidden="true"></i>
+                  </div>
+                  <div class="user-input">
+                    <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: 'form-control sam-form-control' %>
+                  </div>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="field">
+                    <div class="icon"><i class="fa fa-key sam-icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="user-input">
+                      <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "off", class: 'form-control sam-form-control' %>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <div class="row">
+              <div class="col-sm-10 col-sm-offset-1 col-xs-12">
+                <div class="field">
+                <%= f.button 'Sign Up', class: 'btn btn-primary sam-sign-up' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
-      <div class="field">
-        <div class="icon" style="float:left; width: 40px;"> <i class="material-icons sam-icon">email</i>
-        </div>
-        <div class="user-input" style="float:left;">
-        <%= f.email_field :email, placeholder: "Email", class: 'form-control sam-form-control' %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
-      <div class="field">
-        <div class="icon" style="float:left; width: 40px;"> <i class="fa fa-key sam-icon" aria-hidden="true"></i>
-        </div>
-        <div class="user-input" style="float:left;">
-          <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: 'form-control sam-form-control' %>
-        </div>
-        <br/>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="form-group">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
-      <div class="field">
-        <div class="icon" style="float:left; width: 40px;"><i class="fa fa-key sam-icon" aria-hidden="true"></i>
-        </div>
-        <div class="user-input" style="float:left;">
-          <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "off", class: 'form-control sam-form-control' %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="actions">
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2 col-xs-12">
-      <div class="field">
-      <%= f.button 'Sign Up', class: 'btn btn-primary sam-sign-up' %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<% end %>
-</div>
 </div>
 <div class="background-photos"></div>
