@@ -49,6 +49,24 @@
       justify-content: center;
       align-items: center;
     }
+
+    .samcontainer {
+  margin: 0px !important;
+  width: 100% !important;
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+  padding-top: 8px !important;
+  // position: absolute !important;
+  // top: 35% !important;
+  }
+
+  .sam-top-title-name {
+  font-family: "GeosansLight" !important;
+  font-size: 40px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  color: $blue !important;
+}
 }
 
 @media screen and (max-width: 2000px) {
@@ -112,6 +130,42 @@
   border-bottom-right-radius: 2px;
   width: 110% !important;
   }
+
+  .samcontainer {
+  margin: 0px !important;
+  width: 100% !important;
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+  padding-top: 8px !important;
+  // position: absolute !important;
+  // top: 35% !important;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #E0E2E5 !important;
+  font-family: "GeosansLight" !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #E0E2E5 !important;
+  font-family: "GeosansLight" !important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #E0E2E5 !important;
+  font-family: "GeosansLight" !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #E0E2E5 !important;
+  font-family: "GeosansLight" !important;
+}
+
+.sam-top-title-name {
+  font-family: "GeosansLight" !important;
+  font-size: 40px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  color: $blue !important;
+}
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -176,33 +230,69 @@
     border-bottom-right-radius: 2px;
     width: 108% !important;
     }
+
+  .samcontainer {
+  margin: 0px !important;
+  width: 100% !important;
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+  padding-top: 8px !important;
+  // position: absolute !important;
+  // top: 35% !important;
+  }
+
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #E0E2E5 !important;
+  font-family: "GeosansLight" !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #E0E2E5 !important;
+  font-family: "GeosansLight" !important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #E0E2E5 !important;
+  font-family: "GeosansLight" !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #E0E2E5 !important;
+  font-family: "GeosansLight" !important;
+}
+
+.sam-top-title-name {
+  font-family: "GeosansLight" !important;
+  font-size: 40px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  color: $blue !important;
+}
+
 }
 
 @media screen and (max-width: 768px) {
-    .background-photos {
-      float: left;
-      background-image: url('sign_up_background_mobile.jpg');
-      background-size: cover;
-      background-position: center;
-      color:white;
-      height: 100vh;
-      width: 65%;
-    }
+  .background-photos {
+    float: left;
+    background-image: url('sign_up_background_mobile.jpg');
+    background-size: cover;
+    background-position: center;
+    color:white;
+    height: 100vh;
+    width: 65%;
+  }
 
-    .background-details {
-      float: left;
-      background-size: cover;
-      background-position: center;
-      background-color: white;
-      height: 100vh;
-      width: 35%;
-      margin-right: 0px !important;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  .background-details {
+    float: left;
+    background-size: cover;
+    background-position: center;
+    background-color: white;
+    height: 100vh;
+    width: 35%;
+    margin-right: 0px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .sam-icon {
+  .sam-icon {
     display: block;
     width: 100%;
     height: 39px;
@@ -220,17 +310,17 @@
     border-bottom-left-radius: 2px;
   }
 
-    .icon {
+  .icon {
     float: left !important;
     width: 14% !important;
-    }
+  }
 
-    .user-input {
+  .user-input {
     width: 80% !important;
     float: left !important;
-    }
+  }
 
-    .sam-form-control {
+  .sam-form-control {
     font-size: 17px !important;
     border: 1px solid #E0E2E5 !important;
     box-shadow: none !important;
@@ -239,14 +329,9 @@
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
     width: 108% !important;
-    }
-}
+  }
 
-.my-label {
-  margin-bottom: 0px !important;
-}
-
-.samcontainer {
+  .samcontainer {
   margin: 0px !important;
   width: 100% !important;
   padding-right: 8px !important;
@@ -254,11 +339,9 @@
   padding-top: 8px !important;
   // position: absolute !important;
   // top: 35% !important;
-}
+  }
 
-
-
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   color: #E0E2E5 !important;
   font-family: "GeosansLight" !important;
 }
@@ -275,10 +358,6 @@
   font-family: "GeosansLight" !important;
 }
 
-.sam-sign-up {
-  width: 100%;
-}
-
 .sam-top-title-name {
   font-family: "GeosansLight" !important;
   font-size: 40px !important;
@@ -286,6 +365,121 @@
   margin-bottom: 0px !important;
   color: $blue !important;
 }
+
+}
+
+@media screen and (max-width: 640px) {
+  .background-photos {
+    background-image: url('3.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    opacity: 0.9;
+  }
+
+  .background-details {
+    margin: 0px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+    background: transparent;
+  }
+
+  .sam-icon {
+    display: block;
+    width: 100%;
+    height: 39px;
+    padding: 7px 4px;
+    line-height: 1;
+    color: white;
+    background:transparent;
+    background-image: none;
+    font-size: 22px !important;
+    // border-left: 1px solid #E0E2E5 !important;
+    // border-top: 1px solid #E0E2E5 !important;
+    // border-bottom: 1px solid #E0E2E5 !important;
+    box-shadow: none !important;
+    // border-top-left-radius: 2px;
+    // border-bottom-left-radius: 2px;
+    border: none !important;
+  }
+
+  .icon {
+    float: left !important;
+    width: 14% !important;
+  }
+
+  .user-input {
+    width: 80% !important;
+    float: left !important;
+  }
+
+  .sam-form-control {
+    font-size: 17px !important;
+    border: none !important;
+    border-bottom: 1px solid white !important;
+    box-shadow: none !important;
+    border-radius: 0px !important;
+    // border-top-left-radius: 0px;
+    // border-bottom-left-radius: 0px;
+    // border-top-right-radius: 2px;
+    // border-bottom-right-radius: 2px;
+    width: 108% !important;
+    background: transparent;
+    padding: 0px !important;
+  }
+
+  .samcontainer {
+  margin: 0px !important;
+  width: 100% !important;
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+  padding-top: 0px !important;
+  // position: absolute !important;
+  // top: 35% !important;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white !important;
+  font-family: "GeosansLight" !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: white !important;
+  font-family: "GeosansLight" !important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: white !important;
+  font-family: "GeosansLight" !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: white !important;
+  font-family: "GeosansLight" !important;
+}
+
+.sam-top-title-name {
+  font-family: "GeosansLight" !important;
+  font-size: 45px !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+  color: $blue !important;
+  //-webkit-text-stroke: 0.002px $blue;
+}
+
+}
+
+.my-label {
+  margin-bottom: 0px !important;
+}
+
+.sam-sign-up {
+  width: 100%;
+}
+
 
 
 
