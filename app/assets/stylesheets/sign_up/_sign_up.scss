@@ -67,6 +67,11 @@
   margin-bottom: 0px !important;
   color: $blue !important;
 }
+
+.sam-sign-up {
+  width: 100%;
+}
+
 }
 
 @media screen and (max-width: 2000px) {
@@ -164,6 +169,10 @@
   margin-top: 0px !important;
   margin-bottom: 0px !important;
   color: $blue !important;
+}
+
+.sam-sign-up {
+  width: 100%;
 }
 
 }
@@ -266,6 +275,10 @@
   color: $blue !important;
 }
 
+.sam-sign-up {
+  width: 100%;
+}
+
 }
 
 @media screen and (max-width: 768px) {
@@ -366,6 +379,10 @@
   color: $blue !important;
 }
 
+.sam-sign-up {
+  width: 100%;
+}
+
 }
 
 @media screen and (max-width: 640px) {
@@ -396,7 +413,7 @@
     height: 39px;
     padding: 7px 4px;
     line-height: 1;
-    color: white;
+    color: #E0E2E5;
     background:transparent;
     background-image: none;
     font-size: 22px !important;
@@ -422,7 +439,7 @@
   .sam-form-control {
     font-size: 17px !important;
     border: none !important;
-    border-bottom: 1px solid white !important;
+    border-bottom: 1px solid #E0E2E5 !important;
     box-shadow: none !important;
     border-radius: 0px !important;
     // border-top-left-radius: 0px;
@@ -445,19 +462,19 @@
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: white !important;
+  color: #E0E2E5 !important;
   font-family: "GeosansLight" !important;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: white !important;
+  color: #E0E2E5 !important;
   font-family: "GeosansLight" !important;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: white !important;
+  color: #E0E2E5 !important;
   font-family: "GeosansLight" !important;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: white !important;
+  color: #E0E2E5 !important;
   font-family: "GeosansLight" !important;
 }
 
@@ -466,18 +483,21 @@
   font-size: 45px !important;
   margin-top: 0px !important;
   margin-bottom: 0px !important;
-  color: $blue !important;
+  color: white !important;
   //-webkit-text-stroke: 0.002px $blue;
+}
+
+.sam-sign-up {
+  width: 100%;
+  background: transparent !important;
+  color: #E0E2E5;
+  border: none !important;
 }
 
 }
 
 .my-label {
   margin-bottom: 0px !important;
-}
-
-.sam-sign-up {
-  width: 100%;
 }
 
 
