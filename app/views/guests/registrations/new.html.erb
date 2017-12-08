@@ -14,13 +14,13 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= devise_error_messages! %>
 
-          <div class="form-group">
+          <div class="form-group has-warning">
             <div class="row">
               <div class="col-sm-10 col-sm-offset-1 col-xs-12">
                 <div class="field">
                   <div class="icon"> <i class="material-icons sam-icon">person</i>
                   </div>
-                  <div class="user-input"> <%= f.text_field :first_name, placeholder: "First Name", class: 'form-control sam-form-control' %>
+                  <div class="user-input"> <%= f.text_field :first_name, placeholder: "First Name", class: 'form-control sam-form-control form-control-warning' %>
                   </div>
                 </div>
               </div>
@@ -48,7 +48,7 @@
                   <div class="icon"> <i class="material-icons sam-icon">email</i>
                   </div>
                   <div class="user-input">
-                  <%= f.email_field :email, placeholder: "Email", class: 'form-control sam-form-control' %>
+                  <%= f.email_field :email, placeholder: "Email", class: 'form-control sam-form-control', id: "email" %>
                   </div>
                 </div>
               </div>
@@ -88,7 +88,7 @@
             <div class="row">
               <div class="col-sm-10 col-sm-offset-1 col-xs-12">
                 <div class="field">
-                <%= f.button 'Sign Up', class: 'btn btn-primary sam-sign-up' %>
+                <%= f.button 'Sign Up', class: 'btn btn-primary sam-sign-up', id: 'signup' %>
                 </div>
               </div>
             </div>
@@ -99,3 +99,23 @@
   </div>
 </div>
 <div class="background-photos"></div>
+
+<script>
+  const email = document.getElementById("email");
+  email.addEventListener("blur", valid_email);
+  let flag = false;
+
+  //function is not stopping
+  function valid_email() {
+    const pattern = /\S+@\S+\.\S+/;
+    const ans = pattern.test(email.value);
+    if ( ans === true) {
+        email.classList.remove("form-control-warning");
+    }
+    else {
+       email.classList.add("form-control-warning");
+       //javascript is smart enough to know not to add the same class twice even if you input an invalid email, remove it, and input another invlaid email
+    }
+  }
+
+</script>
