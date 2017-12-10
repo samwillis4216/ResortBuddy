@@ -47,7 +47,7 @@
                 <div class="field">
                   <div class="icon"> <i class="material-icons sam-icon" id="email-icon">email</i>
                   </div>
-                  <div class="user-input">
+                  <div class="user-input" id="user-input-email">
                   <%= f.email_field :email, placeholder: "Email", class: 'form-control sam-form-control', id: "email" %>
                   </div>
                 </div>
@@ -106,6 +106,7 @@
 
   const emailIcon = document.getElementById("email-icon");
   let flag = true;
+  const userInputEmail = document.getElementById("user-input-email");
 
   //function is not stopping
   function valid_email() {
@@ -115,14 +116,16 @@
         email.classList.remove("sam-form-control-warning");
         emailIcon.classList.remove("icon-control-warning");
         $("#warning-help").remove();
+        $("#warning-icon").remove();
         flag = true;
     }
     else {
-       email.classList.add("sam-form-control-warning");
-       emailIcon.classList.add("icon-control-warning");
-       //javascript is smart enough to know not to add the same class twice even if you input an invalid email, remove it, and input another invlaid email
-       if (flag === true) {
+      email.classList.add("sam-form-control-warning");
+      emailIcon.classList.add("icon-control-warning");
+      //javascript is smart enough to know not to add the same class twice even if you input an invalid email, remove it, and input another invlaid email
+      if (flag === true) {
         email.insertAdjacentHTML('afterend', '<div id="warning-help">Check the formatting of that and try again</div>');
+        userInputEmail.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="warning-icon"></i>')
         flag = false;
       }
     }
