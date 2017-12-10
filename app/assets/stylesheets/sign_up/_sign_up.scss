@@ -173,6 +173,7 @@
 
 .sam-sign-up {
   width: 100%;
+  box-shadow: none !important;
 }
 
 }
@@ -493,6 +494,7 @@
   background: transparent !important;
   color: #E0E2E5;
   border: none !important;
+  box-shadow:none !important;
 }
 
 }
@@ -523,4 +525,7 @@
   color: #EFAC56;
 }
 
+#error {
+  //color: #EFAC56;
+}
 
