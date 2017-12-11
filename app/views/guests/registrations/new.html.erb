@@ -58,7 +58,7 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-                <div class="field">
+                <div class="field" id="password-field">
                   <div class="icon"> <i class="fa fa-key sam-icon" aria-hidden="true" id="password-icon"></i>
                   </div>
                   <div class="user-input" id="user-input-password">
@@ -102,47 +102,47 @@
 
 <script>
   const email = document.getElementById("email");
-  email.addEventListener("blur", valid_email);
+  // email.addEventListener("blur", valid_email);
 
   const emailIcon = document.getElementById("email-icon");
-  let flag = true;
   const userInputEmail = document.getElementById("user-input-email");
   const emailHelp = document.getElementById("email-field");
-  flag2 = true;
+  let flag10 = true;
+  let flag11 = true;
 
-  function valid_email() {
-    const pattern = /\S+@\S+\.\S+/;
-    const ans = pattern.test(email.value);
-    if ( ans === true) {
-        email.classList.remove("sam-form-control-warning");
-        emailIcon.classList.remove("icon-control-warning");
-        $("#email-warning-help").remove();
-        $("#email-warning-icon").remove();
+  // function valid_email() {
+  //   const pattern = /\S+@\S+\.\S+/;
+  //   const ans = pattern.test(email.value);
+  //   if ( ans === true) {
+  //       email.classList.remove("sam-form-control-warning");
+  //       emailIcon.classList.remove("icon-control-warning");
+  //       $("#email-warning-help").remove();
+  //       $("#email-warning-icon").remove();
 
-        if (flag2 === true) {
-          email.classList.add("sam-form-control-success");
-          emailIcon.classList.add("icon-control-success");
-          userInputEmail.insertAdjacentHTML('afterend', '<i class="fa fa-check sam-success-icon" aria-hidden="true" id="email-success-icon"></i>')
-          flag2 = false;
-        }
-        flag = true;
-    }
-    else {
-      email.classList.remove("sam-form-control-success");
-      emailIcon.classList.remove("icon-control-success");
-      $("#email-success-icon").remove();
+  //       if (flag10 === true) {
+  //         email.classList.add("sam-form-control-success");
+  //         emailIcon.classList.add("icon-control-success");
+  //         userInputEmail.insertAdjacentHTML('afterend', '<i class="fa fa-check sam-success-icon" aria-hidden="true" id="email-success-icon"></i>')
+  //         flag10 = false;
+  //       }
+  //       flag11 = true;
+  //   }
+  //   else {
+  //     email.classList.remove("sam-form-control-success");
+  //     emailIcon.classList.remove("icon-control-success");
+  //     $("#email-success-icon").remove();
 
-      if (flag === true) {
-        email.classList.add("sam-form-control-warning");
-        emailIcon.classList.add("icon-control-warning");
-        //javascript is smart enough to know not to add the same class twice even if you input an invalid email, remove it, and input another invlaid email
-        emailHelp.insertAdjacentHTML('afterend', '<div id="email-warning-help">Invalid Email, try again</div>');
-        userInputEmail.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="email-warning-icon"></i>')
-        flag = false;
-      }
-      flag2 = true;
-    }
-  }
+  //     if (flag11 === true) {
+  //       email.classList.add("sam-form-control-warning");
+  //       emailIcon.classList.add("icon-control-warning");
+  //       //javascript is smart enough to know not to add the same class twice even if you input an invalid email, remove it, and input another invlaid email
+  //       emailHelp.insertAdjacentHTML('afterend', '<div id="email-warning-help">Invalid Email, try again</div>');
+  //       userInputEmail.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="email-warning-icon"></i>')
+  //       flag11 = false;
+  //     }
+  //     flag10 = true;
+  //   }
+  // }
 
 const firstName = document.getElementById("first-name");
 const firstNameHelp = document.getElementById("first-name-field");
@@ -155,26 +155,39 @@ const userInputLastName = document.getElementById("user-input-last-name");
 const passwordConfirmation = document.getElementById("passwordC");
 const password = document.getElementById("password");
 const userInputPassword = document.getElementById("user-input-password");
+const passwordHelp = document.getElementById("password-field");
 const userInputPasswordC = document.getElementById("user-input-passwordC");
-const passwordHelp = document.getElementById("passwordC-field");
+const passwordCHelp = document.getElementById("passwordC-field");
 const passwordCIcon = document.getElementById("passwordC-icon");
 const passwordIcon = document.getElementById("password-icon");
+
+
 let flagCheckform = true;
 let flagCheckform1 = true;
 let flagCheckform2 = true;
 let flagCheckform3 = true;
-
+let flagCheckform4 = true;
+let flagCheckform5 = true;
+let flag = true;
+let flag2 = true;
+let flag50 = true;
+let flag51 = true;
+let flag60 = true;
+let flag61 = true;
+let flag100 = true;
 
 function checkform() {
 
-  if(password.value === passwordC.value) {
+  if(password.value === passwordC.value && password.value !== "" && passwordConfirmation.value !== "") {
     password.classList.remove("sam-form-control-warning");
     passwordIcon.classList.remove("icon-control-warning");
     passwordC.classList.remove("sam-form-control-warning");
     passwordCIcon.classList.remove("icon-control-warning");
+    $("#password-match-warning-help").remove();
     $("#password-warning-help").remove();
-    $("#passord-warning-icon2").remove();
-    $("#passordC-warning-icon2").remove();
+    $("#passwordC-warning-help").remove();
+    $("#password-warning-icon").remove();
+    $("#passwordC-warning-icon").remove();
 
     if (flagCheckform1 === true) {
       password.classList.add("sam-form-control-success");
@@ -186,9 +199,111 @@ function checkform() {
       flagCheckform1 = false;
     }
     flagCheckform = true;
+    flag50 = true;
+    flag51 = true;
+    flag100 = true;
     //finalAns = true;
   }
-  else if (password.value !== passwordC.value) {
+
+  if (password.value === "" && passwordConfirmation.value !== "")
+  {
+    if(flagCheckform === true) {
+      $("#password-match-warning-help").remove();
+      $("#password-warning-icon").remove();
+      $("#password-warning-help").remove()
+      $("#passwordC-warning-help").remove();
+    }
+
+    password.classList.remove("sam-form-control-success");
+    passwordIcon.classList.remove("icon-control-success");
+    $("#password-success-icon").remove();
+    $("#passwordC-success-icon").remove();
+
+    if (flag50 === true) {
+      password.classList.add("sam-form-control-warning");
+      passwordIcon.classList.add("icon-control-warning");
+      passwordHelp.insertAdjacentHTML('afterend', '<div id="password-warning-help">This field cannot be left empty</div>');
+      userInputPassword.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="password-warning-icon"></i>');
+      flag50 = false;
+    }
+    flagCheckform1 = true;
+  }
+
+//flags causing chaos
+// 1) enter nothing works
+// 2) enter one letter into password but not passwordC works
+// 3) make no changes and try sign up again runs the same above which removes warning icon and text, (which I need to do incase passwords don't match - need to double check that ), doesn't get inserted again because flag51 is false in step 3 because of step 2
+  if (passwordConfirmation.value === "" && password.value !== "")
+  {
+    if(flagCheckform === true) {
+      $("#password-match-warning-help").remove();
+      $("#passwordC-warning-icon").remove();
+      $("#passwordC-warning-help").remove();
+      $("#password-warning-help").remove();
+    }
+
+    passwordC.classList.remove("sam-form-control-success");
+    passwordCIcon.classList.remove("icon-control-success");
+    $("#passwordC-success-icon").remove();
+
+    if (flag51 === true) {
+      passwordC.classList.add("sam-form-control-warning");
+      passwordCIcon.classList.add("icon-control-warning");
+      passwordCHelp.insertAdjacentHTML('afterend', '<div id="passwordC-warning-help">This field cannot be left empty</div>');
+      userInputPasswordC.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="passwordC-warning-icon"></i>');
+      flag51 = false;
+    }
+    flagCheckform1 = true;
+  }
+
+  if (passwordConfirmation.value === "" && password.value === "")
+  {
+    if(flagCheckform === true) {
+      $("#password-match-warning-help").remove();
+      $("#password-warning-icon").remove();
+      $("#passwordC-warning-icon").remove();
+    }
+
+    passwordC.classList.remove("sam-form-control-success");
+    passwordCIcon.classList.remove("icon-control-success");
+    $("#passwordC-success-icon").remove();
+    password.classList.remove("sam-form-control-success");
+    passwordIcon.classList.remove("icon-control-success");
+    $("#password-success-icon").remove();
+
+    if (flag100 === true) {
+      passwordC.classList.add("sam-form-control-warning");
+      passwordCIcon.classList.add("icon-control-warning");
+      passwordCHelp.insertAdjacentHTML('afterend', '<div id="passwordC-warning-help">This field cannot be left empty</div>');
+      userInputPasswordC.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="passwordC-warning-icon"></i>');
+      password.classList.add("sam-form-control-warning");
+      passwordIcon.classList.add("icon-control-warning");
+      passwordHelp.insertAdjacentHTML('afterend', '<div id="password-warning-help">This field cannot be left empty</div>');
+      userInputPassword.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="password-warning-icon"></i>');
+      flag100 = false;
+    }
+    flagCheckform1 = true;
+  }
+
+  if (password.value !== passwordC.value && password.value !== "" &&passwordConfirmation.value !== "") {
+
+    if (flag50 === true) {
+      $("#password-warning-help").remove();
+      $("#password-warning-icon").remove();
+    }
+
+    if (flag51 == true) {
+      $("#passwordC-warning-help").remove();
+      $("#passwordC-warning-icon").remove();
+    }
+
+    if (flag100 == true) {
+      $("#password-warning-help").remove();
+      $("#passwordC-warning-help").remove();
+      $("#password-warning-icon").remove();
+      $("#passwordC-warning-icon").remove();
+    }
+
     password.classList.remove("sam-form-control-success");
     passwordIcon.classList.remove("icon-control-success");
     passwordC.classList.remove("sam-form-control-success");
@@ -201,23 +316,22 @@ function checkform() {
       passwordIcon.classList.add("icon-control-warning");
       passwordC.classList.add("sam-form-control-warning");
       passwordCIcon.classList.add("icon-control-warning");
-      passwordHelp.insertAdjacentHTML('afterend', '<div id="password-warning-help">Password and Password Confirmation do not match</div>');
-      userInputPassword.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="password-warning-icon2"></i>');
-      userInputPasswordC.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="passwordC-warning-icon2"></i>');
+      passwordCHelp.insertAdjacentHTML('afterend', '<div id="password-match-warning-help">Password and Password Confirmation do not match</div>');
+      userInputPassword.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="password-warning-icon"></i>');
+      userInputPasswordC.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="passwordC-warning-icon"></i>');
       flagCheckform = false;
     }
     flagCheckform1 = true;
     //finalAns = false;
-    console.log(firstName.value);
   }
 
-  else if (firstName.value === "") {
-    console.log("we're here");
+  if (firstName.value === "") {
     firstName.classList.remove("sam-form-control-success");
     firstNameIcon.classList.remove("icon-control-success");
     $("#first-name-success-icon").remove();
 
     if (flagCheckform2 === true) {
+      console.log("we're here");
       firstName.classList.add("sam-form-control-warning");
       firstNameIcon.classList.add("icon-control-warning");
       firstNameHelp.insertAdjacentHTML('afterend', '<div id="first-name-warning-help">This field cannot be left empty</div>');
@@ -228,8 +342,7 @@ function checkform() {
     //finalAns = false;
   }
 
-  else if (firstName.value !== "") {
-    console.log("we're here");
+  if (firstName.value !== "") {
     firstName.classList.remove("sam-form-control-warning");
     firstNameIcon.classList.remove("icon-control-warning");
     $("#first-name-warning-help").remove();
@@ -238,49 +351,84 @@ function checkform() {
     if (flagCheckform3 === true) {
       firstName.classList.add("sam-form-control-success");
       firstNameIcon.classList.add("icon-control-success");
-      firstNameHelp.insertAdjacentHTML('afterend', '<div id="first-name-success-help">This field cannot be left empty</div>');
-      userInputFirstName.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-success-icon" aria-hidden="true" id="first-name-success-icon"></i>');
+      userInputFirstName.insertAdjacentHTML('afterend', '<i class="fa fa-check sam-success-icon" aria-hidden="true" id="first-name-success-icon"></i>');
       flagCheckform3 = false;
     }
     flagCheckform2 = true;
     //finalAns = true;
   }
 
-  else if (lastName.value === "") {
+  if (lastName.value === "") {
     lastName.classList.remove("sam-form-control-success");
     lastNameIcon.classList.remove("icon-control-success");
-    $("#first-name-success-icon").remove();
+    $("#last-name-success-icon").remove();
 
     if (flagCheckform4 === true) {
       lastName.classList.add("sam-form-control-warning");
       lastNameIcon.classList.add("icon-control-warning");
-      lastNameHelp.insertAdjacentHTML('afterend', '<div id="first-name-warning-help">This field cannot be left empty</div>');
-      userInputLastName.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="first-name-warning-icon"></i>');
+      lastNameHelp.insertAdjacentHTML('afterend', '<div id="last-name-warning-help">This field cannot be left empty</div>');
+      userInputLastName.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="last-name-warning-icon"></i>');
       flagCheckform4 = false;
     }
     flagCheckform5 = true;
     //finalAns = false;
   }
 
-  else if (lastName.value !== "") {
+
+  if (lastName.value !== "") {
     lastName.classList.remove("sam-form-control-warning");
     lastNameIcon.classList.remove("icon-control-warning");
-    $("#first-name-warning-help").remove();
-    $("#first-name-warning-icon").remove();
+    $("#last-name-warning-help").remove();
+    $("#last-name-warning-icon").remove();
 
     if (flagCheckform5 === true) {
       lastName.classList.add("sam-form-control-success");
       lastNameIcon.classList.add("icon-control-success");
-      lastNameHelp.insertAdjacentHTML('afterend', '<div id="first-name-success-help">This field cannot be left empty</div>');
-      userInputLastName.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-success-icon" aria-hidden="true" id="first-name-success-icon"></i>');
+      userInputLastName.insertAdjacentHTML('afterend', '<i class="fa fa-check sam-success-icon" aria-hidden="true" id="last-name-success-icon"></i>');
       flagCheckform5 = false;
     }
     flagCheckform4 = true;
     //finalAns = true;
   }
 
-  return false;
+  const pattern = /\S+@\S+\.\S+/;
+  const ans = pattern.test(email.value);
+
+  if ( ans === true) {
+      email.classList.remove("sam-form-control-warning");
+      emailIcon.classList.remove("icon-control-warning");
+      $("#email-warning-help").remove();
+      $("#email-warning-icon").remove();
+
+      if (flag2 === true) {
+        email.classList.add("sam-form-control-success");
+        emailIcon.classList.add("icon-control-success");
+        userInputEmail.insertAdjacentHTML('afterend', '<i class="fa fa-check sam-success-icon" aria-hidden="true" id="email-success-icon"></i>')
+        flag2 = false;
+      }
+      flag = true;
+  }
+
+  if (ans === false) {
+    email.classList.remove("sam-form-control-success");
+    emailIcon.classList.remove("icon-control-success");
+    $("#email-success-icon").remove();
+
+    if (flag === true) {
+      email.classList.add("sam-form-control-warning");
+      emailIcon.classList.add("icon-control-warning");
+      //javascript is smart enough to know not to add the same class twice even if you input an invalid email, remove it, and input another invlaid email
+      emailHelp.insertAdjacentHTML('afterend', '<div id="email-warning-help">Invalid Email, try again</div>');
+      userInputEmail.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="email-warning-icon"></i>')
+      flag = false;
+    }
+    flag2 = true;
+  }
+
+   return false;
 }
+
+
 
 
 </script>
