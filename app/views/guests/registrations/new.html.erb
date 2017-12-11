@@ -212,6 +212,7 @@ function checkform() {
       $("#password-warning-icon").remove();
       $("#password-warning-help").remove()
       $("#passwordC-warning-help").remove();
+      flag50 = true;
     }
 
     password.classList.remove("sam-form-control-success");
@@ -240,6 +241,7 @@ function checkform() {
       $("#passwordC-warning-icon").remove();
       $("#passwordC-warning-help").remove();
       $("#password-warning-help").remove();
+      flag51 = true;
     }
 
     passwordC.classList.remove("sam-form-control-success");
@@ -287,17 +289,17 @@ function checkform() {
 
   if (password.value !== passwordC.value && password.value !== "" &&passwordConfirmation.value !== "") {
 
-    if (flag50 === true) {
+    if (flag50 === false) {
       $("#password-warning-help").remove();
       $("#password-warning-icon").remove();
     }
 
-    if (flag51 == true) {
+    if (flag51 == false) {
       $("#passwordC-warning-help").remove();
       $("#passwordC-warning-icon").remove();
     }
 
-    if (flag100 == true) {
+    if (flag100 == false) {
       $("#password-warning-help").remove();
       $("#passwordC-warning-help").remove();
       $("#password-warning-icon").remove();
