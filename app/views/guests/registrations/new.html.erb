@@ -59,9 +59,9 @@
             <div class="row">
               <div class="col-sm-10 col-sm-offset-1 col-xs-12">
                 <div class="field">
-                  <div class="icon"> <i class="fa fa-key sam-icon" aria-hidden="true"></i>
+                  <div class="icon"> <i class="fa fa-key sam-icon" aria-hidden="true" id="password-icon"></i>
                   </div>
-                  <div class="user-input">
+                  <div class="user-input" id="user-input-password">
                     <%= f.password_field :password, placeholder: "Password", autocomplete: "off", class: 'form-control sam-form-control', id: 'password'%>
                   </div>
                   <br/>
@@ -73,10 +73,10 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-                <div class="field" id="user-input-passwordc">
-                    <div class="icon"><i class="fa fa-key sam-icon" aria-hidden="true"></i>
+                <div class="field" id="passwordC-field">
+                    <div class="icon"><i class="fa fa-key sam-icon" aria-hidden="true" id="passwordC-icon"></i>
                     </div>
-                    <div class="user-input">
+                    <div class="user-input" id="user-input-passwordC">
                       <%= f.password_field :password_confirmation, placeholder: "Confirm Password", autocomplete: "off", class: 'form-control sam-form-control', id: 'passwordC' %>
                     </div>
                 </div>
@@ -135,14 +135,29 @@ const firstName = document.getElementById("first-name");
 const lastName = document.getElementById("last-name");
 const passwordConfirmation = document.getElementById("passwordC");
 const password = document.getElementById("password");
-const userInputPasswordC = document.getElementById("user-input-passwordc");
+const userInputPassword = document.getElementById("user-input-password");
+const userInputPasswordC = document.getElementById("user-input-passwordC");
+const passwordHelp = document.getElementById("passwordC-field");
+const passwordCIcon = document.getElementById("passwordC-icon");
+const passwordIcon = document.getElementById("password-icon");
+let flagCheckform = true;
 
 function checkform() {
   if(password.value === passwordC.value) {
     return true;
   } else if (password.value !== passwordC.value) {
-    console.log("we're here");
-    userInputPasswordC.insertAdjacentHTML('afterend', '<div id="error">Password and Password Confirmation do not match</div>');
+
+    password.classList.add("sam-form-control-warning");
+    passwordIcon.classList.add("icon-control-warning");
+    passwordC.classList.add("sam-form-control-warning");
+    passwordCIcon.classList.add("icon-control-warning");
+
+    if (flagCheckform === true) {
+      passwordHelp.insertAdjacentHTML('afterend', '<div id="warning-help">Password and Password Confirmation do not match</div>');
+      userInputPassword.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="warning-icon"></i>');
+      userInputPasswordC.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="warning-icon"></i>');
+      flagCheckform = false;
+    }
     return false;
   } else if (firstName.value === "" || lastName.value === "" || email.value === "" || password === "" || passwordC == "") {
     return false;
