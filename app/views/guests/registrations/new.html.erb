@@ -217,6 +217,10 @@ function checkform() {
       flagCheckform = true;
     }
 
+    if(flag100 === false) {
+      $("#passwordC-warning-help").remove();
+    }
+
     password.classList.remove("sam-form-control-success");
     passwordIcon.classList.remove("icon-control-success");
     $("#password-success-icon").remove();
@@ -251,6 +255,9 @@ function checkform() {
       flagCheckform = true;
     }
 
+    if(flag100 === false) {
+      $("#password-warning-help").remove();
+    }
 
     password.classList.remove("sam-form-control-success");
     passwordIcon.classList.remove("icon-control-success");
@@ -279,18 +286,29 @@ function checkform() {
       $("#password-match-warning-help").remove();
       $("#password-warning-icon").remove();
       $("#passwordC-warning-icon").remove();
+      flagCheckform = true;
     }
 
     if (flag51 === false  && flag100 === true) {
       $("#passwordC-warning-help").remove();
       $("#passwordC-warning-icon").remove();
       $("#password-warning-icon").remove();
+      //flag100 = true;
+    }
+
+    if (flag51 == true && flag100 == false) {
+      passwordCHelp.insertAdjacentHTML('afterend', '<div id="passwordC-warning-help">This field cannot be left empty</div>');
+    }
+
+    if (flag50 == true && flag100 == false) {
+      passwordHelp.insertAdjacentHTML('afterend', '<div id="passwordC-warning-help">This field cannot be left empty</div>');
     }
 
     if (flag50 === false  && flag100 === true) {
       $("#password-warning-help").remove();
       $("#password-warning-icon").remove();
       $("#passwordC-warning-icon").remove();
+      //flag50 = true;
     }
 
     passwordC.classList.remove("sam-form-control-success");
