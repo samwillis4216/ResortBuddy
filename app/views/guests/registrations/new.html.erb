@@ -212,12 +212,16 @@ function checkform() {
       $("#password-warning-icon").remove();
       $("#password-warning-help").remove()
       $("#passwordC-warning-help").remove();
+      $("#passwordC-warning-icon").remove();
       flag50 = true;
+      flagCheckform = true;
     }
 
     password.classList.remove("sam-form-control-success");
     passwordIcon.classList.remove("icon-control-success");
     $("#password-success-icon").remove();
+    passwordC.classList.remove("sam-form-control-success");
+    passwordCIcon.classList.remove("icon-control-success");
     $("#passwordC-success-icon").remove();
 
     if (flag50 === true) {
@@ -225,25 +229,32 @@ function checkform() {
       passwordIcon.classList.add("icon-control-warning");
       passwordHelp.insertAdjacentHTML('afterend', '<div id="password-warning-help">This field cannot be left empty</div>');
       userInputPassword.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="password-warning-icon"></i>');
+
+      passwordC.classList.add("sam-form-control-warning");
+      passwordCIcon.classList.add("icon-control-warning");
+      userInputPasswordC.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="passwordC-warning-icon"></i>');
       flag50 = false;
     }
     flagCheckform1 = true;
   }
 
-//flags causing chaos
-// 1) enter nothing works
-// 2) enter one letter into password but not passwordC works
-// 3) make no changes and try sign up again runs the same above which removes warning icon and text, (which I need to do incase passwords don't match - need to double check that ), doesn't get inserted again because flag51 is false in step 3 because of step 2
   if (passwordConfirmation.value === "" && password.value !== "")
   {
-    if(flagCheckform === true) {
+    if(flagCheckform === false) {
+      //console.log("we made it into the loop");
       $("#password-match-warning-help").remove();
       $("#passwordC-warning-icon").remove();
       $("#passwordC-warning-help").remove();
       $("#password-warning-help").remove();
+      $("#password-warning-icon").remove();
       flag51 = true;
+      flagCheckform = true;
     }
 
+
+    password.classList.remove("sam-form-control-success");
+    passwordIcon.classList.remove("icon-control-success");
+    $("#password-success-icon").remove();
     passwordC.classList.remove("sam-form-control-success");
     passwordCIcon.classList.remove("icon-control-success");
     $("#passwordC-success-icon").remove();
@@ -253,6 +264,10 @@ function checkform() {
       passwordCIcon.classList.add("icon-control-warning");
       passwordCHelp.insertAdjacentHTML('afterend', '<div id="passwordC-warning-help">This field cannot be left empty</div>');
       userInputPasswordC.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="passwordC-warning-icon"></i>');
+
+      password.classList.add("sam-form-control-warning");
+      passwordIcon.classList.add("icon-control-warning");
+      userInputPassword.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="password-warning-icon"></i>');
       flag51 = false;
     }
     flagCheckform1 = true;
@@ -260,8 +275,20 @@ function checkform() {
 
   if (passwordConfirmation.value === "" && password.value === "")
   {
-    if(flagCheckform === true) {
+    if(flagCheckform === false && flag100 === true) {
       $("#password-match-warning-help").remove();
+      $("#password-warning-icon").remove();
+      $("#passwordC-warning-icon").remove();
+    }
+
+    if (flag51 === false  && flag100 === true) {
+      $("#passwordC-warning-help").remove();
+      $("#passwordC-warning-icon").remove();
+      $("#password-warning-icon").remove();
+    }
+
+    if (flag50 === false  && flag100 === true) {
+      $("#password-warning-help").remove();
       $("#password-warning-icon").remove();
       $("#passwordC-warning-icon").remove();
     }
@@ -287,23 +314,27 @@ function checkform() {
     flagCheckform1 = true;
   }
 
+  //1) both password fields pass
+  //2) one password field filled out and the other not (error message: field cannot be empty)
+  //3) both password fields filled out but do not match - doesnt remove previoues error icon
+
   if (password.value !== passwordC.value && password.value !== "" &&passwordConfirmation.value !== "") {
 
-    if (flag50 === false) {
+    if (flag50 === false || flag51 == false && flagCheckform === true) {
       $("#password-warning-help").remove();
       $("#password-warning-icon").remove();
-    }
-
-    if (flag51 == false) {
       $("#passwordC-warning-help").remove();
       $("#passwordC-warning-icon").remove();
+      flag50 = true;
+      flag51 = true;
     }
 
-    if (flag100 == false) {
+    if (flag100 == false && flagCheckform === true) {
       $("#password-warning-help").remove();
       $("#passwordC-warning-help").remove();
       $("#password-warning-icon").remove();
       $("#passwordC-warning-icon").remove();
+      flag100 = true;
     }
 
     password.classList.remove("sam-form-control-success");
@@ -314,6 +345,7 @@ function checkform() {
     $("#passwordC-success-icon").remove();
 
     if (flagCheckform === true) {
+      //console.log("Don't get into the loop a second time");
       password.classList.add("sam-form-control-warning");
       passwordIcon.classList.add("icon-control-warning");
       passwordC.classList.add("sam-form-control-warning");
@@ -430,7 +462,7 @@ function checkform() {
    return false;
 }
 
-
+//problem that when you click the sign up button twice it will try run the if but because there is a flag that no equals false it cant
 
 
 </script>
