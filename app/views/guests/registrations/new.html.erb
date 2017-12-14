@@ -178,7 +178,7 @@ let flag100 = true;
 
 function checkform() {
 
-  if(password.value === passwordC.value && password.value !== "" && passwordConfirmation.value !== "") {
+  if(password.value === passwordC.value && password.value !== "" && passwordConfirmation.value !== "" && password.value.length >= 6) {
     password.classList.remove("sam-form-control-warning");
     passwordIcon.classList.remove("icon-control-warning");
     passwordC.classList.remove("sam-form-control-warning");
@@ -202,7 +202,39 @@ function checkform() {
     flag50 = true;
     flag51 = true;
     flag100 = true;
+    flag60 = true;
     //finalAns = true;
+  }
+
+  if (password.value === passwordC.value && password.value !== "" && passwordConfirmation.value !== "" && password.value.length < 6) {
+
+    if(flagCheckform1 === false) {
+      passwordC.classList.remove("sam-form-control-success");
+      passwordCIcon.classList.remove("icon-control-success");
+      $("#passwordC-success-icon").remove();
+      password.classList.remove("sam-form-control-success");
+      passwordIcon.classList.remove("icon-control-success");
+      $("#password-success-icon").remove();
+      flagCheckform1 = true;
+    }
+
+    if (flag60 === true) {
+      $("#password-match-warning-help").remove();
+      $("#password-warning-help").remove();
+      $("#passwordC-warning-help").remove();
+      $("#password-warning-icon").remove();
+      $("#passwordC-warning-icon").remove();
+
+      passwordC.classList.add("sam-form-control-warning");
+      passwordCIcon.classList.add("icon-control-warning");
+      passwordCHelp.insertAdjacentHTML('afterend', '<div id="passwordC-warning-help">Password must be a minimum of 6 characters</div>');
+      userInputPasswordC.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="passwordC-warning-icon"></i>');
+      password.classList.add("sam-form-control-warning");
+      passwordIcon.classList.add("icon-control-warning");
+      userInputPassword.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="password-warning-icon"></i>');
+      flag60 = false;
+    }
+
   }
 
   if (password.value === "" && passwordConfirmation.value !== "")
@@ -219,6 +251,12 @@ function checkform() {
 
     if(flag100 === false) {
       $("#passwordC-warning-help").remove();
+    }
+
+    if(flag60 === false && flag50 === true) {
+      $("#password-warning-help").remove();
+      $("#password-warning-icon").remove();
+      $("#passwordC-warning-icon").remove();
     }
 
     password.classList.remove("sam-form-control-success");
@@ -259,6 +297,12 @@ function checkform() {
       $("#password-warning-help").remove();
     }
 
+    if(flag60 === false && flag51 === true) {
+      $("#passwordC-warning-help").remove();
+      $("#passwordC-warning-icon").remove();
+      $("#password-warning-icon").remove();
+    }
+
     password.classList.remove("sam-form-control-success");
     passwordIcon.classList.remove("icon-control-success");
     $("#password-success-icon").remove();
@@ -282,7 +326,12 @@ function checkform() {
 
   if (passwordConfirmation.value === "" && password.value === "")
   {
+    console.log("here0");
+    console.log(flag50);
+    console.log(flag51);
+
     if(flagCheckform === false && flag100 === true) {
+      console.log("here1");
       $("#password-match-warning-help").remove();
       $("#password-warning-icon").remove();
       $("#passwordC-warning-icon").remove();
@@ -290,6 +339,7 @@ function checkform() {
     }
 
     if (flag51 === false  && flag100 === true) {
+      console.log("here2");
       $("#passwordC-warning-help").remove();
       $("#passwordC-warning-icon").remove();
       $("#password-warning-icon").remove();
@@ -297,18 +347,30 @@ function checkform() {
     }
 
     if (flag51 == true && flag100 == false) {
+      console.log("here3");
       passwordCHelp.insertAdjacentHTML('afterend', '<div id="passwordC-warning-help">This field cannot be left empty</div>');
+      flag51 = false;
     }
 
     if (flag50 == true && flag100 == false) {
+      console.log("here4");
       passwordHelp.insertAdjacentHTML('afterend', '<div id="passwordC-warning-help">This field cannot be left empty</div>');
+      flag50 = false;
     }
 
     if (flag50 === false  && flag100 === true) {
+      console.log("here5");
       $("#password-warning-help").remove();
       $("#password-warning-icon").remove();
       $("#passwordC-warning-icon").remove();
       //flag50 = true;
+    }
+
+    if(flag60 === false && flag100 === true) {
+      console.log("here6");
+      $("#passwordC-warning-help").remove();
+      $("#passwordC-warning-icon").remove();
+      $("#password-warning-icon").remove();
     }
 
     passwordC.classList.remove("sam-form-control-success");
@@ -319,6 +381,7 @@ function checkform() {
     $("#password-success-icon").remove();
 
     if (flag100 === true) {
+      console.log("here7");
       passwordC.classList.add("sam-form-control-warning");
       passwordCIcon.classList.add("icon-control-warning");
       passwordCHelp.insertAdjacentHTML('afterend', '<div id="passwordC-warning-help">This field cannot be left empty</div>');
@@ -328,6 +391,11 @@ function checkform() {
       passwordHelp.insertAdjacentHTML('afterend', '<div id="password-warning-help">This field cannot be left empty</div>');
       userInputPassword.insertAdjacentHTML('afterend', '<i class="fa fa-exclamation-triangle sam-warning-icon" aria-hidden="true" id="password-warning-icon"></i>');
       flag100 = false;
+      flag50 = false;
+      flag51 = false;
+      console.log(flag100);
+      console.log(flag50);
+      console.log(flag51);
     }
     flagCheckform1 = true;
   }
@@ -355,6 +423,12 @@ function checkform() {
       flag100 = true;
     }
 
+    if(flag60 === false && flagCheckform === true) {
+      $("#passwordC-warning-help").remove();
+      $("#passwordC-warning-icon").remove();
+      $("#password-warning-icon").remove();
+    }
+
     password.classList.remove("sam-form-control-success");
     passwordIcon.classList.remove("icon-control-success");
     passwordC.classList.remove("sam-form-control-success");
@@ -363,7 +437,6 @@ function checkform() {
     $("#passwordC-success-icon").remove();
 
     if (flagCheckform === true) {
-      //console.log("Don't get into the loop a second time");
       password.classList.add("sam-form-control-warning");
       passwordIcon.classList.add("icon-control-warning");
       passwordC.classList.add("sam-form-control-warning");
